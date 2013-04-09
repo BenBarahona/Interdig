@@ -21,7 +21,6 @@
 		490EF8A41713C56800A55DA7 /* libpjmedia-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AB1713C56500A55DA7 /* libpjmedia-arm-apple-darwin9.a */; };
 		490EF8A51713C56800A55DA7 /* libpjmedia-audiodev-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AC1713C56500A55DA7 /* libpjmedia-audiodev-arm-apple-darwin9.a */; };
 		490EF8A61713C56800A55DA7 /* libpjmedia-codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AD1713C56500A55DA7 /* libpjmedia-codec-arm-apple-darwin9.a */; };
-		490EF8A71713C56800A55DA7 /* libpjmedia-videodev-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AE1713C56500A55DA7 /* libpjmedia-videodev-arm-apple-darwin9.a */; };
 		490EF8A81713C56800A55DA7 /* libpjsdp-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AF1713C56500A55DA7 /* libpjsdp-arm-apple-darwin9.a */; };
 		490EF9051645C4A200F8E424 /* button_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF8F91645C4A200F8E424 /* button_call.png */; };
 		490EF9061645C4A200F8E424 /* button_call@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF8FA1645C4A200F8E424 /* button_call@2x.png */; };
@@ -1043,7 +1042,6 @@
 				490EF8A41713C56800A55DA7 /* libpjmedia-arm-apple-darwin9.a in Frameworks */,
 				490EF8A51713C56800A55DA7 /* libpjmedia-audiodev-arm-apple-darwin9.a in Frameworks */,
 				490EF8A61713C56800A55DA7 /* libpjmedia-codec-arm-apple-darwin9.a in Frameworks */,
-				490EF8A71713C56800A55DA7 /* libpjmedia-videodev-arm-apple-darwin9.a in Frameworks */,
 				490EF8A81713C56800A55DA7 /* libpjsdp-arm-apple-darwin9.a in Frameworks */,
 				490EF9561713C56800A55DA7 /* libpjnath-arm-apple-darwin9.a in Frameworks */,
 				490EF9D81713C56800A55DA7 /* libpjsip-arm-apple-darwin9.a in Frameworks */,
