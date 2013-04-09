@@ -533,12 +533,16 @@
         }
         else if(selected.inpid != 0)
         {
-            if(selected.security)
+            NSLog(@"SELECTED: %@", selected.dataInput);
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            
+            if(selected.security && [defaults objectForKey:@"user"] == nil && [defaults objectForKey:@"password"] == nil)
             {
                 LoginViewController *login = [[LoginViewController alloc] init];
                 login.database = self.dataBase;
                 login.objectId = selected.objectID;
                 login.delegate = self;
+                login.selectedObject = selected;
                 [self.navigationController presentViewController:login animated:YES completion:nil];
                 [login release];
             }
@@ -570,14 +574,15 @@
     }
 }
 
--(void)loginDidFinish:(NSDictionary *)response
+-(void)loginDidFinish:(NSDictionary *)response WithObject:(ObjectInfo *)info
 {
     InputDataViewController *input = [[InputDataViewController alloc] init];
-    input.items = [response objectForKey:@"datainput"];
-    input.title = [response objectForKey:@"titulo"];
+    input.items = info.dataInput;
+    input.title = info.titulo;
     input.database = self.dataBase;
-    input.objectId = [response objectForKey:@"id"];
+    input.objectId = info.objectID;
     [self.navigationController pushViewController:input animated:YES];
+    
     [input release];
 }
 

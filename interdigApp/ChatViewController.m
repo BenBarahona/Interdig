@@ -54,9 +54,8 @@
     // Returns a UUID
     
     CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-    NSString *uuidStr = (NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+    NSString *uuidStr = (NSString *)CFUUIDCreateString(NULL, uuid);
     CFRelease(uuid);
-    
     return uuidStr;
 }
 
@@ -66,14 +65,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = [NSString stringWithFormat:@"Chat: %@", self.userName];
-    //self.randomNumber =  [NSString stringWithFormat:@"%d", arc4random()];
-    //self.randomNumber = [self uuidString];
-    self.randomNumber = [[UIDevice currentDevice] uniqueIdentifier];
-    /*
-[self.chatArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Lorem Ipsum", @"admin",nil] forKeys:[NSArray arrayWithObjects:@"message", @"sender", nil]]];
-[self.chatArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Dolor", @"admin",nil] forKeys:[NSArray arrayWithObjects:@"message", @"sender", nil]]];
-[self.chatArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Sit amet", @"admin",nil] forKeys:[NSArray arrayWithObjects:@"message", @"sender", nil]]];
-    */
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults objectForKey:@"deviceToken"] == nil)
+    {
+        [defaults setObject:[self uuidString] forKey:@"deviceToken"];
+        [defaults synchronize];
+    }
+    
+    NSLog(@"TOKEN: %@", [defaults objectForKey:@"deviceToken"]);
+    self.randomNumber = [defaults objectForKey:@"deviceToken"];
+    
+    //self.randomNumber = [[UIDevice currentDevice] uniqueIdentifier];
+
     NSString *urlString = [NSString stringWithFormat:@"http://www.interdig.org/jchat.cfm?db=%@&id=%@&idme=%@", self.dataBase, self.objectID, self.randomNumber];
     NSLog(@"URL: %@", urlString);
     

@@ -43,6 +43,9 @@
         [refreshBtn release];
     }
     
+    UIBarButtonItem *logout = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+    self.navigationItem.rightBarButtonItem = logout;
+    [logout release];
 }
 
 -(void) viewDidUnload
@@ -59,6 +62,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)logout
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"user"];
+    [defaults removeObjectForKey:@"password"];
+    [defaults synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)errorWithRequest:(ASIHTTPRequest *)_request
@@ -217,7 +229,7 @@
     
     for(NSDictionary *object in self.items)
     {
-        NSLog(@"OBJ: %@", object);
+        //NSLog(@"OBJ: %@", object);
         switch([[object objectForKey:@"linea"] intValue])
         {
             case 1:
@@ -301,6 +313,10 @@
     [newLabel setTextAlignment:NSTextAlignmentCenter];
     [newLabel setText:text];
     [newLabel setTextColor:[UIColor blackColor]];
+    [newLabel setNumberOfLines:1];
+    [newLabel setMinimumFontSize:9];
+    [newLabel setAdjustsFontSizeToFitWidth:YES];
+    
     newLabel.layer.borderColor = [UIColor blackColor].CGColor;
     newLabel.layer.borderWidth = 2.;
     newLabel.layer.cornerRadius = 6.;

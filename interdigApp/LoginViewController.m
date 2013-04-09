@@ -16,7 +16,7 @@
 @end
 
 @implementation LoginViewController
-@synthesize database, objectId, delegate;
+@synthesize database, objectId, delegate, selectedObject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    saveSession = [[DCRoundSwitch alloc] initWithFrame:CGRectMake(205, 317, 79, 27)];
+    saveSession.onText = @"Si";
+    saveSession.offText = @"No";
+    saveSession.on = YES;
+    
+    [self.view addSubview:saveSession];
+    [saveSession release];
 }
 
 -(void)viewDidUnload
@@ -108,7 +115,14 @@
         }
         else
         {
-            [self.delegate loginDidFinish:resultado];
+            if(saveSession.on)
+            {
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:userTxt.text forKey:@"user"];
+                [defaults setObject:passwordTxt.text forKey:@"password"];
+                [defaults synchronize];
+            }
+            [self.delegate loginDidFinish:resultado WithObject:self.selectedObject];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
