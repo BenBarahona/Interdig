@@ -7,7 +7,13 @@
 //
 
 #import "VOIPCallViewController.h"
-//#include <pjsua-lib/pjsua.h>
+#include <pjsua-lib/pjsua.h>
+
+#define THIS_FILE "APP"
+
+#define SIP_DOMAIN "8.6.240.214"
+#define SIP_USER "1008"
+#define SIP_PASSWD "8686"
 
 @interface VOIPCallViewController ()
 
@@ -35,35 +41,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/* $Id: simple_pjsua.c 3553 2011-05-05 06:14:19Z nanang $ */
-/*
- 3  * Copyright (C) 2008-2011 Teluu Inc. (http://www.teluu.com)
- 4  * Copyright (C) 2003-2008 Benny Prijono <benny@prijono.org>
- 5  *
- 6  * This program is free software; you can redistribute it and/or modify
- 7  * it under the terms of the GNU General Public License as published by
- 8  * the Free Software Foundation; either version 2 of the License, or
- 9  * (at your option) any later version.
- 10  *
- 11  * This program is distributed in the hope that it will be useful,
- 12  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- 13  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- 14  * GNU General Public License for more details.
- 15  *
- 16  * You should have received a copy of the GNU General Public License
- 17  * along with this program; if not, write to the Free Software
- 18  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- 19  */
-
-#include <pjsua-lib/pjsua.h>
-
-#define THIS_FILE "APP"
-
-#define SIP_DOMAIN "example.com"
-#define SIP_USER "alice"
-#define SIP_PASSWD "secret"
-
 
 /* Callback called by the library upon receiving incoming call */
 static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id,
@@ -119,7 +96,7 @@ static void error_exit(const char *title, pj_status_t status)
 }
 
 
-int main2(int argc, char *argv[])
+static void makeCall()
 {
     pjsua_acc_id acc_id;
     pj_status_t status;
@@ -129,11 +106,12 @@ int main2(int argc, char *argv[])
     if (status != PJ_SUCCESS) error_exit("Error in pjsua_create()", status);
     
     /* If argument is specified, it's got to be a valid SIP URL */
+    /*
     if (argc > 1) {
         status = pjsua_verify_url(argv[1]);
         if (status != PJ_SUCCESS) error_exit("Invalid URL in argv", status);
     }
-    
+    */
     /* Init pjsua */
     {
         pjsua_config cfg;
@@ -173,7 +151,7 @@ int main2(int argc, char *argv[])
         cfg.id = pj_str("sip:" SIP_USER "@" SIP_DOMAIN);
         cfg.reg_uri = pj_str("sip:" SIP_DOMAIN);
         cfg.cred_count = 1;
-        cfg.cred_info[0].realm = pj_str(SIP_DOMAIN);
+        cfg.cred_info[0].realm = pj_str("*");
         cfg.cred_info[0].scheme = pj_str("digest");
         cfg.cred_info[0].username = pj_str(SIP_USER);
         cfg.cred_info[0].data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;
@@ -184,11 +162,11 @@ int main2(int argc, char *argv[])
     }
     
     /* If URL is specified, make call to the URL. */
-    if (argc > 1) {
         pj_str_t uri = pj_str(argv[1]);
+
         status = pjsua_call_make_call(acc_id, &uri, 0, NULL, NULL, NULL);
-        if (status != PJ_SUCCESS) error_exit("Error making call", status);
-    }
+        if (status != PJ_SUCCESS)
+            error_exit("Error making call", status);
     
     /* Wait until user press "q" to quit. */
     for (;;) {
@@ -209,8 +187,6 @@ int main2(int argc, char *argv[])
     
     /* Destroy pjsua */
     pjsua_destroy();
-    
-    return 0;
 }
 
 @end

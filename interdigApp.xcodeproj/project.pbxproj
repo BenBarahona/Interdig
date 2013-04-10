@@ -175,6 +175,21 @@
 		490EFB3A1713C56900A55DA7 /* libresample-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF53F1713C56600A55DA7 /* libresample-arm-apple-darwin9.a */; };
 		490EFB3B1713C56900A55DA7 /* libspeex-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF5401713C56600A55DA7 /* libspeex-arm-apple-darwin9.a */; };
 		490EFB3C1713C56900A55DA7 /* libsrtp-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF5411713C56600A55DA7 /* libsrtp-arm-apple-darwin9.a */; };
+		490EFC6117151B2A00A55DA7 /* PhonePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC5E17151B2A00A55DA7 /* PhonePad.m */; };
+		490EFC6217151B2A00A55DA7 /* PhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6017151B2A00A55DA7 /* PhoneViewController.m */; };
+		490EFC6617151B9400A55DA7 /* DialerPhonePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6517151B9400A55DA7 /* DialerPhonePad.m */; };
+		490EFC6917151C0900A55DA7 /* AbsLCDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6817151C0800A55DA7 /* AbsLCDView.m */; };
+		490EFC6C17151C2300A55DA7 /* SiphonApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6B17151C2200A55DA7 /* SiphonApplication.m */; };
+		490EFC7417151C6800A55DA7 /* call.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6F17151C6800A55DA7 /* call.m */; };
+		490EFC7517151C6800A55DA7 /* dtmf.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7117151C6800A55DA7 /* dtmf.m */; };
+		490EFC7617151C6800A55DA7 /* ring.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7317151C6800A55DA7 /* ring.m */; };
+		490EFC7917151D4900A55DA7 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7817151D4900A55DA7 /* CallViewController.m */; };
+		490EFC8017151DB700A55DA7 /* BottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7B17151DB100A55DA7 /* BottomBar.m */; };
+		490EFC8117151DB700A55DA7 /* BottomButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7D17151DB400A55DA7 /* BottomButtonBar.m */; };
+		490EFC8217151DB700A55DA7 /* BottomDualButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7F17151DB700A55DA7 /* BottomDualButtonBar.m */; };
+		490EFC8617151E9700A55DA7 /* NSNotificationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC8517151E9500A55DA7 /* NSNotificationAdditions.m */; };
+		490EFC8917151EDC00A55DA7 /* LCDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC8817151EDB00A55DA7 /* LCDView.m */; };
+		490EFC8C17151F3100A55DA7 /* DualButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC8B17151F3000A55DA7 /* DualButtonView.m */; };
 		4917770416CC9FAA009651B2 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770216CC9FA4009651B2 /* 01-refresh.png */; };
 		4917770516CC9FAA009651B2 /* 01-refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770316CC9FA7009651B2 /* 01-refresh@2x.png */; };
 		4917771316D039D5009651B2 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917770C16D039D5009651B2 /* DCRoundSwitch.m */; };
@@ -806,6 +821,38 @@
 		490EFA66165DED5800F8E424 /* help-start-button-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help-start-button-down@2x.png"; sourceTree = "<group>"; };
 		490EFA67165DED5900F8E424 /* help-start-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help-start-button.png"; sourceTree = "<group>"; };
 		490EFA68165DED5900F8E424 /* help-start-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help-start-button@2x.png"; sourceTree = "<group>"; };
+		490EFC5D17151B2A00A55DA7 /* PhonePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhonePad.h; sourceTree = "<group>"; };
+		490EFC5E17151B2A00A55DA7 /* PhonePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhonePad.m; sourceTree = "<group>"; };
+		490EFC5F17151B2A00A55DA7 /* PhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneViewController.h; sourceTree = "<group>"; };
+		490EFC6017151B2A00A55DA7 /* PhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneViewController.m; sourceTree = "<group>"; };
+		490EFC6317151B5900A55DA7 /* PhoneCallDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCallDelegate.h; sourceTree = "<group>"; };
+		490EFC6417151B9300A55DA7 /* DialerPhonePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialerPhonePad.h; sourceTree = "<group>"; };
+		490EFC6517151B9400A55DA7 /* DialerPhonePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialerPhonePad.m; sourceTree = "<group>"; };
+		490EFC6717151C0800A55DA7 /* AbsLCDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsLCDView.h; sourceTree = "<group>"; };
+		490EFC6817151C0800A55DA7 /* AbsLCDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsLCDView.m; sourceTree = "<group>"; };
+		490EFC6A17151C2200A55DA7 /* SiphonApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiphonApplication.h; sourceTree = "<group>"; };
+		490EFC6B17151C2200A55DA7 /* SiphonApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiphonApplication.m; sourceTree = "<group>"; };
+		490EFC6E17151C6800A55DA7 /* call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = call.h; sourceTree = "<group>"; };
+		490EFC6F17151C6800A55DA7 /* call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = call.m; sourceTree = "<group>"; };
+		490EFC7017151C6800A55DA7 /* dtmf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtmf.h; sourceTree = "<group>"; };
+		490EFC7117151C6800A55DA7 /* dtmf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dtmf.m; sourceTree = "<group>"; };
+		490EFC7217151C6800A55DA7 /* ring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ring.h; sourceTree = "<group>"; };
+		490EFC7317151C6800A55DA7 /* ring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ring.m; sourceTree = "<group>"; };
+		490EFC7717151D4800A55DA7 /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
+		490EFC7817151D4900A55DA7 /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
+		490EFC7A17151DB100A55DA7 /* BottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBar.h; sourceTree = "<group>"; };
+		490EFC7B17151DB100A55DA7 /* BottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBar.m; sourceTree = "<group>"; };
+		490EFC7C17151DB300A55DA7 /* BottomButtonBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomButtonBar.h; sourceTree = "<group>"; };
+		490EFC7D17151DB400A55DA7 /* BottomButtonBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomButtonBar.m; sourceTree = "<group>"; };
+		490EFC7E17151DB500A55DA7 /* BottomDualButtonBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomDualButtonBar.h; sourceTree = "<group>"; };
+		490EFC7F17151DB700A55DA7 /* BottomDualButtonBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomDualButtonBar.m; sourceTree = "<group>"; };
+		490EFC8317151E6800A55DA7 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		490EFC8417151E9400A55DA7 /* NSNotificationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationAdditions.h; sourceTree = "<group>"; };
+		490EFC8517151E9500A55DA7 /* NSNotificationAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationAdditions.m; sourceTree = "<group>"; };
+		490EFC8717151EDA00A55DA7 /* LCDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDView.h; sourceTree = "<group>"; };
+		490EFC8817151EDB00A55DA7 /* LCDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDView.m; sourceTree = "<group>"; };
+		490EFC8A17151F2F00A55DA7 /* DualButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DualButtonView.h; sourceTree = "<group>"; };
+		490EFC8B17151F3000A55DA7 /* DualButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DualButtonView.m; sourceTree = "<group>"; };
 		4917770216CC9FA4009651B2 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		4917770316CC9FA7009651B2 /* 01-refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh@2x.png"; sourceTree = "<group>"; };
 		4917770B16D039D5009651B2 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
@@ -1655,6 +1702,53 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		490EFC5C17151ADD00A55DA7 /* Call Views */ = {
+			isa = PBXGroup;
+			children = (
+				490EFC6D17151C6800A55DA7 /* Other */,
+				490EFC8317151E6800A55DA7 /* constants.h */,
+				490EFC7A17151DB100A55DA7 /* BottomBar.h */,
+				490EFC7B17151DB100A55DA7 /* BottomBar.m */,
+				490EFC7C17151DB300A55DA7 /* BottomButtonBar.h */,
+				490EFC7D17151DB400A55DA7 /* BottomButtonBar.m */,
+				490EFC7E17151DB500A55DA7 /* BottomDualButtonBar.h */,
+				490EFC7F17151DB700A55DA7 /* BottomDualButtonBar.m */,
+				490EFC7717151D4800A55DA7 /* CallViewController.h */,
+				490EFC7817151D4900A55DA7 /* CallViewController.m */,
+				490EFC8A17151F2F00A55DA7 /* DualButtonView.h */,
+				490EFC8B17151F3000A55DA7 /* DualButtonView.m */,
+				490EFC6A17151C2200A55DA7 /* SiphonApplication.h */,
+				490EFC6B17151C2200A55DA7 /* SiphonApplication.m */,
+				490EFC6717151C0800A55DA7 /* AbsLCDView.h */,
+				490EFC6817151C0800A55DA7 /* AbsLCDView.m */,
+				490EFC6417151B9300A55DA7 /* DialerPhonePad.h */,
+				490EFC6517151B9400A55DA7 /* DialerPhonePad.m */,
+				490EFC5D17151B2A00A55DA7 /* PhonePad.h */,
+				490EFC5E17151B2A00A55DA7 /* PhonePad.m */,
+				490EFC6317151B5900A55DA7 /* PhoneCallDelegate.h */,
+				490EFC5F17151B2A00A55DA7 /* PhoneViewController.h */,
+				490EFC6017151B2A00A55DA7 /* PhoneViewController.m */,
+				490EFC8417151E9400A55DA7 /* NSNotificationAdditions.h */,
+				490EFC8517151E9500A55DA7 /* NSNotificationAdditions.m */,
+				490EFC8717151EDA00A55DA7 /* LCDView.h */,
+				490EFC8817151EDB00A55DA7 /* LCDView.m */,
+			);
+			name = "Call Views";
+			sourceTree = "<group>";
+		};
+		490EFC6D17151C6800A55DA7 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				490EFC6E17151C6800A55DA7 /* call.h */,
+				490EFC6F17151C6800A55DA7 /* call.m */,
+				490EFC7017151C6800A55DA7 /* dtmf.h */,
+				490EFC7117151C6800A55DA7 /* dtmf.m */,
+				490EFC7217151C6800A55DA7 /* ring.h */,
+				490EFC7317151C6800A55DA7 /* ring.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		4917770A16D039D4009651B2 /* DCRoundSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1839,6 +1933,7 @@
 				9D93C357161A0D8D00860C3A /* UIAlertPrompt.h */,
 				9D93C358161A0D8D00860C3A /* UIAlertPrompt.m */,
 				49B41665161635C2001C2433 /* Controllers */,
+				490EFC5C17151ADD00A55DA7 /* Call Views */,
 				49B41666161635E0001C2433 /* Cells */,
 				49B416161615882C001C2433 /* Resources */,
 				49B415A516158336001C2433 /* Supporting Files */,
@@ -2593,6 +2688,21 @@
 				4917771616D039D5009651B2 /* DCRoundSwitchToggleLayer.m in Sources */,
 				49E3EFCB16FE5C920027504A /* LoginViewController.m in Sources */,
 				49E3F009170A13CB0027504A /* VOIPCallViewController.m in Sources */,
+				490EFC6117151B2A00A55DA7 /* PhonePad.m in Sources */,
+				490EFC6217151B2A00A55DA7 /* PhoneViewController.m in Sources */,
+				490EFC6617151B9400A55DA7 /* DialerPhonePad.m in Sources */,
+				490EFC6917151C0900A55DA7 /* AbsLCDView.m in Sources */,
+				490EFC6C17151C2300A55DA7 /* SiphonApplication.m in Sources */,
+				490EFC7417151C6800A55DA7 /* call.m in Sources */,
+				490EFC7517151C6800A55DA7 /* dtmf.m in Sources */,
+				490EFC7617151C6800A55DA7 /* ring.m in Sources */,
+				490EFC7917151D4900A55DA7 /* CallViewController.m in Sources */,
+				490EFC8017151DB700A55DA7 /* BottomBar.m in Sources */,
+				490EFC8117151DB700A55DA7 /* BottomButtonBar.m in Sources */,
+				490EFC8217151DB700A55DA7 /* BottomDualButtonBar.m in Sources */,
+				490EFC8617151E9700A55DA7 /* NSNotificationAdditions.m in Sources */,
+				490EFC8917151EDC00A55DA7 /* LCDView.m in Sources */,
+				490EFC8C17151F3100A55DA7 /* DualButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
