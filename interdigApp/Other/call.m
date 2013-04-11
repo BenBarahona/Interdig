@@ -27,9 +27,11 @@
 #include "dtmf.h"
 
 #define MWI 1
-
-
 #define THIS_FILE "call.m"
+
+#define SIP_DOMAIN "8.6.240.214"
+#define SIP_USER "1008"
+#define SIP_PASSWD "8686"
 
 NSString *kSIPCallState         = @"CallState";
 NSString *kSIPRegState          = @"RegState";

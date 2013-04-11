@@ -162,7 +162,8 @@ static void makeCall()
     }
     
     /* If URL is specified, make call to the URL. */
-        pj_str_t uri = pj_str(argv[1]);
+    char *c = nil;
+        pj_str_t uri = pj_str(c);
 
         status = pjsua_call_make_call(acc_id, &uri, 0, NULL, NULL, NULL);
         if (status != PJ_SUCCESS)

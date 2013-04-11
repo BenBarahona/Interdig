@@ -36,8 +36,7 @@
 
 @class SiphonApplication;
 
-@interface SiphonApplication : UIApplication <UIActionSheetDelegate,
-UIApplicationDelegate,
+@interface SiphonApplication : NSObject <UIActionSheetDelegate,
 #if defined(CYDIA) && (CYDIA == 1)
 UIAlertViewDelegate,
 #endif
@@ -67,6 +66,7 @@ PhoneCallDelegate>
 #endif
 }
 
+@property (nonatomic, retain) UIView *window;
 @property (nonatomic, readonly) BOOL isIpod;
 @property BOOL launchDefault;
 @property BOOL isConnected;

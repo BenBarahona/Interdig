@@ -62,6 +62,7 @@ typedef enum ConnectionState {
 @synthesize launchDefault;
 @synthesize isConnected;
 @synthesize isIpod;
+@synthesize window;
 
 /***** MESSAGE *****/
 -(void)displayParameterError:(NSString *)msg
@@ -260,14 +261,10 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
     if (_app_config.pool)
         return YES;
     
-    self.networkActivityIndicatorVisible = YES;
-    
     if (sip_startup(&_app_config) != PJ_SUCCESS)
     {
-        self.networkActivityIndicatorVisible = NO;
         return NO;
     }
-    self.networkActivityIndicatorVisible = NO;
     
     /** Call management **/
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -313,10 +310,8 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
     
     if (_sip_acc_id == PJSUA_INVALID_ID)
     {
-        self.networkActivityIndicatorVisible = YES;
         if ((status = sip_connect(_app_config.pool, &_sip_acc_id)) != PJ_SUCCESS)
         {
-            self.networkActivityIndicatorVisible = NO;
             return FALSE;
         }
     }
@@ -454,7 +449,7 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
     return mainView;
 }
 
-- (void)applicationStartWithSettings
+- (UIView *)applicationStartWithSettings
 {
     /* Dialpad */
     phoneViewController = [[[PhoneViewController alloc]
@@ -463,7 +458,7 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
 }
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application
+- (void)applicationDidFinishLaunching
 {
 #if defined(CYDIA) && (CYDIA == 1)
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
@@ -477,15 +472,13 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
     
     [self initModel];
     
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     [self initUserDefaults];
     
 	if (![[userDef objectForKey: @"username"] length] ||
 		![[userDef objectForKey: @"server"] length])
     {
-        //[window addSubview: [self applicationStartWithoutSettings]];
+        [self.window addSubview: [self applicationStartWithoutSettings]];
         launchDefault = NO;
     }
     else
@@ -510,8 +503,7 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
         // Build GUI
         callViewController = [[CallViewController alloc] initWithNibName:nil bundle:nil];
         
-        //[window addSubview: [self applicationStartWithSettings]];
-        //[window makeKeyAndVisible];
+        [self.window addSubview:[self applicationStartWithSettings]];
         /*
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reachabilityChanged:)
@@ -726,7 +718,7 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
                                                              otherButtonTitles:NSLocalizedString(@"Cellular call",@"SiphonApp"),
                                            nil] autorelease];
             actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-            [actionSheet showInView: self.window];
+            //[actionSheet showInView:self sup];
         }
         return;
     }
@@ -775,8 +767,6 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
             self.proximitySensingEnabled = YES;
 #endif
         case PJSIP_INV_STATE_INCOMING: // After INVITE is received.
-            self.idleTimerDisabled = YES;
-            self.statusBarStyle = UIStatusBarStyleBlackTranslucent;
             if (pjsua_call_get_count() == 1)
             {
                 [self.window addSubview:callViewController.view];
@@ -787,20 +777,12 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
         case PJSIP_INV_STATE_CONNECTING: // After 2xx is sent/received.
             break;
         case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
-#ifdef __IPHONE_3_0
-            [UIDevice currentDevice].proximityMonitoringEnabled = YES;
-#else
             self.proximitySensingEnabled = YES;
-#endif
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
 #if 0
             self.idleTimerDisabled = NO;
-#ifdef __IPHONE_3_0
-            [UIDevice currentDevice].proximityMonitoringEnabled = NO;
-#else
             self.proximitySensingEnabled = NO;
-#endif
             if (pjsua_call_get_count() <= 1)
                 [self performSelector:@selector(disconnected:)
                            withObject:nil afterDelay:1.0];
@@ -812,7 +794,6 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
 
 - (void)callDisconnecting
 {
-    self.idleTimerDisabled = NO;
 #ifdef __IPHONE_3_0
     [UIDevice currentDevice].proximityMonitoringEnabled = NO;
 #else
@@ -825,10 +806,6 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
 
 - (void)processRegState:(NSNotification *)notification
 {
-    //  const pj_str_t *str;
-    //NSNumber *value = [[ notification userInfo ] objectForKey: @"AccountID"];
-    //pjsua_acc_id accId = [value intValue];
-    self.networkActivityIndicatorVisible = NO;
     int status = [[[ notification userInfo ] objectForKey: @"Status"] intValue];
     
     switch(status)
@@ -864,7 +841,6 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
 
 - (void) disconnected:(id)fp8
 {
-    self.statusBarStyle = UIStatusBarStyleDefault;
     //[tabBarController dismissModalViewControllerAnimated: YES];
     [[callViewController view] removeFromSuperview];
     [callViewController release];
@@ -880,7 +856,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         case 0: // Call with GSM
             urlStr = [NSString stringWithFormat:@"tel://%@",_phoneNumber,nil];
             url = [NSURL URLWithString:urlStr];
-            [self openURL: url];
+            //[self openURL:url];
             break;
         default:
             break;
