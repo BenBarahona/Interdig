@@ -18,12 +18,12 @@
  */
 
 #import "CallViewController.h"
-#import "SiphonApplication.h"
+#import "AppDelegate.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AddressBook/AddressBook.h>
 
-#include "call.h";
-#include "dtmf.h";
+#include "call.h"
+#include "dtmf.h"
 
 #define HOLD_ON 1
 
@@ -42,12 +42,9 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    int i;
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
 		// Initialization code
-        for (i = 0; i < PJSUA_MAX_CALLS; ++i)
-            _call[i] = nil;
 	}
 	return self;
 }
@@ -269,7 +266,7 @@
 
 - (void)endingCallWithId:(UInt32)call_id
 {
-    SiphonApplication *app = (SiphonApplication *)[SiphonApplication sharedApplication];
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
     
     [app callDisconnecting];
     
@@ -284,17 +281,10 @@
         _timer = nil;
     }
     [_lcd setLabel: NSLocalizedString(@"call ended", @"Call view")];
-    //[_lcd setText:@""];
-    if (_call[call_id])
-        [[app recentsViewController] addCall:_call[call_id]];
-    _call[call_id] = nil;
-#if defined(ONECALL) && (ONECALL == 1)
-    _call_id = PJSUA_INVALID_ID;
-#else
+    
     if (_current_call == call_id)
         [self findNextCall];
     _new_call = PJSUA_INVALID_ID;
-#endif
     [_dualBottomBar removeFromSuperview];
     [_defaultBottomBar removeFromSuperview];
     [_containerView removeFromSuperview];
@@ -367,64 +357,16 @@
     if (ci.connect_duration.sec >= 3600)
     {
         long sec = ci.connect_duration.sec % 3600;
-        [_lcd setLabel:[NSString stringWithFormat:@"%d:%02d:%02d",
+        [_lcd setLabel:[NSString stringWithFormat:@"%ld:%02ld:%02ld",
                         ci.connect_duration.sec / 3600,
                         sec/60, sec%60]];
     }
     else
     {
-        [_lcd setLabel:[NSString stringWithFormat:@"%02d:%02d",
+        [_lcd setLabel:[NSString stringWithFormat:@"%02ld:%02ld",
                         (ci.connect_duration.sec)/60,
                         (ci.connect_duration.sec)%60]];
     }
-}
-
-/*** ***/
-- (ABRecordRef)findRecord:(NSString *)phoneNumber
-{
-    if (phoneNumber == nil)
-        return nil;
-    //ABCGetSharedAddressBook();
-    ABAddressBookRef addressBook = ABAddressBookCreate();
-    // ABAddressBookFindPersonMatchingPhoneNumber
-    ABRecordRef record = ABCFindPersonMatchingPhoneNumber(addressBook,
-                                                          phoneNumber, 0, 0);
-    
-    //if (!record)
-    //{
-    //record = ABAddressBookFindPersonMatchingURL(addressBook, phoneNumber);
-    //record = ABCFindPersonMatchingURL(addressBook, phoneNumber, 0, 0);
-    //}
-    
-    //CFRelease(addressBook);
-    
-    return record;
-}
-
-- (UIImage *)findImageWithRecord:(ABRecordRef)record
-{
-    UIImage *image = nil;
-    
-    if (record && ABPersonHasImageData(record))
-    {
-        CFDataRef data;
-        
-        data = ABPersonCopyImageData(record);
-        if (data)
-            image = [[UIImage alloc] initWithData: (NSData *)data /*cache:YES*/];
-    }
-    return image;
-}
-
-- (UIImage *)findImageWithRecordID:(ABRecordID) uid
-{
-    if (uid == kABRecordInvalidID)
-        return nil;
-    ABAddressBookRef addressBook = ABAddressBookCreate();
-    ABRecordRef record = ABAddressBookGetPersonWithRecordID(addressBook, uid);
-    UIImage *image = [self findImageWithRecord:record];
-    CFRelease(addressBook);
-    return image;
 }
 
 #if 0
@@ -451,10 +393,7 @@
             sip_uri = (pjsip_sip_uri*) pjsip_uri_get_uri(url->uri);
             pj_strdup_with_null(pool, &dst, &sip_uri->user);
             
-            ABRecordRef record = [self findRecord:[NSString stringWithUTF8String:
-                                                   pj_strbuf(&dst)]];
-            if (record)
-                phoneNumber = (NSString *)ABRecordCopyCompositeName(record);
+            
             if (!phoneNumber)
             {
                 if (url->display.slen)
@@ -493,67 +432,6 @@
     else
         sip_call_play_digit(_current_call, car);
 #endif
-}
-
-/*** ***/
-- (RecentCall *)createCall:(NSDictionary *)userInfo
-{
-    RecentCall *call = nil;
-    pjsip_name_addr *url;
-    pjsip_sip_uri *sip_uri;
-    pj_str_t tmp, dst;
-    pj_pool_t     *pool;
-    
-    int role;
-    NSString *remote_info;
-    
-    pool = pjsua_pool_create("recentCall", 128, 128);
-    if (pool)
-    {
-        call = [[RecentCall alloc] init];
-        role = [[ userInfo objectForKey: @"Role"] intValue];
-        call.type = (role == PJSIP_ROLE_UAC ? Dialled : Received);
-        remote_info = [userInfo objectForKey: @"RemoteInfo"];
-        pj_strdup2_with_null(pool, &tmp, [remote_info UTF8String]);
-        
-        url = (pjsip_name_addr*)pjsip_parse_uri(pool, tmp.ptr, tmp.slen,
-                                                PJSIP_PARSE_URI_AS_NAMEADDR);
-        if (url != NULL)
-        {
-            ABRecordRef record;
-            sip_uri = (pjsip_sip_uri*) pjsip_uri_get_uri(url->uri);
-            pj_strdup_with_null(pool, &dst, &sip_uri->user);
-            
-            call.number = [NSString stringWithUTF8String: pj_strbuf(&dst)];
-            record = [self findRecord:call.number];
-            if (record)
-            {
-                // FIXME: duplicate code in RecentsViewController:unknownPersonViewController
-                CFTypeRef multiValue;
-                CFIndex index;
-                
-                call.compositeName = (NSString *)ABRecordCopyCompositeName(record);
-                call.uid = ABRecordGetRecordID(record);
-                
-                multiValue = ABRecordCopyValue(record, kABPersonPhoneProperty);
-                index = ABMultiValueGetFirstIndexOfValue (multiValue, call.number);
-                call.identifier = ABMultiValueGetIdentifierAtIndex(multiValue, index);
-                CFRelease(multiValue);
-            }
-            else if (url->display.slen)
-            {
-                pj_strdup_with_null(pool, &dst, &url->display);
-                call.compositeName = [NSString stringWithUTF8String: pj_strbuf(&dst)];
-            }
-        }
-        //    else
-        //    {
-        //      // Bizarre, Weird
-        //    }
-        pj_pool_release(pool);
-    }
-    
-    return call;
 }
 
 - (void)composeDTMF
@@ -613,7 +491,6 @@
 {
     int state, call_id;
     int account_id;
-    //SiphonApplication *app = (SiphonApplication*)[SiphonApplication sharedApplication];
     
     account_id = [[userInfo objectForKey: @"AccountID"] intValue];
     
@@ -631,13 +508,6 @@
             [self showKeypad:NO animated:NO];
             [self.view addSubview:_containerView];
             //[self displayUserInfo: call_id];
-            
-            if (_call[call_id] == nil)
-            {
-                _call[call_id] = [self createCall: userInfo];
-                [_lcd setText: [_call[call_id] displayName]];
-                [_lcd setSubImage:[self findImageWithRecordID:_call[call_id].uid]];
-            }
             
             [_lcd setLabel: NSLocalizedString(@"calling...", @"Call view")];
             
@@ -668,13 +538,6 @@
 #endif
             
             //[_containerView removeFromSuperview];
-            
-            if (_call[call_id] == nil)
-            {
-                _call[call_id] = [self createCall: userInfo];
-                [_lcd setText: [_call[call_id] displayName]];
-                [_lcd setSubImage:[self findImageWithRecordID:_call[call_id].uid]];
-            }
             
             [_lcd setLabel: @""];
 #if defined(ONECALL) && (ONECALL == 1)
@@ -713,8 +576,7 @@
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
 #if 1
-            if (_call[call_id])
-                [self endingCallWithId:call_id];
+
 #else
             dtmfCmd = nil;
             [self setSpeakerPhoneEnabled:NO];
@@ -765,7 +627,6 @@
 
 - (void)setMute:(BOOL)enable
 {
-    /* FIXME maybe I must look for conf_port */
     if (enable)
         pjsua_conf_adjust_rx_level(0 /* pjsua_conf_port_id slot*/, 0.0f);
     else

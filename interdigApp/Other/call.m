@@ -18,7 +18,7 @@
  */
 
 #import "NSNotificationAdditions.h"
-#import "SiphonApplication.h"
+#import "AppDelegate.h"
 
 #include <pjsua-lib/pjsua.h>
 
@@ -73,7 +73,7 @@ static void postCallStateNotification(pjsua_call_id call_id, const pjsua_call_in
 static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
 {
   pjsua_call_info ci;
-  SiphonApplication *app = (SiphonApplication *)[SiphonApplication sharedApplication];
+  AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
 //  NSNumber *value;
   
   //PJ_UNUSED_ARG(e);
@@ -122,6 +122,7 @@ static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
 }
 
 /* Callback called by the library upon receiving incoming call */
+/*NOT SUPPORTED
 static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id,
            pjsip_rx_data *rdata)
 {
@@ -136,22 +137,22 @@ static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id,
   PJ_LOG(1,(THIS_FILE, "Incoming call from %.*s!!",
      (int)ci.remote_info.slen,
      ci.remote_info.ptr));
-  
-  /* FIXME: Start ringback */
+ 
+  // FIXME: Start ringback
   sip_ring_start([app pjsipConfig]);
   
   
-  /* Automatically answer incoming calls with 180/RINGING */
+  // Automatically answer incoming calls with 180/RINGING
   pjsua_call_answer(call_id, 180, NULL, NULL);
   
   postCallStateNotification(call_id, &ci);
 }
-
+*/
 /* Callback called by the library when call's media state has changed */
 static void on_call_media_state(pjsua_call_id call_id)
 {
     pjsua_call_info ci;
-  SiphonApplication *app = (SiphonApplication *)[SiphonApplication sharedApplication];
+  AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
 
     pjsua_call_get_info(call_id, &ci);
 //    PJ_LOG(3,(THIS_FILE,"on_call_media_state status %d count %d",
@@ -339,7 +340,7 @@ pj_status_t sip_startup(app_config_t *app_config)
   NSArray * array;
   NSString *dns;
   
-  SiphonApplication *app = (SiphonApplication *)[SiphonApplication sharedApplication];
+  AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
 
   /* Create pjsua first! */
   status = pjsua_create();
@@ -474,7 +475,7 @@ pj_status_t sip_startup(app_config_t *app_config)
   /* Initialize application callbacks */
   app_config->cfg.cb.on_call_state = &on_call_state;
   app_config->cfg.cb.on_call_media_state = &on_call_media_state;
-  app_config->cfg.cb.on_incoming_call = &on_incoming_call;
+  //app_config->cfg.cb.on_incoming_call = &on_incoming_call;
   app_config->cfg.cb.on_reg_state = &on_reg_state;
 #if defined(MWI) && MWI==1
   app_config->cfg.cb.on_mwi_info = &on_mwi_info;
@@ -603,7 +604,7 @@ pj_status_t sip_connect(pj_pool_t *pool, pjsua_acc_id *acc_id)
   const char *passwd;
   const char *server;
   
-  SiphonApplication *app = (SiphonApplication *)[SiphonApplication sharedApplication];
+  AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
   
   // TODO Verify if wifi is connected, if not verify if user wants edge connection 
   

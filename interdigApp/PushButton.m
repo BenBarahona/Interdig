@@ -17,35 +17,44 @@
  *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#import <UIKit/UIKit.h>
+#import "PushButton.h"
 
-#import "PhoneCallDelegate.h"
-#import "DialerPhonePad.h"
-#import "AbsLCDView.h"
 
-#define SPECIFIC_ADD_PERSON 1
+@implementation PushButton
 
-@interface PhoneViewController : UIViewController <UITextFieldDelegate, PhonePadDelegate>
+- (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
-    UITextField *_label;
-    UIView      *_container;
-    AbsLCDView *_lcd;
-    
-    DialerPhonePad *_pad;
-    
-    UIButton *_addContactButton;
-    UIButton *_gsmCallButton;
-    UIButton *_callButton;
-    UIButton *_deleteButton;
-    
-    int      _deletedChar;
-    NSTimer *_deleteTimer;
-    
-    NSString *_lastNumber;
-    
-    id<PhoneCallDelegate> phoneCallDelegate;
+  return _contentRect;
 }
 
-@property (nonatomic, retain)   id<PhoneCallDelegate> phoneCallDelegate;
+- (CGRect)titleRectForContentRect:(CGRect)contentRect
+{  
+  CGRect rect = _contentRect;
+  CGSize titleSize = [[self titleForState:UIControlStateNormal] sizeWithFont: [self.titleLabel font]];
+
+  rect.origin.x += (rect.size.width - titleSize.width)/2.;
+  rect.origin.y = rect.size.height;
+  rect.size.width  = titleSize.width;
+  rect.size.height = titleSize.height;
+
+  return rect;
+}
+
+- (CGRect)contentRectForBounds:(CGRect)bounds
+{
+  return _contentRect;
+}
+
+- (void)dealloc 
+{
+  //[_contentRect release];
+  [super dealloc];
+}
+
+- (void)setContentRect:(CGRect)rect
+{
+  //[_contentRect release];
+  _contentRect = rect;
+}
 
 @end

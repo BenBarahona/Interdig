@@ -73,7 +73,6 @@ PhoneCallDelegate>
 
 -(void) displayError:(NSString *)error withTitle:(NSString *)title;
 -(void) displayParameterError:(NSString *)error;
-
 - (void) callDisconnecting;
 - (void) disconnected:(id)fp8;
 - (app_config_t *) pjsipConfig;

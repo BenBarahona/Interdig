@@ -18,34 +18,22 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "PushButton.h"
 
-#import "PhoneCallDelegate.h"
-#import "DialerPhonePad.h"
-#import "AbsLCDView.h"
+@protocol MenuCallViewDelegate;
 
-#define SPECIFIC_ADD_PERSON 1
-
-@interface PhoneViewController : UIViewController <UITextFieldDelegate, PhonePadDelegate>
+@interface MenuCallView : UIView 
 {
-    UITextField *_label;
-    UIView      *_container;
-    AbsLCDView *_lcd;
-    
-    DialerPhonePad *_pad;
-    
-    UIButton *_addContactButton;
-    UIButton *_gsmCallButton;
-    UIButton *_callButton;
-    UIButton *_deleteButton;
-    
-    int      _deletedChar;
-    NSTimer *_deleteTimer;
-    
-    NSString *_lastNumber;
-    
-    id<PhoneCallDelegate> phoneCallDelegate;
+  PushButton *_buttons[6];
+  id<MenuCallViewDelegate> delegate;
 }
 
-@property (nonatomic, retain)   id<PhoneCallDelegate> phoneCallDelegate;
+@property (nonatomic, retain)  id<MenuCallViewDelegate> delegate;
 
+- (PushButton *)buttonAtPosition:(NSInteger)button;
+- (void)setTitle:(NSString *)title image:(UIImage *)image forPosition:(NSInteger)pos;
+
+@end
+@protocol MenuCallViewDelegate <NSObject>
+- (void)menuButtonClicked:(NSInteger)button;
 @end

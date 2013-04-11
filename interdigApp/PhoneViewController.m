@@ -19,6 +19,7 @@
 
 #import "PhoneViewController.h"
 //#import "SiphonApplication.h"
+#import "AppDelegate.h"
 
 #include <pjsua-lib/pjsua.h>
 
@@ -50,18 +51,6 @@
         [_lcd leftText: [[NSUserDefaults standardUserDefaults] stringForKey:
                          @"server"]];
         [_lcd rightText:@"Service Unavailable"];
-
-        /*
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(processRegState:)
-                                                     name: kSIPRegState
-                                                   object:nil];
-         */
-#if SPECIFIC_ADD_PERSON
-        peoplePickerCtrl = [[ABPeoplePickerNavigationController alloc] init];
-        peoplePickerCtrl.navigationBar.barStyle = UIBarStyleBlackOpaque;
-        peoplePickerCtrl.peoplePickerDelegate = self;
-#endif
 	}
 	return self;
 }
@@ -103,7 +92,7 @@
                           boolForKey:@"keypadPlaySound"]];
     [_pad setDelegate:self];
     
-    SiphonApplication *app = (SiphonApplication *)[SiphonApplication sharedApplication];
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
     //if (app.isIpod)
     {
         _addContactButton = [[UIButton alloc] initWithFrame:
@@ -123,12 +112,11 @@
                         forState: UIControlStateNormal];
         _gsmCallButton.imageEdgeInsets = UIEdgeInsetsMake (0., 0., 0., 5.);
         [_gsmCallButton setTitle:@"GSM" forState:UIControlStateNormal];
-        _gsmCallButton.titleShadowOffset = CGSizeMake(0,-1);
         [_gsmCallButton setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [_gsmCallButton setTitleShadowColor:[UIColor colorWithWhite:0. alpha:0.2]  forState:UIControlStateDisabled];
         [_gsmCallButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
         [_gsmCallButton setTitleColor:[UIColor colorWithWhite:1.0 alpha:0.5]  forState:UIControlStateDisabled];
-        _gsmCallButton.font = [UIFont boldSystemFontOfSize:26];
+        _gsmCallButton.titleLabel.font = [UIFont boldSystemFontOfSize:26];
         _gsmCallButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"callblue.png"]];
         
         [_gsmCallButton addTarget:self action:@selector(gsmCallButtonPressed:)
@@ -145,16 +133,13 @@
                  forState: UIControlStateNormal];
     _callButton.imageEdgeInsets = UIEdgeInsetsMake (0., 0., 0., 5.);
     [_callButton setTitle:@"Sip" forState:UIControlStateNormal];
-    _callButton.titleShadowOffset = CGSizeMake(0,-1);
     [_callButton setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_callButton setTitleShadowColor:[UIColor colorWithWhite:0. alpha:0.2]  forState:UIControlStateDisabled];
     [_callButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [_callButton setTitleColor:[UIColor colorWithWhite:1.0 alpha:0.5]  forState:UIControlStateDisabled];
-    _callButton.font = [UIFont boldSystemFontOfSize:26];
+    _callButton.titleLabel.font = [UIFont boldSystemFontOfSize:26];
     _callButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"call.png"]];
 #endif
-    //  [_callButton setImage:[UIImage imageNamed:@"call_pressed.png"]
-    //               forState:UIControlStateHighlighted];
     [_callButton addTarget:self action:@selector(callButtonPressed:)
           forControlEvents:UIControlEventTouchDown];
     
@@ -215,7 +200,7 @@
     NSDictionary* info = [aNotification userInfo];
     
     // Get the size of the keyboard.
-    NSValue* aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+    NSValue* aValue = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
     CGSize keyboardSize = [aValue CGRectValue].size;
     //[_scrollView setContentOffset:CGPointMake(0.0f , keyboardSize.height - 49.0f) animated:YES];
     [UIView beginAnimations:@"scroll" context:nil];
@@ -283,9 +268,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name: kSIPRegState
                                                   object:nil];
-#if SPECIFIC_ADD_PERSON
-    [peoplePickerCtrl release];
-#endif
     
     [_label release];
     [_lcd release];
@@ -344,59 +326,7 @@
 
 - (void)addButtonPressed:(UIButton*)unused
 {
-    if ([[_label text] length] < 1)
-        return;
-#if !SPECIFIC_ADD_PERSON
-    CFErrorRef *error = NULL;
-    
-    // Create New Contact
-    ABRecordRef person = ABPersonCreate ();
-    
-    // Add phone number
-    ABMutableMultiValueRef multiValue =
-    ABMultiValueCreateMutable(kABStringPropertyType);
-    
-    ABMultiValueAddValueAndLabel(multiValue, [_label text], kABPersonPhoneMainLabel,
-                                 NULL);
-    
-    ABRecordSetValue(person, kABPersonPhoneProperty, multiValue, error);
-    
-    ABUnknownPersonViewController *unknownCtrl = [[ABUnknownPersonViewController alloc] init];
-    unknownCtrl.displayedPerson = person;
-    unknownCtrl.allowsActions = NO;
-    unknownCtrl.allowsAddingToAddressBook = YES;
-    unknownCtrl.unknownPersonViewDelegate = self;
-    CFRelease(person);
-    
-    UINavigationController *navCtrl = [[UINavigationController alloc]
-                                       initWithRootViewController:unknownCtrl];
-    unknownCtrl.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                                    initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                    target:self action:@selector(cancelAddPerson:)];
-    navCtrl.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    
-    [self.parentViewController presentModalViewController:navCtrl animated:YES];
-    [unknownCtrl release];
-    [navCtrl release];
-#else
-    if (ABAddressBookGetPersonCount(ABAddressBookCreate ()) == 0)
-    {
-        // Create a new contact
-        [self addNewPerson];
-    }
-    else
-    {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                                 delegate:self
-                                                        cancelButtonTitle:NSLocalizedString(@"Cancel",@"Phone View")
-                                                   destructiveButtonTitle:nil
-                                                        otherButtonTitles:NSLocalizedString(@"Create New Contact",@"Phone View"),
-                                      NSLocalizedString(@"Add to Existing Contact",@"Phone View"), nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-        [actionSheet showFromTabBar:[self.parentViewController view]];
-        //[actionSheet showFromTabBar:self.parentViewController.tabBarController.view];
-    }
-#endif
+    //Not supported
 }
 
 - (void)gsmCallButtonPressed:(UIButton*)button
@@ -473,120 +403,6 @@
     [self stopTimer];
 }
 
-#if !SPECIFIC_ADD_PERSON
-
-#pragma mark ABUnknownPersonViewControllerDelegate
-- (void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownCtrl
-                 didResolveToPerson:(ABRecordRef)person
-{
-    //[self/*.parentViewController*/ dismissModalViewControllerAnimated:YES];
-    [unknownCtrl dismissModalViewControllerAnimated:YES];
-}
-
-- (BOOL)unknownPersonViewController:(ABUnknownPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
-{
-    return YES;
-}
-
-#else /* SPECIFIC_ADD_PERSON */
-- (void)addNewPerson
-{
-    CFErrorRef error = NULL;
-    // Create New Contact
-    ABRecordRef person = ABPersonCreate ();
-    
-    // Add phone number
-    ABMutableMultiValueRef multiValue =
-    ABMultiValueCreateMutable(kABStringPropertyType);
-    
-    ABMultiValueAddValueAndLabel(multiValue, [_label text], kABPersonPhoneMainLabel,
-                                 NULL);
-    
-    ABRecordSetValue(person, kABPersonPhoneProperty, multiValue, &error);
-    
-    
-    ABNewPersonViewController *newPersonCtrl = [[ABNewPersonViewController alloc] init];
-    newPersonCtrl.newPersonViewDelegate = self;
-    newPersonCtrl.displayedPerson = person;
-    CFRelease(person); // TODO check
-    
-    UINavigationController *navCtrl = [[UINavigationController alloc]
-                                       initWithRootViewController:newPersonCtrl];
-    navCtrl.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    [self.parentViewController presentModalViewController:navCtrl animated:YES];
-    [newPersonCtrl release];
-    [navCtrl release];
-}
-
-#pragma mark ABNewPersonViewControllerDelegate
-- (void)newPersonViewController:(ABNewPersonViewController *)newPersonViewController
-       didCompleteWithNewPerson:(ABRecordRef)person
-{
-    [newPersonViewController dismissModalViewControllerAnimated:YES];
-}
-
-
-#pragma mark ABPeoplePickerNavigationControllerDelegate
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person
-{
-    CFErrorRef error = NULL;
-    BOOL status;
-    ABMutableMultiValueRef multiValue;
-    // Inserer le numéro dans la fiche de la personne
-    // Add phone number
-    CFTypeRef typeRef = ABRecordCopyValue(person, kABPersonPhoneProperty);
-    if (ABMultiValueGetCount(typeRef) == 0)
-        multiValue = ABMultiValueCreateMutable(kABStringPropertyType);
-    else
-        multiValue = ABMultiValueCreateMutableCopy (typeRef);
-    
-    // TODO type (mobile, main...)
-    // TODO manage URI
-    status = ABMultiValueAddValueAndLabel(multiValue, [_label text], kABPersonPhoneMainLabel,
-                                          NULL);
-    
-    status = ABRecordSetValue(person, kABPersonPhoneProperty, multiValue, &error);
-    status = ABAddressBookSave(peoplePicker.addressBook, &error);
-    [peoplePicker dismissModalViewControllerAnimated:YES];
-    return NO;
-}
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person
-                                property:(ABPropertyID)property
-                              identifier:(ABMultiValueIdentifier)identifier
-{
-    return NO;
-}
-
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
-{
-    [peoplePicker dismissModalViewControllerAnimated:YES];
-}
-
-#pragma mark UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet
-clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    switch (buttonIndex)
-    {
-        case 0: // Create new contact
-            [self addNewPerson];
-            break;
-        case 1: // Add to existing Contact
-            [self presentModalViewController:peoplePickerCtrl animated:YES];
-            // do something else
-        default:
-            break;
-    }
-}
-#endif /* SPECIFIC_ADD_PERSON */
-
-- (void)cancelAddPerson:(id)unused
-{
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
-}
 
 - (void)reachabilityChanged:(NSNotification *)notification
 {

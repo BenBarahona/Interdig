@@ -455,6 +455,8 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
     phoneViewController = [[[PhoneViewController alloc]
                             initWithNibName:nil bundle:nil] autorelease];
     phoneViewController.phoneCallDelegate = self;
+    return phoneViewController.view;
+    
 }
 
 
@@ -777,7 +779,6 @@ void powerCallback( void * refCon, io_service_t service, natural_t messageType,
         case PJSIP_INV_STATE_CONNECTING: // After 2xx is sent/received.
             break;
         case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
-            self.proximitySensingEnabled = YES;
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
 #if 0

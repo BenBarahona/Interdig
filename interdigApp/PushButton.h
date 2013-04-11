@@ -19,33 +19,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PhoneCallDelegate.h"
-#import "DialerPhonePad.h"
-#import "AbsLCDView.h"
 
-#define SPECIFIC_ADD_PERSON 1
-
-@interface PhoneViewController : UIViewController <UITextFieldDelegate, PhonePadDelegate>
+@interface PushButton : UIButton
 {
-    UITextField *_label;
-    UIView      *_container;
-    AbsLCDView *_lcd;
-    
-    DialerPhonePad *_pad;
-    
-    UIButton *_addContactButton;
-    UIButton *_gsmCallButton;
-    UIButton *_callButton;
-    UIButton *_deleteButton;
-    
-    int      _deletedChar;
-    NSTimer *_deleteTimer;
-    
-    NSString *_lastNumber;
-    
-    id<PhoneCallDelegate> phoneCallDelegate;
+  CGRect _contentRect;
 }
 
-@property (nonatomic, retain)   id<PhoneCallDelegate> phoneCallDelegate;
+- (void)setContentRect:(CGRect)rect;
 
 @end

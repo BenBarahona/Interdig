@@ -21,17 +21,17 @@
 #import "PhonePad.h"
 #import "BottomButtonBar.h"
 #import "BottomDualButtonBar.h"
-//#import "MenuCallView.h"
+#import "MenuCallView.h"
 #import "LCDView.h" 
 #import "DualButtonView.h"
 
 #include <pjsua-lib/pjsua.h>
 
 @interface CallViewController : UIViewController<PhonePadDelegate,
-   // MenuCallViewDelegate
+    MenuCallViewDelegate
 #if defined(ONECALL) && (ONECALL == 1)
 #else 
-/*,*/ DualButtonViewDelegate
+, DualButtonViewDelegate
 #endif
 	>
 {
