@@ -253,7 +253,6 @@
 		490EFD1C1716B5AE00A55DA7 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEE1716B5AE00A55DA7 /* speaker.png */; };
 		490EFD1D1716B5AE00A55DA7 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEF1716B5AE00A55DA7 /* Thumbs.db */; };
 		490EFD1E1716B5AE00A55DA7 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCF01716B5AE00A55DA7 /* message.png */; };
-		490EFD26171A213000A55DA7 /* DummyVOIPClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFD25171A212F00A55DA7 /* DummyVOIPClass.m */; };
 		4917770416CC9FAA009651B2 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770216CC9FA4009651B2 /* 01-refresh.png */; };
 		4917770516CC9FAA009651B2 /* 01-refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770316CC9FA7009651B2 /* 01-refresh@2x.png */; };
 		4917771316D039D5009651B2 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917770C16D039D5009651B2 /* DCRoundSwitch.m */; };
@@ -987,8 +986,6 @@
 		490EFCEE1716B5AE00A55DA7 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		490EFCEF1716B5AE00A55DA7 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		490EFCF01716B5AE00A55DA7 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
-		490EFD24171A212E00A55DA7 /* DummyVOIPClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyVOIPClass.h; sourceTree = "<group>"; };
-		490EFD25171A212F00A55DA7 /* DummyVOIPClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyVOIPClass.m; sourceTree = "<group>"; };
 		4917770216CC9FA4009651B2 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		4917770316CC9FA7009651B2 /* 01-refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh@2x.png"; sourceTree = "<group>"; };
 		4917770B16D039D5009651B2 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
@@ -2492,8 +2489,6 @@
 				49E3F006170A13CA0027504A /* VOIPCallViewController.h */,
 				49E3F007170A13CB0027504A /* VOIPCallViewController.m */,
 				49E3F008170A13CB0027504A /* VOIPCallViewController.xib */,
-				490EFD24171A212E00A55DA7 /* DummyVOIPClass.h */,
-				490EFD25171A212F00A55DA7 /* DummyVOIPClass.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2999,7 +2994,6 @@
 				490EFC8C17151F3100A55DA7 /* DualButtonView.m in Sources */,
 				490EFC901716902600A55DA7 /* MenuCallView.m in Sources */,
 				490EFC931716904800A55DA7 /* PushButton.m in Sources */,
-				490EFD26171A213000A55DA7 /* DummyVOIPClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

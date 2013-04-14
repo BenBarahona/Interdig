@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #include <pjsua-lib/pjsua.h>
 #import "CallViewController.h"
-#import "PhoneViewController.h"
 
 typedef struct app_config
 {
@@ -34,11 +33,8 @@ typedef struct app_config
 @interface VOIPCallViewController : UIViewController
 {
     CallViewController    *callViewController;
-    PhoneViewController   *phoneViewController;
-    //app_config_struct _app_config;
 }
 
 @property app_config_struct _app_config;
-//- (app_config_struct *) pjConfig;
 
 @end

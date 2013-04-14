@@ -22,11 +22,10 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AddressBook/AddressBook.h>
 
-#include "call.h"
+//#include "call.h"
 #include "dtmf.h"
 
 #define HOLD_ON 1
-
 #define kTransitionDuration	0.5
 
 @interface CallViewController (private)
@@ -49,48 +48,29 @@
 	return self;
 }
 
-/*
- Implement loadView if you want to create a view hierarchy programmatically
- */
+
 - (void)loadView
 {
-    
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     
-#if defined(CYDIA) && (CYDIA == 1)
-    [view setBackgroundColor:[[[UIColor alloc]
-                               initWithPatternImage:[UIImage defaultDesktopImage]]
-                              autorelease]];
-#else
 	[view setBackgroundColor:[UIColor blackColor]];
-#endif
     
     // create the container view which we will use for transition animation (centered horizontally)
 	CGRect frame = CGRectMake(0.0f, 70.0f, 320.0f, 320.0f);
 	_containerView = [[UIView alloc] initWithFrame:frame];
-	//[view addSubview:_containerView];
     
     /** Phone Pad **/
-    //_phonePad = [[PhonePad alloc] initWithFrame: CGRectMake(0.0f, 70.0f, 320.0f, 320.0f)];
     PhonePad *phonePad = [[PhonePad alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 320.0f)];
     [phonePad setPlaysSounds: TRUE];
-    //[_phonePad setPlaysSounds:[[NSUserDefaults standardUserDefaults]
-    //                           boolForKey:@"keypadPlaySound"]];
     [phonePad setDelegate: self];
-    //[_containerView addSubview:_phonePad];
     
     /** Menu **/
     MenuCallView *menuView = [[MenuCallView alloc] initWithFrame: CGRectMake(18.0f, 52.0f, 285.0f, 216.0f)];
     [menuView setDelegate:self];
-    [menuView setTitle:NSLocalizedString(@"mute", @"Call View")
-                 image:[UIImage imageNamed:@"mute.png"] forPosition:0];
-    [menuView setTitle:NSLocalizedString(@"keypad", @"Call View")
-                 image:[UIImage imageNamed:@"dialer.png"] forPosition:1];
-    [menuView setTitle:NSLocalizedString(@"speaker", @"Call View")
-                 image:[UIImage imageNamed:@"speaker.png"] forPosition:2];
-    //[_menuView setTitle:NSLocalizedString(@"add call", @"Call View")
-    //              image:[UIImage imageNamed:@"addcall.png"] forPosition:3];
+    [menuView setTitle:@"mute" image:[UIImage imageNamed:@"mute.png"] forPosition:0];
+    [menuView setTitle:@"keypad" image:[UIImage imageNamed:@"dialer.png"] forPosition:1];
+    [menuView setTitle:@"speaker" image:[UIImage imageNamed:@"speaker.png"] forPosition:2];
 #if HOLD_ON
     [menuView setTitle:NSLocalizedString(@"hold", @"Call View")
                  image:[UIImage imageNamed:@"hold.png"] forPosition:4];
@@ -99,19 +79,6 @@
     _switchViews[0] = phonePad;
     _switchViews[1] = menuView;
     _whichView = 0;
-    
-#if defined(ONECALL) && (ONECALL == 1)
-#else
-    /** Dual Button View **/
-    _buttonView = [[DualButtonView alloc] initWithFrame: CGRectMake(18.0f, 52.0f, 285.0f, 216.0f)];
-    [_buttonView setDelegate:self];
-    [_buttonView setTitle:NSLocalizedString(@"Ignore", @"Call View") image:nil forPosition:0];
-    [_buttonView setTitle:NSLocalizedString(@"Hold Call + Answer", @"Call View") image:nil forPosition:1];
-    
-    _bottomBar = [[BottomButtonBar alloc] initForIncomingCallWaiting];
-    [[_bottomBar button] addTarget:self action:@selector(endCallAndAnswer:)
-                  forControlEvents:UIControlEventTouchUpInside];
-#endif
     
     /** LCD **/
     _lcd = [[LCDView alloc] initWithDefaultSize];
@@ -133,24 +100,10 @@
     [_menuButton addTarget:self action:@selector(flipKeypad)
           forControlEvents:UIControlEventTouchUpInside];
     
-    _dualBottomBar = [[BottomDualButtonBar alloc] initForIncomingCallWaiting];
-    [[_dualBottomBar button] addTarget:self action:@selector(declineCallDown:)
-                      forControlEvents:UIControlEventTouchUpInside];
-    [[_dualBottomBar button2] addTarget:self action:@selector(answerCallDown:)
-                       forControlEvents:UIControlEventTouchUpInside];
-    
     self.view = view;
     [view release];
 }
 
-/*
- If you need to do additional setup after loading the view, override viewDidLoad.
- - (void)viewDidLoad {
- }
- */
-
-#if defined(ONECALL) && (ONECALL == 1)
-#else
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -158,7 +111,6 @@
     _current_call = PJSUA_INVALID_ID;
     _new_call = PJSUA_INVALID_ID;
 }
-#endif
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
@@ -173,22 +125,16 @@
 
 - (void)dealloc
 {
-	//[_defaultBottomBar release];
     [_menuButton release];
     [_defaultBottomBar release];
 	[_dualBottomBar release];
-    
-    //[_phonePad release];
-    //[_menuView release];
+
     [_switchViews[0] release];
     [_switchViews[1] release];
     [_containerView release];
     
-#if defined(ONECALL) && (ONECALL == 1)
-#else
-    [_bottomBar release];
     [_buttonView release];
-#endif
+    
     [_lcd release];
     
 	[super dealloc];
@@ -209,16 +155,12 @@
     }
 	if (display)
 	{
-		//[_menuView removeFromSuperview];
-		//[_containerView addSubview:_phonePad];
         [_switchViews[1] removeFromSuperview];
         [_containerView addSubview:_switchViews[0]];
         _whichView = 0;
 	}
 	else
 	{
-		//[_phonePad removeFromSuperview];
-		//[_containerView addSubview:_menuView];
         [_switchViews[0] removeFromSuperview];
         [_containerView addSubview:_switchViews[1]];
         _whichView = 1;
@@ -230,12 +172,9 @@
 
 - (void)flipKeypad
 {
-    //[self showKeypad:([_menuView superview] != nil) animated:YES];
     [self showKeypad:NO animated:YES];
 }
 
-#if defined(ONECALL) && (ONECALL == 1)
-#else
 - (void)showView:(UIView *)view display:(BOOL)display animated:(BOOL)animated
 {
     if (animated)
@@ -262,7 +201,6 @@
     if (animated)
         [UIView commitAnimations];
 }
-#endif
 
 - (void)endingCallWithId:(UInt32)call_id
 {
@@ -300,59 +238,18 @@
 
 - (void)endCallUpInside:(id)fp8
 {
-    //NSLog(@"endCallUpInside %@", fp8);
-#if defined(ONECALL) && (ONECALL == 1)
-    pjsua_call_id cid = _call_id;
-    [self endingCallWithId:_call_id];
-    sip_hangup(&cid);
-#else
     pjsua_call_id cid = _current_call;
     [self endingCallWithId:_current_call];
     sip_hangup(&cid);
-#endif
 }
 
-- (void)answerCallDown:(id)fp8
-{
-    //NSLog(@"answerCallDown %@", fp8);
-#if defined(ONECALL) && (ONECALL == 1)
-    sip_answer(&_call_id);
-#else
-    sip_answer(&_current_call);
-#endif
-}
-
-- (void)declineCallDown:(id)fp8
-{
-    //NSLog(@"declineCallDown %@", fp8);
-#if defined(ONECALL) && (ONECALL == 1)
-    pjsua_call_id cid = _call_id;
-    [self endingCallWithId:_call_id];
-    sip_hangup(&cid);
-#else
-    pjsua_call_id cid = _current_call;
-    [self endingCallWithId:_current_call];
-    sip_hangup(&cid);
-#endif
-}
-
-/*** ***/
 - (void)timeout:(id)unused
 {
     pjsua_call_info ci;
-    
-    // It's not logic, _call_id should be valid.
-#if defined(ONECALL) && (ONECALL == 1)
-    if (_call_id == PJSUA_INVALID_ID)
-        return;
-    
-    pjsua_call_get_info(_call_id, &ci);
-#else
     if (_current_call == PJSUA_INVALID_ID)
         return;
     
     pjsua_call_get_info(_current_call, &ci);
-#endif
     
     if (ci.connect_duration.sec >= 3600)
     {
@@ -419,49 +316,29 @@
 
 - (void)phonePad:(id)phonepad keyDown:(char)car
 {
-    //NSLog(@"keyDown %@ %c", phonepad, car);
     // DTMF
-#if defined(ONECALL) && (ONECALL == 1)
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dtmfWithInfo"])
-        sip_call_play_info_digit(_call_id, car);
-    else
-        sip_call_play_digit(_call_id, car);
-#else
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dtmfWithInfo"])
         sip_call_play_info_digit(_current_call, car);
     else
         sip_call_play_digit(_current_call, car);
-#endif
 }
 
 - (void)composeDTMF
 {
     pj_str_t dtmf = pj_str((char *)[dtmfCmd UTF8String]);
     
-#if defined(ONECALL) && (ONECALL == 1)
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dtmfWithInfo"])
-        sip_call_play_info_digits(_call_id, &dtmf);
-    else
-        sip_call_play_digits(_call_id, &dtmf);
-#else
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dtmfWithInfo"])
         sip_call_play_info_digits(_current_call, &dtmf);
     else
         sip_call_play_digits(_current_call, &dtmf);
-#endif
 }
 
 /*
  * Find next call when current call is disconnected
  */
-#if defined(ONECALL) && (ONECALL == 1)
-#else
 - (BOOL)findNextCall
 {
     int i, max;
-    
-    //if (pjsua_call_get_count() > 2)
-    // TODO Display alertView to select.
     
     max = pjsua_call_get_max_count();
     for (i=_current_call+1; i<max; ++i)
@@ -485,21 +362,16 @@
     _current_call = PJSUA_INVALID_ID;
     return FALSE;
 }
-#endif
 
 - (void)processCall:(NSDictionary *)userInfo
 {
     int state, call_id;
     int account_id;
     
-    account_id = [[userInfo objectForKey: @"AccountID"] intValue];
-    
-#if defined(ONECALL) && (ONECALL == 1)
-    _call_id = call_id = [[userInfo objectForKey: @"CallID"] intValue];
-#else
+    account_id = [[userInfo objectForKey: @"AccountID"] intValue];    
     call_id = [[userInfo objectForKey: @"CallID"] intValue];
-#endif
     state = [[userInfo objectForKey: @"State"] intValue];
+    
     switch(state)
     {
         case PJSIP_INV_STATE_CALLING: // After INVITE is sent.
@@ -507,23 +379,15 @@
             [self.view addSubview: _defaultBottomBar];
             [self showKeypad:NO animated:NO];
             [self.view addSubview:_containerView];
-            //[self displayUserInfo: call_id];
             
             [_lcd setLabel: NSLocalizedString(@"calling...", @"Call view")];
             
-#if defined(ONECALL) && (ONECALL == 1)
-#else
             if (_current_call == PJSUA_INVALID_ID || _current_call == call_id)
                 _current_call = call_id;
             else
                 _new_call = call_id;
-#endif
             break;
         case PJSIP_INV_STATE_INCOMING: // After INVITE is received.
-#if defined(ONECALL) && (ONECALL == 1)
-            [self.view addSubview: _dualBottomBar];
-            [self showKeypad:NO animated:NO];
-#else
             [_defaultBottomBar removeFromSuperview];
             if (pjsua_call_get_count() == 1)
             {
@@ -535,18 +399,13 @@
                 [self.view addSubview: _bottomBar]; // TODO displayed Ignore and hold+answer
                 [self showView:_buttonView display:YES animated:YES];
             }
-#endif
-            
-            //[_containerView removeFromSuperview];
             
             [_lcd setLabel: @""];
-#if defined(ONECALL) && (ONECALL == 1)
-#else
+
             if (_current_call == PJSUA_INVALID_ID || _current_call == call_id)
                 _current_call = call_id;
             else
                 _new_call = call_id;
-#endif
             break;
         case PJSIP_INV_STATE_EARLY: // After response with To tag.
             //[self.view addSubview: _phonePad];
@@ -556,12 +415,10 @@
             break;
         case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
             [_dualBottomBar removeFromSuperview];
-#if defined(ONECALL) && (ONECALL == 1)
-#else
             [_bottomBar removeFromSuperview];
             _current_call = call_id;
             _new_call = PJSUA_INVALID_ID;
-#endif
+
             [self.view addSubview:_defaultBottomBar];
             [self.view addSubview:_containerView];
             if ([dtmfCmd length] > 0)
@@ -576,7 +433,7 @@
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
 #if 1
-
+            
 #else
             dtmfCmd = nil;
             [self setSpeakerPhoneEnabled:NO];
@@ -589,17 +446,14 @@
                 _timer = nil;
             }
             [_lcd setLabel: NSLocalizedString(@"call ended", @"Call view")];
-            //[_lcd setText:@""];
+
             if (_call[call_id])
                 [[app recentsViewController] addCall:_call[call_id]];
             _call[call_id] = nil;
-#if defined(ONECALL) && (ONECALL == 1)
-            _call_id = PJSUA_INVALID_ID;
-#else
+
             if (_current_call == call_id)
                 [self findNextCall];
             _new_call = PJSUA_INVALID_ID;
-#endif
             [_dualBottomBar removeFromSuperview];
             [_defaultBottomBar removeFromSuperview];
             [_containerView removeFromSuperview];
@@ -635,18 +489,6 @@
 
 - (void)setHoldEnabled: (BOOL)enable
 {
-#if defined(ONECALL) && (ONECALL == 1)
-    if (enable)
-    {
-        if (_call_id != PJSUA_INVALID_ID)
-            pjsua_call_set_hold(_call_id, NULL);
-    }
-    else
-    {
-        if (_call_id != PJSUA_INVALID_ID)
-            pjsua_call_reinvite(_call_id, PJ_TRUE, NULL);
-    }
-#else
     if (enable)
     {
         if (_current_call != PJSUA_INVALID_ID)
@@ -657,7 +499,6 @@
         if (_current_call != PJSUA_INVALID_ID)
             pjsua_call_reinvite(_current_call, PJ_TRUE, NULL);
     }
-#endif
 }
 
 #pragma mark MenuCallView
@@ -697,32 +538,6 @@
             break;
     }
 }
-
-#if defined(ONECALL) && (ONECALL == 1)
-#else
-- (void)endCallAndAnswer:(id)fp8
-{
-    [self showView:_buttonView display:NO animated:YES];
-    sip_hangup(&_current_call);
-    //if (_new_call != PJSUA_INVALID_ID)
-    sip_answer(&_new_call);
-}
-
-#pragma mark DualButtonViewDelegate
-- (void)buttonClicked:(NSInteger)num
-{
-    [self showView:_buttonView display:NO animated:YES];
-    if (num == 0) // Ignore
-    {
-        sip_hangup(&_new_call);
-    }
-    else if (num == 1) // hold call + answer
-    {
-        pjsua_call_set_hold(_current_call, NULL);
-        sip_answer(&_new_call);
-    }
-}
-#endif
 
 #if 0
 void audioSessionPropertyListener(void *inClientData, AudioSessionPropertyID inID,

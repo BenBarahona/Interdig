@@ -14,49 +14,7 @@
 #define SIP_USER "1008"
 #define SIP_PASSWD "8686"
 
-@implementation VOIPCallViewController
-@synthesize _app_config;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    [self makeCall:self._app_config];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-
-
-
-
-/* Display error and exit application */
-static void error_exit(const char *title, pj_status_t status)
-{
-    NSLog(@"ERROR: %s STATUS:%d", title, status);
-    pjsua_perror(THIS_FILE, title, status);
-    pjsua_destroy();
-}
-
-
-// Ringtones                
+// Ringtones
 #define RINGBACK_FREQ1	    440
 #define RINGBACK_FREQ2	    480
 #define RINGBACK_ON         2000
@@ -71,9 +29,83 @@ static void error_exit(const char *title, pj_status_t status)
 #define RING_CNT	    3
 #define RING_INTERVAL	3000
 
+@implementation VOIPCallViewController
+@synthesize _app_config;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(processCallState:)
+                                                 name:@"CallState" object:nil];
+    
+    callViewController = [[CallViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:callViewController animated:NO completion:nil];
+    
+    [self makeCall:self._app_config];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void)processCallState:(NSNotification *)notification
+{
+    /*
+    int state = [[[ notification userInfo ] objectForKey: @"State"] intValue];
+    
+    switch(state)
+    {
+        case PJSIP_INV_STATE_NULL: // Before INVITE is sent or received.
+        case PJSIP_INV_STATE_CALLING: // After INVITE is sent.
+        case PJSIP_INV_STATE_INCOMING: // After INVITE is received.
+            if (pjsua_call_get_count() == 1)
+            {
+                [self.view addSubview:callViewController.view];
+                [callViewController retain];
+            }
+            
+        case PJSIP_INV_STATE_EARLY: // After response with To tag.
+        case PJSIP_INV_STATE_CONNECTING: // After 2xx is sent/received.
+            break;
+        case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
+            break;
+        case PJSIP_INV_STATE_DISCONNECTED:
+            if (pjsua_call_get_count() <= 1)
+                [self performSelector:@selector(disconnected:)
+                           withObject:nil afterDelay:1.0];
+            break;
+    }
+            */
+    NSLog(@"NOTIFICATION INFO:%@", [notification userInfo]);
+    
+    [callViewController processCall: [ notification userInfo ]];
+}
+
+
+/* Display error and exit application */
+static void error_exit(const char *title, pj_status_t status)
+{
+    NSLog(@"ERROR: %s STATUS:%d", title, status);
+    pjsua_perror(THIS_FILE, title, status);
+    pjsua_destroy();
+}
+
 -(void)makeCall:(app_config_struct)this_config
 {
-    
     pjsua_acc_id acc_id;
     pj_status_t status;
     
@@ -149,11 +181,7 @@ static void error_exit(const char *title, pj_status_t status)
         error_exit("Error creating ringback", status);
     
     
-    
-    
-    
     /* Add UDP transport. */
-    
     pjsua_transport_config_default(&cfg2);
     cfg2.port = 5060;
     status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &cfg2, NULL);
@@ -167,7 +195,6 @@ static void error_exit(const char *title, pj_status_t status)
         error_exit("Error starting pjsua", status);
     
     /* Register to SIP server by creating SIP account. */
-    
     pjsua_acc_config_default(&acc_cfg);
     acc_cfg.id = pj_str("sip:" SIP_USER "@" SIP_DOMAIN);
     acc_cfg.reg_uri = pj_str("sip:" SIP_DOMAIN);
@@ -192,7 +219,6 @@ static void error_exit(const char *title, pj_status_t status)
     if (status != PJ_SUCCESS)
         error_exit("Error making call", status);
     
-    ringback_start(&this_config);
     /*
      // Wait until user press "q" to quit.
      for (;;) {
@@ -213,10 +239,38 @@ static void error_exit(const char *title, pj_status_t status)
     
     /* Destroy pjsua */
     //pjsua_destroy();
+    
     self._app_config = this_config;
 }
 
+static void postCallStateNotification(pjsua_call_id call_id, const pjsua_call_info *ci)
+{
+    NSString *remoteInfo = @"", *remoteContact = @"";
+    NSAutoreleasePool *autoreleasePool = [[ NSAutoreleasePool alloc ] init];
+    
+    if (ci->remote_info.slen)
+        remoteInfo = [NSString stringWithUTF8String:ci->remote_info.ptr];
+    if (ci->remote_contact.slen)
+        remoteContact = [NSString stringWithUTF8String:ci->remote_contact.ptr];
+    // FIXME: create an Object, InCall for example ?
+    NSDictionary *userinfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInt: call_id], @"CallID",
+                              [NSNumber numberWithInt: ci->role], @"Role",
+                              [NSNumber numberWithInt: ci->acc_id], @"AccountID",
+                              remoteInfo, @"RemoteInfo",
+                              remoteContact, @"RemoteContact",
+                              [NSNumber numberWithInt: ci->state], @"State",
+                              [NSNumber numberWithInt:ci->last_status], @"LastStatus",
+                              [NSNumber numberWithInt:ci->media_status], @"MediaStatus",
+                              [NSNumber numberWithInt:ci->conf_slot], @"ConfSlot",
+                              [NSNumber  numberWithLong:ci->connect_duration.sec], @"ConnectDuration",
+                              [NSNumber  numberWithLong:ci->total_duration.sec], @"TotalDuration",
+                              nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CallState" object:nil userInfo:userinfo];
 
+    [autoreleasePool release ];
+}
 
 static void ring_init(app_config_struct app_config)
 {
@@ -259,38 +313,13 @@ static void ring_init(app_config_struct app_config)
                                  &app_config.ringback_slot);
     if (status != PJ_SUCCESS)
         error_exit("Error creating ringback", status);
-    
-    /* Ring (to alert incoming call) 
-    name = pj_str("ring");
-    status = pjmedia_tonegen_create2(app_config.pool, &name,
-                                     app_config.media_cfg.clock_rate,
-                                     app_config.media_cfg.channel_count,
-                                     samples_per_frame,
-                                     16, PJMEDIA_TONEGEN_LOOP,
-                                     &app_config.ring_port);
-    if (status != PJ_SUCCESS)
-        error_exit("Error creating ring", status);
-    
-    for (i=0; i<RING_CNT; ++i) {
-        tone[i].freq1 = RING_FREQ1;
-        tone[i].freq2 = RING_FREQ2;
-        tone[i].on_msec = RING_ON;
-        tone[i].off_msec = RING_OFF;
-    }
-    tone[RING_CNT-1].off_msec = RING_INTERVAL;
-    
-    pjmedia_tonegen_play(app_config.ring_port, RING_CNT,
-                         tone, PJMEDIA_TONEGEN_LOOP);
-    
-    status = pjsua_conf_add_port(app_config.pool, app_config.ring_port,
-                                 &app_config.ring_slot);
-    if (status != PJ_SUCCESS)
-        error_exit("Error creating ring", status);
-    */
 }
 
 static void ring_stop(app_config_struct *app_config)
 {
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    VOIPCallViewController *thisVC = app.voipVC;
+    
     if (app_config->ringback_on)
     {
         app_config->ringback_on = PJ_FALSE;
@@ -303,10 +332,15 @@ static void ring_stop(app_config_struct *app_config)
             pjmedia_tonegen_rewind(app_config->ringback_port);
         }
     }
+    
+    thisVC._app_config = *(app_config);
 }
 
 static void ringback_start(app_config_struct *app_config)
 {
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    VOIPCallViewController *thisVC = app.voipVC;
+    
     if (app_config->ringback_on)
         return;
     
@@ -317,6 +351,8 @@ static void ringback_start(app_config_struct *app_config)
     {
         pjsua_conf_connect(app_config->ringback_slot, 0);
     }
+    
+    thisVC._app_config = *(app_config);
 }
 
 /* Callback called by the library upon receiving incoming call */
@@ -346,47 +382,31 @@ static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
 {
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     VOIPCallViewController *thisVC = app.voipVC;
+    app_config_struct config = thisVC._app_config;
     
     pjsua_call_info ci;
     pjsua_call_get_info(call_id, &ci);
     
     if (ci.state == PJSIP_INV_STATE_DISCONNECTED) // Session is terminated.
     {
-        app_config_struct config = thisVC._app_config;
         ring_stop(&config);
-        //ring_stop(&(thisVC._app_config));
-        ///* FIXME: Stop all ringback for this call */
-        //sip_ring_stop([app pjsipConfig]);
-        //sip_call_deinit_tonegen(call_id);
     }
-    else if (ci.state == PJSIP_INV_STATE_CALLING)
+    else if (ci.state == PJSIP_INV_STATE_EARLY)
     {
-        //ringback_start(thisVC._app_config);
-        /*
-        int code;
-        pj_str_t reason;
-        pjsip_msg *msg;
-        
-        // This can only occur because of TX or RX message
-        pj_assert(e->type == PJSIP_EVENT_TSX_STATE);
-        
-        msg = (e->body.tsx_state.type == PJSIP_EVENT_RX_MSG ?
-               e->body.tsx_state.src.rdata->msg_info.msg :
-               e->body.tsx_state.src.tdata->msg);
-        
-        code = msg->line.status.code;
-        reason = msg->line.status.reason;
-        
-        // Start ringback for 180 for UAC unless there's SDP in 180
-        if (ci.role == PJSIP_ROLE_UAC && code == 180 &&
-            msg->body == NULL &&
-            ci.media_status == PJSUA_CALL_MEDIA_NONE)
-        {
-            // FIXME: start ringback
-            sip_ringback_start([app pjsipConfig]);
-        }
-         */
+        ringback_start(&config);
 	}
+    
+    
+    NSString *remoteInfo = @"", *remoteContact = @"";
+    if (ci.remote_info.slen)
+        remoteInfo = [NSString stringWithUTF8String:ci.remote_info.ptr];
+    if (ci.remote_contact.slen)
+        remoteContact = [NSString stringWithUTF8String:ci.remote_contact.ptr];
+    
+    if (ci.state != PJSIP_INV_STATE_NULL)
+    {
+        postCallStateNotification(call_id, &ci);
+    }
     
     PJ_LOG(3,(THIS_FILE, "Call %d state=%.*s", call_id,
               (int)ci.state_text.slen,
@@ -396,9 +416,14 @@ static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
 /* Callback called by the library when call's media state has changed */
 static void on_call_media_state(pjsua_call_id call_id)
 {
-    pjsua_call_info ci;
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    VOIPCallViewController *thisVC = app.voipVC;
+    app_config_struct config = thisVC._app_config;
     
-    pjsua_call_get_info(call_id, &ci);
+    pjsua_call_info ci;
+    ring_stop(&config);
+    
+    pjsua_call_get_info (call_id, &ci);
     
     if (ci.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
         // When media is active, connect call to sound device.
