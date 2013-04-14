@@ -536,7 +536,7 @@
             NSLog(@"SELECTED: %@", selected.dataInput);
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             
-            if(selected.security && [defaults objectForKey:@"user"] == nil && [defaults objectForKey:@"password"] == nil)
+            if(selected.security && [defaults objectForKey:@"cta_user"] == nil && [defaults objectForKey:@"cta_password"] == nil)
             {
                 LoginViewController *login = [[LoginViewController alloc] init];
                 login.database = self.dataBase;

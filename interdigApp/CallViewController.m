@@ -38,7 +38,7 @@
 
 @implementation CallViewController
 
-@synthesize dtmfCmd;
+@synthesize dtmfCmd, voipVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -266,9 +266,9 @@
 
 - (void)endingCallWithId:(UInt32)call_id
 {
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
+    //AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    [app callDisconnecting];
+    [self.voipVC callDisconnecting];
     
     dtmfCmd = nil;
     [self setSpeakerPhoneEnabled:NO];

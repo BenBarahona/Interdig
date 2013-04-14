@@ -21,7 +21,7 @@
 
 
 @implementation PushButton
-
+/*
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
   return _contentRect;
@@ -30,6 +30,7 @@
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {  
   CGRect rect = _contentRect;
+    NSLog(@"TITLE> %@", self.titleLabel);
   CGSize titleSize = [[self titleForState:UIControlStateNormal] sizeWithFont: [self.titleLabel font]];
 
   rect.origin.x += (rect.size.width - titleSize.width)/2.;
@@ -43,7 +44,7 @@
 - (CGRect)contentRectForBounds:(CGRect)bounds
 {
   return _contentRect;
-}
+}*/
 
 - (void)dealloc 
 {
@@ -53,8 +54,7 @@
 
 - (void)setContentRect:(CGRect)rect
 {
-  //[_contentRect release];
-  _contentRect = rect;
+    _contentRect = rect;
 }
 
 @end

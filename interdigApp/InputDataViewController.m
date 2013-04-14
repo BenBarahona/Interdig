@@ -67,8 +67,8 @@
 -(void)logout
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:@"user"];
-    [defaults removeObjectForKey:@"password"];
+    [defaults removeObjectForKey:@"cta_user"];
+    [defaults removeObjectForKey:@"cta_password"];
     [defaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];
 }

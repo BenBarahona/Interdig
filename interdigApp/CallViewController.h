@@ -26,6 +26,7 @@
 #import "DualButtonView.h"
 
 #include <pjsua-lib/pjsua.h>
+@class VOIPCallViewController;
 
 @interface CallViewController : UIViewController<PhonePadDelegate,
     MenuCallViewDelegate
@@ -71,5 +72,5 @@
 #endif
 
 @property (nonatomic, retain)  NSString *dtmfCmd;
-
+@property (nonatomic, retain) VOIPCallViewController *voipVC;
 @end

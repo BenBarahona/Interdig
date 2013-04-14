@@ -18,8 +18,7 @@
  */
 
 #import "PhoneViewController.h"
-//#import "SiphonApplication.h"
-#import "AppDelegate.h"
+//#import "VOIPCallViewController.h"
 
 #include <pjsua-lib/pjsua.h>
 
@@ -51,6 +50,11 @@
         [_lcd leftText: [[NSUserDefaults standardUserDefaults] stringForKey:
                          @"server"]];
         [_lcd rightText:@"Service Unavailable"];
+        /*[[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(processRegState:)
+                                                     name: kSIPRegState
+                                                   object:nil];
+         */
 	}
 	return self;
 }
@@ -69,7 +73,6 @@
     _label.autocorrectionType = UITextAutocorrectionTypeNo;
     _label.autocapitalizationType = UITextAutocapitalizationTypeNone;
     _label.keyboardType = UIKeyboardTypeURL; //UIKeyboardTypeEmailAddress;
-    //UIKeyboardTypeNamePhonePad; //UIKeyboardTypeURL;
     _label.returnKeyType = UIReturnKeyDone;
     _label.borderStyle = UITextBorderStyleNone;
     _label.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -87,25 +90,11 @@
     _pad = [[DialerPhonePad alloc] initWithFrame:
             CGRectMake(0.0f, 74.0f, 320.0f, 273.0f)];
     
-    //[_pad setPlaysSounds:YES];
-    [_pad setPlaysSounds:[[NSUserDefaults standardUserDefaults]
-                          boolForKey:@"keypadPlaySound"]];
+    [_pad setPlaysSounds:YES];
+    //[_pad setPlaysSounds:[[NSUserDefaults standardUserDefaults]
+    //                      boolForKey:@"keypadPlaySound"]];
     [_pad setDelegate:self];
     
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication];
-    //if (app.isIpod)
-    {
-        _addContactButton = [[UIButton alloc] initWithFrame:
-                             CGRectMake(0.0f, 0.0f, 107.0f, 64.0f)];
-        [_addContactButton setImage: [UIImage imageNamed:@"addcontact.png"]
-                           forState:UIControlStateNormal];
-        [_addContactButton setImage: [UIImage imageNamed:@"addcontact_pressed.png"]
-                           forState:UIControlStateHighlighted];
-        [_addContactButton addTarget:self action:@selector(addButtonPressed:)
-                    forControlEvents:UIControlEventTouchDown];
-    }
-    //else
-    {
         _gsmCallButton =[[UIButton alloc] initWithFrame:
                          CGRectMake(0.0f, 0.0f, 107.0f, 64.0f)];
         [_gsmCallButton setImage:[UIImage imageNamed:@"answer.png"]
@@ -121,7 +110,7 @@
         
         [_gsmCallButton addTarget:self action:@selector(gsmCallButtonPressed:)
                  forControlEvents:UIControlEventTouchDown];
-    }
+    
     _callButton =[[UIButton alloc] initWithFrame:
                   CGRectMake(107.0f, 0.0f, 107.0f, 64.0f)];
     //_callButton.enabled = NO;
@@ -156,17 +145,13 @@
      UIControlEventTouchUpInside|UIControlEventTouchUpOutside];
     
     _container = [[UIView alloc] initWithFrame:
-                  CGRectMake(0.0f, 347.0f, 320.0f, 64.0f)];
+                  CGRectMake(0.0f, 167.0f, 320.0f, 64.0f)];
     
     
     [view addSubview:_pad];
     [view addSubview:_lcd];
     
-    if (app.isIpod ||
-        ![[NSUserDefaults standardUserDefaults] boolForKey:@"cellularButton"])
-        [_container addSubview:_addContactButton];
-    else
-        [_container addSubview:_gsmCallButton];
+    [_container addSubview:_gsmCallButton];
     
     [_container addSubview:_callButton];
     [_container addSubview:_deleteButton];
@@ -265,10 +250,11 @@
 
 - (void)dealloc
 {
+    /*
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name: kSIPRegState
                                                   object:nil];
-    
+    */
     [_label release];
     [_lcd release];
     [_pad release];

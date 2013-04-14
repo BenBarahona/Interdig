@@ -118,8 +118,8 @@
             if(saveSession.on)
             {
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                [defaults setObject:userTxt.text forKey:@"user"];
-                [defaults setObject:passwordTxt.text forKey:@"password"];
+                [defaults setObject:userTxt.text forKey:@"cta_user"];
+                [defaults setObject:passwordTxt.text forKey:@"cta_password"];
                 [defaults synchronize];
             }
             [self.delegate loginDidFinish:resultado WithObject:self.selectedObject];

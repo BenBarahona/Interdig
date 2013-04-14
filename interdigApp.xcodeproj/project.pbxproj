@@ -173,7 +173,6 @@
 		490EFC6217151B2A00A55DA7 /* PhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6017151B2A00A55DA7 /* PhoneViewController.m */; };
 		490EFC6617151B9400A55DA7 /* DialerPhonePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6517151B9400A55DA7 /* DialerPhonePad.m */; };
 		490EFC6917151C0900A55DA7 /* AbsLCDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6817151C0800A55DA7 /* AbsLCDView.m */; };
-		490EFC6C17151C2300A55DA7 /* SiphonApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6B17151C2200A55DA7 /* SiphonApplication.m */; };
 		490EFC7417151C6800A55DA7 /* call.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6F17151C6800A55DA7 /* call.m */; };
 		490EFC7517151C6800A55DA7 /* dtmf.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7117151C6800A55DA7 /* dtmf.m */; };
 		490EFC7617151C6800A55DA7 /* ring.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7317151C6800A55DA7 /* ring.m */; };
@@ -186,6 +185,75 @@
 		490EFC8C17151F3100A55DA7 /* DualButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC8B17151F3000A55DA7 /* DualButtonView.m */; };
 		490EFC901716902600A55DA7 /* MenuCallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC8F1716902400A55DA7 /* MenuCallView.m */; };
 		490EFC931716904800A55DA7 /* PushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC921716904600A55DA7 /* PushButton.m */; };
+		490EFCAB1716B56300A55DA7 /* bigben.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC951716B56300A55DA7 /* bigben.caf */; };
+		490EFCAC1716B56300A55DA7 /* diamond.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC961716B56300A55DA7 /* diamond.caf */; };
+		490EFCAD1716B56300A55DA7 /* dingdong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC971716B56300A55DA7 /* dingdong.caf */; };
+		490EFCAE1716B56300A55DA7 /* doorbell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC981716B56300A55DA7 /* doorbell.caf */; };
+		490EFCAF1716B56300A55DA7 /* dtmf-#.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC991716B56300A55DA7 /* dtmf-#.aif */; };
+		490EFCB01716B56300A55DA7 /* dtmf-0.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC9A1716B56300A55DA7 /* dtmf-0.aif */; };
+		490EFCB11716B56300A55DA7 /* dtmf-1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC9B1716B56300A55DA7 /* dtmf-1.aif */; };
+		490EFCB21716B56300A55DA7 /* dtmf-2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC9C1716B56300A55DA7 /* dtmf-2.aif */; };
+		490EFCB31716B56300A55DA7 /* dtmf-3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC9D1716B56300A55DA7 /* dtmf-3.aif */; };
+		490EFCB41716B56300A55DA7 /* dtmf-4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC9E1716B56300A55DA7 /* dtmf-4.aif */; };
+		490EFCB51716B56300A55DA7 /* dtmf-5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFC9F1716B56300A55DA7 /* dtmf-5.aif */; };
+		490EFCB61716B56300A55DA7 /* dtmf-6.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA01716B56300A55DA7 /* dtmf-6.aif */; };
+		490EFCB71716B56300A55DA7 /* dtmf-7.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA11716B56300A55DA7 /* dtmf-7.aif */; };
+		490EFCB81716B56300A55DA7 /* dtmf-8.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA21716B56300A55DA7 /* dtmf-8.aif */; };
+		490EFCB91716B56300A55DA7 /* dtmf-9.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA31716B56300A55DA7 /* dtmf-9.aif */; };
+		490EFCBA1716B56300A55DA7 /* dtmf-s.aif in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA41716B56300A55DA7 /* dtmf-s.aif */; };
+		490EFCBB1716B56300A55DA7 /* echobel2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA51716B56300A55DA7 /* echobel2.caf */; };
+		490EFCBC1716B56300A55DA7 /* farSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA61716B56300A55DA7 /* farSound.caf */; };
+		490EFCBD1716B56300A55DA7 /* gling.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA71716B56300A55DA7 /* gling.caf */; };
+		490EFCBE1716B56300A55DA7 /* niceding.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA81716B56300A55DA7 /* niceding.caf */; };
+		490EFCBF1716B56300A55DA7 /* notify.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCA91716B56300A55DA7 /* notify.caf */; };
+		490EFCC01716B56300A55DA7 /* phone.caf in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCAA1716B56300A55DA7 /* phone.caf */; };
+		490EFCF11716B5AE00A55DA7 /* Accounts.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC21716B5AE00A55DA7 /* Accounts.png */; };
+		490EFCF21716B5AE00A55DA7 /* addcontact.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC31716B5AE00A55DA7 /* addcontact.png */; };
+		490EFCF31716B5AE00A55DA7 /* addcontact_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC41716B5AE00A55DA7 /* addcontact_pressed.png */; };
+		490EFCF41716B5AE00A55DA7 /* answer.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC51716B5AE00A55DA7 /* answer.png */; };
+		490EFCF51716B5AE00A55DA7 /* bottombarblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC61716B5AE00A55DA7 /* bottombarblue.png */; };
+		490EFCF61716B5AE00A55DA7 /* bottombarblue_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC71716B5AE00A55DA7 /* bottombarblue_pressed.png */; };
+		490EFCF71716B5AE00A55DA7 /* bottombargreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC81716B5AE00A55DA7 /* bottombargreen.png */; };
+		490EFCF81716B5AE00A55DA7 /* bottombargreen_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCC91716B5AE00A55DA7 /* bottombargreen_pressed.png */; };
+		490EFCF91716B5AE00A55DA7 /* bottombarred.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCCA1716B5AE00A55DA7 /* bottombarred.png */; };
+		490EFCFA1716B5AE00A55DA7 /* bottombarred_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCCB1716B5AE00A55DA7 /* bottombarred_pressed.png */; };
+		490EFCFB1716B5AE00A55DA7 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCCC1716B5AE00A55DA7 /* call.png */; };
+		490EFCFC1716B5AE00A55DA7 /* callblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCCD1716B5AE00A55DA7 /* callblue.png */; };
+		490EFCFD1716B5AE00A55DA7 /* decline.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCCE1716B5AE00A55DA7 /* decline.png */; };
+		490EFCFE1716B5AE00A55DA7 /* default-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCCF1716B5AE00A55DA7 /* default-iphone.png */; };
+		490EFCFF1716B5AE00A55DA7 /* default-ipod.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD01716B5AE00A55DA7 /* default-ipod.png */; };
+		490EFD001716B5AE00A55DA7 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD11716B5AE00A55DA7 /* delete.png */; };
+		490EFD011716B5AE00A55DA7 /* delete_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD21716B5AE00A55DA7 /* delete_pressed.png */; };
+		490EFD021716B5AE00A55DA7 /* Dial.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD31716B5AE00A55DA7 /* Dial.png */; };
+		490EFD031716B5AE00A55DA7 /* dialerkeypad.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD41716B5AE00A55DA7 /* dialerkeypad.png */; };
+		490EFD041716B5AE00A55DA7 /* dialerkeypad_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD51716B5AE00A55DA7 /* dialerkeypad_pressed.png */; };
+		490EFD051716B5AE00A55DA7 /* keypad.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD61716B5AE00A55DA7 /* keypad.png */; };
+		490EFD061716B5AE00A55DA7 /* keypad_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD71716B5AE00A55DA7 /* keypad_pressed.png */; };
+		490EFD071716B5AE00A55DA7 /* lcd_call_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD81716B5AE00A55DA7 /* lcd_call_bottom.png */; };
+		490EFD081716B5AE00A55DA7 /* lcd_call_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCD91716B5AE00A55DA7 /* lcd_call_top.png */; };
+		490EFD091716B5AE00A55DA7 /* lcd_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCDA1716B5AE00A55DA7 /* lcd_top.png */; };
+		490EFD0A1716B5AE00A55DA7 /* lcd_top_simple.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCDB1716B5AE00A55DA7 /* lcd_top_simple.png */; };
+		490EFD0B1716B5AE00A55DA7 /* addcall.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCDD1716B5AE00A55DA7 /* addcall.png */; };
+		490EFD0C1716B5AE00A55DA7 /* contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCDE1716B5AE00A55DA7 /* contacts.png */; };
+		490EFD0D1716B5AE00A55DA7 /* dialer.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCDF1716B5AE00A55DA7 /* dialer.png */; };
+		490EFD0E1716B5AE00A55DA7 /* hold.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE01716B5AE00A55DA7 /* hold.png */; };
+		490EFD0F1716B5AE00A55DA7 /* mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE11716B5AE00A55DA7 /* mute.png */; };
+		490EFD101716B5AE00A55DA7 /* sixsqbutton_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE21716B5AE00A55DA7 /* sixsqbutton_1.png */; };
+		490EFD111716B5AE00A55DA7 /* sixsqbutton_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE31716B5AE00A55DA7 /* sixsqbutton_2.png */; };
+		490EFD121716B5AE00A55DA7 /* sixsqbutton_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE41716B5AE00A55DA7 /* sixsqbutton_3.png */; };
+		490EFD131716B5AE00A55DA7 /* sixsqbutton_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE51716B5AE00A55DA7 /* sixsqbutton_4.png */; };
+		490EFD141716B5AE00A55DA7 /* sixsqbutton_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE61716B5AE00A55DA7 /* sixsqbutton_5.png */; };
+		490EFD151716B5AE00A55DA7 /* sixsqbutton_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE71716B5AE00A55DA7 /* sixsqbutton_6.png */; };
+		490EFD161716B5AE00A55DA7 /* sixsqbuttonsel_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE81716B5AE00A55DA7 /* sixsqbuttonsel_1.png */; };
+		490EFD171716B5AE00A55DA7 /* sixsqbuttonsel_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCE91716B5AE00A55DA7 /* sixsqbuttonsel_2.png */; };
+		490EFD181716B5AE00A55DA7 /* sixsqbuttonsel_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEA1716B5AE00A55DA7 /* sixsqbuttonsel_3.png */; };
+		490EFD191716B5AE00A55DA7 /* sixsqbuttonsel_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEB1716B5AE00A55DA7 /* sixsqbuttonsel_4.png */; };
+		490EFD1A1716B5AE00A55DA7 /* sixsqbuttonsel_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEC1716B5AE00A55DA7 /* sixsqbuttonsel_5.png */; };
+		490EFD1B1716B5AE00A55DA7 /* sixsqbuttonsel_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */; };
+		490EFD1C1716B5AE00A55DA7 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEE1716B5AE00A55DA7 /* speaker.png */; };
+		490EFD1D1716B5AE00A55DA7 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEF1716B5AE00A55DA7 /* Thumbs.db */; };
+		490EFD1E1716B5AE00A55DA7 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCF01716B5AE00A55DA7 /* message.png */; };
+		490EFD26171A213000A55DA7 /* DummyVOIPClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFD25171A212F00A55DA7 /* DummyVOIPClass.m */; };
 		4917770416CC9FAA009651B2 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770216CC9FA4009651B2 /* 01-refresh.png */; };
 		4917770516CC9FAA009651B2 /* 01-refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770316CC9FA7009651B2 /* 01-refresh@2x.png */; };
 		4917771316D039D5009651B2 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917770C16D039D5009651B2 /* DCRoundSwitch.m */; };
@@ -826,8 +894,6 @@
 		490EFC6517151B9400A55DA7 /* DialerPhonePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialerPhonePad.m; sourceTree = "<group>"; };
 		490EFC6717151C0800A55DA7 /* AbsLCDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsLCDView.h; sourceTree = "<group>"; };
 		490EFC6817151C0800A55DA7 /* AbsLCDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsLCDView.m; sourceTree = "<group>"; };
-		490EFC6A17151C2200A55DA7 /* SiphonApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiphonApplication.h; sourceTree = "<group>"; };
-		490EFC6B17151C2200A55DA7 /* SiphonApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiphonApplication.m; sourceTree = "<group>"; };
 		490EFC6E17151C6800A55DA7 /* call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = call.h; sourceTree = "<group>"; };
 		490EFC6F17151C6800A55DA7 /* call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = call.m; sourceTree = "<group>"; };
 		490EFC7017151C6800A55DA7 /* dtmf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtmf.h; sourceTree = "<group>"; };
@@ -853,6 +919,76 @@
 		490EFC8F1716902400A55DA7 /* MenuCallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCallView.m; sourceTree = "<group>"; };
 		490EFC911716904400A55DA7 /* PushButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushButton.h; sourceTree = "<group>"; };
 		490EFC921716904600A55DA7 /* PushButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushButton.m; sourceTree = "<group>"; };
+		490EFC951716B56300A55DA7 /* bigben.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bigben.caf; sourceTree = "<group>"; };
+		490EFC961716B56300A55DA7 /* diamond.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = diamond.caf; sourceTree = "<group>"; };
+		490EFC971716B56300A55DA7 /* dingdong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdong.caf; sourceTree = "<group>"; };
+		490EFC981716B56300A55DA7 /* doorbell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = doorbell.caf; sourceTree = "<group>"; };
+		490EFC991716B56300A55DA7 /* dtmf-#.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-#.aif"; sourceTree = "<group>"; };
+		490EFC9A1716B56300A55DA7 /* dtmf-0.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-0.aif"; sourceTree = "<group>"; };
+		490EFC9B1716B56300A55DA7 /* dtmf-1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-1.aif"; sourceTree = "<group>"; };
+		490EFC9C1716B56300A55DA7 /* dtmf-2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-2.aif"; sourceTree = "<group>"; };
+		490EFC9D1716B56300A55DA7 /* dtmf-3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-3.aif"; sourceTree = "<group>"; };
+		490EFC9E1716B56300A55DA7 /* dtmf-4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-4.aif"; sourceTree = "<group>"; };
+		490EFC9F1716B56300A55DA7 /* dtmf-5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-5.aif"; sourceTree = "<group>"; };
+		490EFCA01716B56300A55DA7 /* dtmf-6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-6.aif"; sourceTree = "<group>"; };
+		490EFCA11716B56300A55DA7 /* dtmf-7.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-7.aif"; sourceTree = "<group>"; };
+		490EFCA21716B56300A55DA7 /* dtmf-8.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-8.aif"; sourceTree = "<group>"; };
+		490EFCA31716B56300A55DA7 /* dtmf-9.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-9.aif"; sourceTree = "<group>"; };
+		490EFCA41716B56300A55DA7 /* dtmf-s.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dtmf-s.aif"; sourceTree = "<group>"; };
+		490EFCA51716B56300A55DA7 /* echobel2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = echobel2.caf; sourceTree = "<group>"; };
+		490EFCA61716B56300A55DA7 /* farSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = farSound.caf; sourceTree = "<group>"; };
+		490EFCA71716B56300A55DA7 /* gling.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gling.caf; sourceTree = "<group>"; };
+		490EFCA81716B56300A55DA7 /* niceding.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niceding.caf; sourceTree = "<group>"; };
+		490EFCA91716B56300A55DA7 /* notify.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notify.caf; sourceTree = "<group>"; };
+		490EFCAA1716B56300A55DA7 /* phone.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = phone.caf; sourceTree = "<group>"; };
+		490EFCC21716B5AE00A55DA7 /* Accounts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Accounts.png; sourceTree = "<group>"; };
+		490EFCC31716B5AE00A55DA7 /* addcontact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addcontact.png; sourceTree = "<group>"; };
+		490EFCC41716B5AE00A55DA7 /* addcontact_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addcontact_pressed.png; sourceTree = "<group>"; };
+		490EFCC51716B5AE00A55DA7 /* answer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = answer.png; sourceTree = "<group>"; };
+		490EFCC61716B5AE00A55DA7 /* bottombarblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombarblue.png; sourceTree = "<group>"; };
+		490EFCC71716B5AE00A55DA7 /* bottombarblue_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombarblue_pressed.png; sourceTree = "<group>"; };
+		490EFCC81716B5AE00A55DA7 /* bottombargreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombargreen.png; sourceTree = "<group>"; };
+		490EFCC91716B5AE00A55DA7 /* bottombargreen_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombargreen_pressed.png; sourceTree = "<group>"; };
+		490EFCCA1716B5AE00A55DA7 /* bottombarred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombarred.png; sourceTree = "<group>"; };
+		490EFCCB1716B5AE00A55DA7 /* bottombarred_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombarred_pressed.png; sourceTree = "<group>"; };
+		490EFCCC1716B5AE00A55DA7 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
+		490EFCCD1716B5AE00A55DA7 /* callblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callblue.png; sourceTree = "<group>"; };
+		490EFCCE1716B5AE00A55DA7 /* decline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decline.png; sourceTree = "<group>"; };
+		490EFCCF1716B5AE00A55DA7 /* default-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-iphone.png"; sourceTree = "<group>"; };
+		490EFCD01716B5AE00A55DA7 /* default-ipod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-ipod.png"; sourceTree = "<group>"; };
+		490EFCD11716B5AE00A55DA7 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		490EFCD21716B5AE00A55DA7 /* delete_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_pressed.png; sourceTree = "<group>"; };
+		490EFCD31716B5AE00A55DA7 /* Dial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dial.png; sourceTree = "<group>"; };
+		490EFCD41716B5AE00A55DA7 /* dialerkeypad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialerkeypad.png; sourceTree = "<group>"; };
+		490EFCD51716B5AE00A55DA7 /* dialerkeypad_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialerkeypad_pressed.png; sourceTree = "<group>"; };
+		490EFCD61716B5AE00A55DA7 /* keypad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keypad.png; sourceTree = "<group>"; };
+		490EFCD71716B5AE00A55DA7 /* keypad_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keypad_pressed.png; sourceTree = "<group>"; };
+		490EFCD81716B5AE00A55DA7 /* lcd_call_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcd_call_bottom.png; sourceTree = "<group>"; };
+		490EFCD91716B5AE00A55DA7 /* lcd_call_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcd_call_top.png; sourceTree = "<group>"; };
+		490EFCDA1716B5AE00A55DA7 /* lcd_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcd_top.png; sourceTree = "<group>"; };
+		490EFCDB1716B5AE00A55DA7 /* lcd_top_simple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcd_top_simple.png; sourceTree = "<group>"; };
+		490EFCDD1716B5AE00A55DA7 /* addcall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addcall.png; sourceTree = "<group>"; };
+		490EFCDE1716B5AE00A55DA7 /* contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts.png; sourceTree = "<group>"; };
+		490EFCDF1716B5AE00A55DA7 /* dialer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialer.png; sourceTree = "<group>"; };
+		490EFCE01716B5AE00A55DA7 /* hold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hold.png; sourceTree = "<group>"; };
+		490EFCE11716B5AE00A55DA7 /* mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute.png; sourceTree = "<group>"; };
+		490EFCE21716B5AE00A55DA7 /* sixsqbutton_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbutton_1.png; sourceTree = "<group>"; };
+		490EFCE31716B5AE00A55DA7 /* sixsqbutton_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbutton_2.png; sourceTree = "<group>"; };
+		490EFCE41716B5AE00A55DA7 /* sixsqbutton_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbutton_3.png; sourceTree = "<group>"; };
+		490EFCE51716B5AE00A55DA7 /* sixsqbutton_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbutton_4.png; sourceTree = "<group>"; };
+		490EFCE61716B5AE00A55DA7 /* sixsqbutton_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbutton_5.png; sourceTree = "<group>"; };
+		490EFCE71716B5AE00A55DA7 /* sixsqbutton_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbutton_6.png; sourceTree = "<group>"; };
+		490EFCE81716B5AE00A55DA7 /* sixsqbuttonsel_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_1.png; sourceTree = "<group>"; };
+		490EFCE91716B5AE00A55DA7 /* sixsqbuttonsel_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_2.png; sourceTree = "<group>"; };
+		490EFCEA1716B5AE00A55DA7 /* sixsqbuttonsel_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_3.png; sourceTree = "<group>"; };
+		490EFCEB1716B5AE00A55DA7 /* sixsqbuttonsel_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_4.png; sourceTree = "<group>"; };
+		490EFCEC1716B5AE00A55DA7 /* sixsqbuttonsel_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_5.png; sourceTree = "<group>"; };
+		490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_6.png; sourceTree = "<group>"; };
+		490EFCEE1716B5AE00A55DA7 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
+		490EFCEF1716B5AE00A55DA7 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
+		490EFCF01716B5AE00A55DA7 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		490EFD24171A212E00A55DA7 /* DummyVOIPClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyVOIPClass.h; sourceTree = "<group>"; };
+		490EFD25171A212F00A55DA7 /* DummyVOIPClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyVOIPClass.m; sourceTree = "<group>"; };
 		4917770216CC9FA4009651B2 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		4917770316CC9FA7009651B2 /* 01-refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh@2x.png"; sourceTree = "<group>"; };
 		4917770B16D039D5009651B2 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
@@ -1720,8 +1856,6 @@
 				490EFC7817151D4900A55DA7 /* CallViewController.m */,
 				490EFC8A17151F2F00A55DA7 /* DualButtonView.h */,
 				490EFC8B17151F3000A55DA7 /* DualButtonView.m */,
-				490EFC6A17151C2200A55DA7 /* SiphonApplication.h */,
-				490EFC6B17151C2200A55DA7 /* SiphonApplication.m */,
 				490EFC6717151C0800A55DA7 /* AbsLCDView.h */,
 				490EFC6817151C0800A55DA7 /* AbsLCDView.m */,
 				490EFC6417151B9300A55DA7 /* DialerPhonePad.h */,
@@ -1750,6 +1884,97 @@
 				490EFC7317151C6800A55DA7 /* ring.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		490EFC941716B56300A55DA7 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				490EFC951716B56300A55DA7 /* bigben.caf */,
+				490EFC961716B56300A55DA7 /* diamond.caf */,
+				490EFC971716B56300A55DA7 /* dingdong.caf */,
+				490EFC981716B56300A55DA7 /* doorbell.caf */,
+				490EFC991716B56300A55DA7 /* dtmf-#.aif */,
+				490EFC9A1716B56300A55DA7 /* dtmf-0.aif */,
+				490EFC9B1716B56300A55DA7 /* dtmf-1.aif */,
+				490EFC9C1716B56300A55DA7 /* dtmf-2.aif */,
+				490EFC9D1716B56300A55DA7 /* dtmf-3.aif */,
+				490EFC9E1716B56300A55DA7 /* dtmf-4.aif */,
+				490EFC9F1716B56300A55DA7 /* dtmf-5.aif */,
+				490EFCA01716B56300A55DA7 /* dtmf-6.aif */,
+				490EFCA11716B56300A55DA7 /* dtmf-7.aif */,
+				490EFCA21716B56300A55DA7 /* dtmf-8.aif */,
+				490EFCA31716B56300A55DA7 /* dtmf-9.aif */,
+				490EFCA41716B56300A55DA7 /* dtmf-s.aif */,
+				490EFCA51716B56300A55DA7 /* echobel2.caf */,
+				490EFCA61716B56300A55DA7 /* farSound.caf */,
+				490EFCA71716B56300A55DA7 /* gling.caf */,
+				490EFCA81716B56300A55DA7 /* niceding.caf */,
+				490EFCA91716B56300A55DA7 /* notify.caf */,
+				490EFCAA1716B56300A55DA7 /* phone.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		490EFCC11716B5AE00A55DA7 /* VOIP */ = {
+			isa = PBXGroup;
+			children = (
+				490EFCC21716B5AE00A55DA7 /* Accounts.png */,
+				490EFCC31716B5AE00A55DA7 /* addcontact.png */,
+				490EFCC41716B5AE00A55DA7 /* addcontact_pressed.png */,
+				490EFCC51716B5AE00A55DA7 /* answer.png */,
+				490EFCC61716B5AE00A55DA7 /* bottombarblue.png */,
+				490EFCC71716B5AE00A55DA7 /* bottombarblue_pressed.png */,
+				490EFCC81716B5AE00A55DA7 /* bottombargreen.png */,
+				490EFCC91716B5AE00A55DA7 /* bottombargreen_pressed.png */,
+				490EFCCA1716B5AE00A55DA7 /* bottombarred.png */,
+				490EFCCB1716B5AE00A55DA7 /* bottombarred_pressed.png */,
+				490EFCCC1716B5AE00A55DA7 /* call.png */,
+				490EFCCD1716B5AE00A55DA7 /* callblue.png */,
+				490EFCCE1716B5AE00A55DA7 /* decline.png */,
+				490EFCCF1716B5AE00A55DA7 /* default-iphone.png */,
+				490EFCD01716B5AE00A55DA7 /* default-ipod.png */,
+				490EFCD11716B5AE00A55DA7 /* delete.png */,
+				490EFCD21716B5AE00A55DA7 /* delete_pressed.png */,
+				490EFCD31716B5AE00A55DA7 /* Dial.png */,
+				490EFCD41716B5AE00A55DA7 /* dialerkeypad.png */,
+				490EFCD51716B5AE00A55DA7 /* dialerkeypad_pressed.png */,
+				490EFCD61716B5AE00A55DA7 /* keypad.png */,
+				490EFCD71716B5AE00A55DA7 /* keypad_pressed.png */,
+				490EFCD81716B5AE00A55DA7 /* lcd_call_bottom.png */,
+				490EFCD91716B5AE00A55DA7 /* lcd_call_top.png */,
+				490EFCDA1716B5AE00A55DA7 /* lcd_top.png */,
+				490EFCDB1716B5AE00A55DA7 /* lcd_top_simple.png */,
+				490EFCDC1716B5AE00A55DA7 /* Menu */,
+				490EFCF01716B5AE00A55DA7 /* message.png */,
+			);
+			name = VOIP;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		490EFCDC1716B5AE00A55DA7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				490EFCDD1716B5AE00A55DA7 /* addcall.png */,
+				490EFCDE1716B5AE00A55DA7 /* contacts.png */,
+				490EFCDF1716B5AE00A55DA7 /* dialer.png */,
+				490EFCE01716B5AE00A55DA7 /* hold.png */,
+				490EFCE11716B5AE00A55DA7 /* mute.png */,
+				490EFCE21716B5AE00A55DA7 /* sixsqbutton_1.png */,
+				490EFCE31716B5AE00A55DA7 /* sixsqbutton_2.png */,
+				490EFCE41716B5AE00A55DA7 /* sixsqbutton_3.png */,
+				490EFCE51716B5AE00A55DA7 /* sixsqbutton_4.png */,
+				490EFCE61716B5AE00A55DA7 /* sixsqbutton_5.png */,
+				490EFCE71716B5AE00A55DA7 /* sixsqbutton_6.png */,
+				490EFCE81716B5AE00A55DA7 /* sixsqbuttonsel_1.png */,
+				490EFCE91716B5AE00A55DA7 /* sixsqbuttonsel_2.png */,
+				490EFCEA1716B5AE00A55DA7 /* sixsqbuttonsel_3.png */,
+				490EFCEB1716B5AE00A55DA7 /* sixsqbuttonsel_4.png */,
+				490EFCEC1716B5AE00A55DA7 /* sixsqbuttonsel_5.png */,
+				490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */,
+				490EFCEE1716B5AE00A55DA7 /* speaker.png */,
+				490EFCEF1716B5AE00A55DA7 /* Thumbs.db */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		4917770A16D039D4009651B2 /* DCRoundSwitch */ = {
@@ -2036,6 +2261,8 @@
 		49B416161615882C001C2433 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				490EFCC11716B5AE00A55DA7 /* VOIP */,
+				490EFC941716B56300A55DA7 /* Sounds */,
 				49B4165B161634EB001C2433 /* Icons */,
 				49B4165A161634E1001C2433 /* Libraries */,
 			);
@@ -2265,6 +2492,8 @@
 				49E3F006170A13CA0027504A /* VOIPCallViewController.h */,
 				49E3F007170A13CB0027504A /* VOIPCallViewController.m */,
 				49E3F008170A13CB0027504A /* VOIPCallViewController.xib */,
+				490EFD24171A212E00A55DA7 /* DummyVOIPClass.h */,
+				490EFD25171A212F00A55DA7 /* DummyVOIPClass.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2595,6 +2824,74 @@
 				490EF9231713C56800A55DA7 /* pjturn-client-arm-apple-darwin9 in Resources */,
 				490EF9241713C56800A55DA7 /* pjturn-srv-arm-apple-darwin9 in Resources */,
 				490EF9D71713C56800A55DA7 /* sip_autoconf.h.in in Resources */,
+				490EFCAB1716B56300A55DA7 /* bigben.caf in Resources */,
+				490EFCAC1716B56300A55DA7 /* diamond.caf in Resources */,
+				490EFCAD1716B56300A55DA7 /* dingdong.caf in Resources */,
+				490EFCAE1716B56300A55DA7 /* doorbell.caf in Resources */,
+				490EFCAF1716B56300A55DA7 /* dtmf-#.aif in Resources */,
+				490EFCB01716B56300A55DA7 /* dtmf-0.aif in Resources */,
+				490EFCB11716B56300A55DA7 /* dtmf-1.aif in Resources */,
+				490EFCB21716B56300A55DA7 /* dtmf-2.aif in Resources */,
+				490EFCB31716B56300A55DA7 /* dtmf-3.aif in Resources */,
+				490EFCB41716B56300A55DA7 /* dtmf-4.aif in Resources */,
+				490EFCB51716B56300A55DA7 /* dtmf-5.aif in Resources */,
+				490EFCB61716B56300A55DA7 /* dtmf-6.aif in Resources */,
+				490EFCB71716B56300A55DA7 /* dtmf-7.aif in Resources */,
+				490EFCB81716B56300A55DA7 /* dtmf-8.aif in Resources */,
+				490EFCB91716B56300A55DA7 /* dtmf-9.aif in Resources */,
+				490EFCBA1716B56300A55DA7 /* dtmf-s.aif in Resources */,
+				490EFCBB1716B56300A55DA7 /* echobel2.caf in Resources */,
+				490EFCBC1716B56300A55DA7 /* farSound.caf in Resources */,
+				490EFCBD1716B56300A55DA7 /* gling.caf in Resources */,
+				490EFCBE1716B56300A55DA7 /* niceding.caf in Resources */,
+				490EFCBF1716B56300A55DA7 /* notify.caf in Resources */,
+				490EFCC01716B56300A55DA7 /* phone.caf in Resources */,
+				490EFCF11716B5AE00A55DA7 /* Accounts.png in Resources */,
+				490EFCF21716B5AE00A55DA7 /* addcontact.png in Resources */,
+				490EFCF31716B5AE00A55DA7 /* addcontact_pressed.png in Resources */,
+				490EFCF41716B5AE00A55DA7 /* answer.png in Resources */,
+				490EFCF51716B5AE00A55DA7 /* bottombarblue.png in Resources */,
+				490EFCF61716B5AE00A55DA7 /* bottombarblue_pressed.png in Resources */,
+				490EFCF71716B5AE00A55DA7 /* bottombargreen.png in Resources */,
+				490EFCF81716B5AE00A55DA7 /* bottombargreen_pressed.png in Resources */,
+				490EFCF91716B5AE00A55DA7 /* bottombarred.png in Resources */,
+				490EFCFA1716B5AE00A55DA7 /* bottombarred_pressed.png in Resources */,
+				490EFCFB1716B5AE00A55DA7 /* call.png in Resources */,
+				490EFCFC1716B5AE00A55DA7 /* callblue.png in Resources */,
+				490EFCFD1716B5AE00A55DA7 /* decline.png in Resources */,
+				490EFCFE1716B5AE00A55DA7 /* default-iphone.png in Resources */,
+				490EFCFF1716B5AE00A55DA7 /* default-ipod.png in Resources */,
+				490EFD001716B5AE00A55DA7 /* delete.png in Resources */,
+				490EFD011716B5AE00A55DA7 /* delete_pressed.png in Resources */,
+				490EFD021716B5AE00A55DA7 /* Dial.png in Resources */,
+				490EFD031716B5AE00A55DA7 /* dialerkeypad.png in Resources */,
+				490EFD041716B5AE00A55DA7 /* dialerkeypad_pressed.png in Resources */,
+				490EFD051716B5AE00A55DA7 /* keypad.png in Resources */,
+				490EFD061716B5AE00A55DA7 /* keypad_pressed.png in Resources */,
+				490EFD071716B5AE00A55DA7 /* lcd_call_bottom.png in Resources */,
+				490EFD081716B5AE00A55DA7 /* lcd_call_top.png in Resources */,
+				490EFD091716B5AE00A55DA7 /* lcd_top.png in Resources */,
+				490EFD0A1716B5AE00A55DA7 /* lcd_top_simple.png in Resources */,
+				490EFD0B1716B5AE00A55DA7 /* addcall.png in Resources */,
+				490EFD0C1716B5AE00A55DA7 /* contacts.png in Resources */,
+				490EFD0D1716B5AE00A55DA7 /* dialer.png in Resources */,
+				490EFD0E1716B5AE00A55DA7 /* hold.png in Resources */,
+				490EFD0F1716B5AE00A55DA7 /* mute.png in Resources */,
+				490EFD101716B5AE00A55DA7 /* sixsqbutton_1.png in Resources */,
+				490EFD111716B5AE00A55DA7 /* sixsqbutton_2.png in Resources */,
+				490EFD121716B5AE00A55DA7 /* sixsqbutton_3.png in Resources */,
+				490EFD131716B5AE00A55DA7 /* sixsqbutton_4.png in Resources */,
+				490EFD141716B5AE00A55DA7 /* sixsqbutton_5.png in Resources */,
+				490EFD151716B5AE00A55DA7 /* sixsqbutton_6.png in Resources */,
+				490EFD161716B5AE00A55DA7 /* sixsqbuttonsel_1.png in Resources */,
+				490EFD171716B5AE00A55DA7 /* sixsqbuttonsel_2.png in Resources */,
+				490EFD181716B5AE00A55DA7 /* sixsqbuttonsel_3.png in Resources */,
+				490EFD191716B5AE00A55DA7 /* sixsqbuttonsel_4.png in Resources */,
+				490EFD1A1716B5AE00A55DA7 /* sixsqbuttonsel_5.png in Resources */,
+				490EFD1B1716B5AE00A55DA7 /* sixsqbuttonsel_6.png in Resources */,
+				490EFD1C1716B5AE00A55DA7 /* speaker.png in Resources */,
+				490EFD1D1716B5AE00A55DA7 /* Thumbs.db in Resources */,
+				490EFD1E1716B5AE00A55DA7 /* message.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2690,7 +2987,6 @@
 				490EFC6217151B2A00A55DA7 /* PhoneViewController.m in Sources */,
 				490EFC6617151B9400A55DA7 /* DialerPhonePad.m in Sources */,
 				490EFC6917151C0900A55DA7 /* AbsLCDView.m in Sources */,
-				490EFC6C17151C2300A55DA7 /* SiphonApplication.m in Sources */,
 				490EFC7417151C6800A55DA7 /* call.m in Sources */,
 				490EFC7517151C6800A55DA7 /* dtmf.m in Sources */,
 				490EFC7617151C6800A55DA7 /* ring.m in Sources */,
@@ -2703,6 +2999,7 @@
 				490EFC8C17151F3100A55DA7 /* DualButtonView.m in Sources */,
 				490EFC901716902600A55DA7 /* MenuCallView.m in Sources */,
 				490EFC931716904800A55DA7 /* PushButton.m in Sources */,
+				490EFD26171A213000A55DA7 /* DummyVOIPClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2766,10 +3063,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "RING_FILE=1";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -2793,6 +3087,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RING_FILE=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2814,12 +3109,15 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/interdigApp/SSToolkit/Tests\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "interdigApp/interdigApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"RING_FILE=1",
+					"CYDIA=0",
+					"PJ_AUTOCONF=1",
+					"LOCAL_ACCOUNT=0",
+				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					SSToolkit,
@@ -2861,12 +3159,15 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/interdigApp/SSToolkit/Tests\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "interdigApp/interdigApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"RING_FILE=1",
+					"CYDIA=0",
+					"PJ_AUTOCONF=1",
+					"LOCAL_ACCOUNT=0",
+				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					SSToolkit,
