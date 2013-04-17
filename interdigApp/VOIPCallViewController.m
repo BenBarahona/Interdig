@@ -8,6 +8,7 @@
 
 #import "VOIPCallViewController.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 #define THIS_FILE "APP"
 
 #define SIP_DOMAIN "8.6.240.214"
@@ -30,7 +31,7 @@
 #define RING_INTERVAL	3000
 
 @implementation VOIPCallViewController
-@synthesize _app_config;
+@synthesize _app_config, domain, username, destinationNumber, password;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,8 +51,10 @@
                                                  name:@"CallState" object:nil];
     
     callViewController = [[CallViewController alloc] initWithNibName:nil bundle:nil];
-    [self presentViewController:callViewController animated:NO completion:nil];
-    
+    [callViewController.view setFrame:CGRectMake(0, 0, 320, 460)];
+    [callViewController.view setBounds:CGRectMake(0, 0, 320, 460)];
+    [callViewController.view setClipsToBounds:YES];
+    callViewController.delegate = self;
     [self makeCall:self._app_config];
 }
 
@@ -61,10 +64,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (void)processCallState:(NSNotification *)notification
 {
-    /*
+    NSLog(@"NOTIFICATION INFO:%@", [notification userInfo]);
+    
+    [callViewController processCall: [ notification userInfo ]];
+    
     int state = [[[ notification userInfo ] objectForKey: @"State"] intValue];
     
     switch(state)
@@ -74,8 +79,11 @@
         case PJSIP_INV_STATE_INCOMING: // After INVITE is received.
             if (pjsua_call_get_count() == 1)
             {
+                //[self presentViewController:callViewController animated:YES completion:nil];
                 [self.view addSubview:callViewController.view];
-                [callViewController retain];
+                NSLog(@"CALLVIEW FRAME: %@", NSStringFromCGRect(callViewController.view.frame));
+                
+                //[callViewController retain];
             }
             
         case PJSIP_INV_STATE_EARLY: // After response with To tag.
@@ -84,17 +92,21 @@
         case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
-            if (pjsua_call_get_count() <= 1)
-                [self performSelector:@selector(disconnected:)
-                           withObject:nil afterDelay:1.0];
+            //[self performSelector:@selector(disconnected) withObject:nil afterDelay:1.5];
+            //[callViewController dismissViewControllerAnimated:YES completion:NO];
             break;
     }
-            */
-    NSLog(@"NOTIFICATION INFO:%@", [notification userInfo]);
-    
-    [callViewController processCall: [ notification userInfo ]];
 }
 
+-(void)callDisconnected
+{
+    NSLog(@"DISMISS");
+    //[[callViewController view] removeFromSuperview];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self.navigationController popToRootViewControllerAnimated:YES];
+    
+    pjsua_destroy();
+}
 
 /* Display error and exit application */
 static void error_exit(const char *title, pj_status_t status)
@@ -219,27 +231,6 @@ static void error_exit(const char *title, pj_status_t status)
     if (status != PJ_SUCCESS)
         error_exit("Error making call", status);
     
-    /*
-     // Wait until user press "q" to quit.
-     for (;;) {
-     char option[10];
-     
-     puts("Press 'h' to hangup all calls, 'q' to quit");
-     if (fgets(option, sizeof(option), stdin) == NULL) {
-     puts("EOF while reading stdin, will quit now..");
-     break;
-     }
-     
-     if (option[0] == 'q')
-     break;
-     
-     if (option[0] == 'h')
-     pjsua_call_hangup_all();
-     }*/
-    
-    /* Destroy pjsua */
-    //pjsua_destroy();
-    
     self._app_config = this_config;
 }
 
@@ -319,7 +310,7 @@ static void ring_stop(app_config_struct *app_config)
 {
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     VOIPCallViewController *thisVC = app.voipVC;
-    
+    NSLog(@"DELEGATE VOIP: %@", thisVC);
     if (app_config->ringback_on)
     {
         app_config->ringback_on = PJ_FALSE;

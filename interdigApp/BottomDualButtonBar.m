@@ -34,18 +34,16 @@
   self = [super initForIncomingCallWaiting];
   if (self)
   {
-    //[[super button] setTitle:NSLocalizedString(@"Decline", @"PhoneView")
-    //                forState:UIControlStateNormal];
-    [super setSmallTitle:NSLocalizedString(@"Decline", @"PhoneView")];
-    [super setBigTitle:NSLocalizedString(@"Decline", @"PhoneView")];
-    [[super button] setTitle:NSLocalizedString(@"Decline", @"PhoneView") 
+    [super setSmallTitle:@"Decline"];
+    [super setBigTitle:@"Decline"];
+    [[super button] setTitle:@"Decline"
                     forState:UIControlStateNormal];
 
     UIImage *buttonBackground = [UIImage imageNamed:@"bottombargreen.png"];
     UIImage *buttonBackgroundPressed = [UIImage imageNamed:@"bottombargreen_pressed.png"];
     UIImage *image = [UIImage imageNamed:@"answer.png"];
 
-    UIButton * answer = [BottomButtonBar createButtonWithTitle: NSLocalizedString(@"Answer", @"PhoneView")
+    UIButton * answer = [BottomButtonBar createButtonWithTitle: @"Answer"
                                                          image: image
                                                          frame: CGRectZero
                                                     background: buttonBackground

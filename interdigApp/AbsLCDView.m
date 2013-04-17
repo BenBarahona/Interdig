@@ -98,7 +98,7 @@
 - (void)displayState:(NSString *)state animated:(BOOL)animated
 {
   _scrollView.contentOffset = CGPointZero;
-  _rightLabel.text = NSLocalizedString(state, @"Phone View");
+  _rightLabel.text = state;
   CGSize size = [_rightLabel.text sizeWithFont:_rightLabel.font];
   if (size.width > kStateLabelWidth)
   {

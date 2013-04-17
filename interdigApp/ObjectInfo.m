@@ -9,7 +9,7 @@
 #import "ObjectInfo.h"
 
 @implementation ObjectInfo
-@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security;
+@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security, sipPswd, sipServer, sipUser;
 
 -(id)initWithDictionary:(NSDictionary *)dataObject
 {
@@ -38,8 +38,9 @@
         self.dataInput = [dataObject objectForKey:@"datainput"];
         self.inpid = [[dataObject objectForKey:@"inpid"] integerValue];
         self.security = [[dataObject objectForKey:@"seg"] isEqualToString:@"1"] ? YES : NO;
-        //NSLog(@"CHAT ON: %@", [dataObject objectForKey:@"chaton"]);
-        //NSLog(@"BOOL CHAT ON: %d", [[dataObject objectForKey:@"chaton"] boolValue]);
+        self.sipServer = [dataObject objectForKey:@"sipserver"];
+        self.sipUser = [dataObject objectForKey:@"username"];
+        self.sipPswd = [dataObject objectForKey:@"password"];
     }
     
     return self;

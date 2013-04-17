@@ -13,6 +13,8 @@
 #import "WebViewController.h"
 #import "MapViewController.h"
 #import "ChatViewController.h"
+#import "VOIPCallViewController.h"
+#import "AppDelegate.h"
 
 @implementation DetailViewController
 @synthesize thisObjectInfo, objManager, dataBase, delegate;
@@ -116,6 +118,7 @@
 
 -(IBAction)llamarContacto_Click:(id)sender
 {
+    /*
     if(![self.thisObjectInfo.ext isEqualToString:@""])
     {
         NSString *number = [NSString stringWithFormat:@"tel:%@", self.thisObjectInfo.ext];
@@ -124,6 +127,20 @@
         else
             [Util showAlertWithTitle:@"Interdig" andMessage:@"Esta operacion no puede ser realizada en su dispositivo"];
     }
+     */
+    
+    VOIPCallViewController *voip = [[VOIPCallViewController alloc] init];
+    voip.domain = self.thisObjectInfo.sipServer;
+    voip.username = self.thisObjectInfo.sipUser;
+    voip.destinationNumber = self.thisObjectInfo.ext;
+    voip.password = self.thisObjectInfo.sipPswd;
+    
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.voipVC = voip;
+    
+    [self presentViewController:voip animated:YES completion:nil];
+    //[self.navigationController pushViewController:voip animated:YES];
+    
 }
 
 -(IBAction)enviarSMS_Click:(id)sender
@@ -146,19 +163,6 @@
     map.imageURL = self.thisObjectInfo.photoURL;
     [self.navigationController pushViewController:map animated:YES];
     [map release];
-    /*
-    if(![self.thisObjectInfo.mapa isEqualToString:@""])
-    {
-        NSString *urlString = self.thisObjectInfo.mapa;
-        urlString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-        NSLog(@"%@", urlString);
-        NSURL *url = [NSURL URLWithString:urlString];
-        if([[UIApplication sharedApplication] canOpenURL:url])
-            [[UIApplication sharedApplication] openURL:url];
-        else
-            [Util showAlertWithTitle:@"Error" andMessage:@"Maps App not found"];
-    }
-     */
 }
 
 -(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -227,18 +231,6 @@
 
 -(IBAction)showMasInfo:(id)sender
 {
-    /*
-    NSString *firstTitle = [[self.thisObjectInfo.masInfo objectAtIndex:0] objectForKey:@"title"];
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Mas Info" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-    for(int i = 0 ; i < [self.thisObjectInfo.masInfo count] ; i++)
-    {
-        NSDictionary *item = [self.thisObjectInfo.masInfo objectAtIndex:i];
-        [sheet addButtonWithTitle:[item objectForKey:@"title"]];
-    }
-    
-    [sheet showInView:self.view];
-    [sheet release];
-     */
     MasInfoViewController *masInfoVC = [[MasInfoViewController alloc] initWithStyle:UITableViewStyleGrouped];
     masInfoVC.delegate = self;
     masInfoVC.contentType = @"Mas Info";
@@ -315,13 +307,6 @@
 
 -(IBAction)chatBtnClick:(id)sender
 {
-    /*
-    alertType = CHAT;
-    UIAlertPrompt *alert = [[UIAlertPrompt alloc] initWithTitle:@"Escriba su nombre" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Continuar"];
-    [alert show];
-    [alert release];
-    */
-    
     ChatViewController *chat = [[ChatViewController alloc] init];
     chat.userName = @"";
     chat.dataBase = self.dataBase;

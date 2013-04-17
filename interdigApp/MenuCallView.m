@@ -120,14 +120,31 @@
   }
   if (title)
   {
-#ifdef __IPHONE_3_0
-    _buttons[pos].titleLabel.font = [UIFont systemFontOfSize:[UIFont buttonFontSize] - 5.];
-#else
-    [_buttons[pos] setFont:[UIFont systemFontOfSize:[UIFont buttonFontSize] - 5.]];
-#endif
+    _buttons[pos].titleLabel.font = [UIFont systemFontOfSize:10];
     [_buttons[pos] setTitle:title forState:UIControlStateNormal];
-    //[_buttons[pos] setTitle:title];
+
   }
+    
+    [self centerButton:(UIButton *)_buttons[pos] Image:[_buttons[pos] imageView] AndTitle:[_buttons[pos] titleLabel] WithSpacing:0.0];
+}
+
+- (void)centerButton:(UIButton *)button Image:(UIImageView *)imageView AndTitle:(UILabel *)titleLabel WithSpacing:(CGFloat)spacing
+{
+    // get the size of the elements here for readability
+    CGSize imageSize = imageView.frame.size;
+    CGSize titleSize = titleLabel.frame.size;
+    //titleSize = [titleLabel.text sizeWithFont:titleLabel.font constrainedToSize:CGSizeMake(self.frame.size.width, MAXFLOAT) lineBreakMode:titleLabel.lineBreakMode];
+    
+    // get the height they will take up as a unit
+    CGFloat totalHeight = (imageSize.height + titleSize.height + spacing);
+    
+    // raise the image and push it right to center it
+    [button setImageEdgeInsets:UIEdgeInsetsMake(- (totalHeight - imageSize.height), 0.0, 0.0, - titleSize.width)];
+    //[button setImageEdgeInsets:UIEdgeInsetsMake(- (totalHeight - imageSize.height), 0.0, 0.0, 0.0)];
+    
+    // lower the text and push it left to center it
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(0.0, - imageSize.width, - (totalHeight - titleSize.height),0.0) ];
+    //[button setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, - (totalHeight - titleSize.height),0.0) ];
 }
 
 @end

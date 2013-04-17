@@ -55,18 +55,17 @@
     [[UINavigationBar appearance] setBackgroundImage:gradientImage44
                                        forBarMetrics:UIBarMetricsDefault];
     
-    UITabBarController *tabController = [[UITabBarController alloc] init];
+    //UITabBarController *tabController = [[UITabBarController alloc] init];
     
     MainMenuViewController *menu = [[MainMenuViewController alloc] init];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:menu];
     nvc.tabBarItem.image = [UIImage imageNamed:@"interdig-57x57"];
     nvc.tabBarItem.title = @"Interdig";
     
-    voipVC = [[VOIPCallViewController alloc] init];
     
-    //_sip_acc_id = PJSUA_INVALID_ID;
-    //isConnected = TRUE;
+    //voipVC = [[VOIPCallViewController alloc] init];
     
+    /*
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     [userDef setObject:SIP_USER forKey:@"username"];
     [userDef setObject:SIP_DOMAIN forKey:@"server"];
@@ -75,40 +74,17 @@
     [userDef setObject:SIP_PASSWD forKey:@"password"];
     [userDef setObject:[NSNumber numberWithInt:60] forKey:@"regTimeout"];
     [userDef synchronize];
-    
-    /*
-    NSString *server = [userDef stringForKey: @"proxyServer"];
-    NSArray *array = [server componentsSeparatedByString:@","];
-    NSEnumerator *enumerator = [array objectEnumerator];
-    while (server = [enumerator nextObject])
-        if ([server length])break;
-    if (!server || [server length] < 1)
-        server = [userDef stringForKey: @"server"];
-    
-    NSRange range = [server rangeOfString:@":"
-                                  options:NSCaseInsensitiveSearch|NSBackwardsSearch];
-    if (range.length > 0)
-    {
-        server = [server substringToIndex:range.location];
-    }
-    
-    callViewController = [[CallViewController alloc] initWithNibName:nil bundle:nil];
-    
-    [callNVC.view addSubview: [self applicationStartWithSettings]];
-    
-    [self performSelector:@selector(sipConnect) withObject:nil afterDelay:0.2];
     */
+    //[tabController setViewControllers:[NSArray arrayWithObjects:nvc, voipVC, nil]];
     
-    [tabController setViewControllers:[NSArray arrayWithObjects:nvc, voipVC, nil]];
-    
-    [self.window setRootViewController:tabController];
-    //[self.window setRootViewController:nvc];
+    //[self.window setRootViewController:tabController];
+    [self.window setRootViewController:nvc];
     
     [menu release];
     //[inputVC release];
     //[inputNVC release];
     [nvc release];
-    [tabController release];
+    //[tabController release];
     
     if(![Util internetConnectionAvailable])
     {
@@ -116,45 +92,6 @@
     }
     
     return YES;
-}
-
-- (UIView *)applicationStartWithoutSettings
-{
-    // TODO: go to settings immediately
-    UIView *mainView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen]
-                                                      applicationFrame]];
-    mainView.backgroundColor = [UIColor whiteColor];
-    
-    UINavigationBar *navBar = [[UINavigationBar alloc] init];
-    [navBar setFrame:CGRectMake(0, 0, 320,45)];
-    navBar.barStyle = UIBarStyleBlackOpaque;
-    [navBar pushNavigationItem: [[UINavigationItem alloc] initWithTitle:@""]
-                      animated: NO];
-    [mainView addSubview:navBar];
-    
-    UIImageView *background = [[UIImageView alloc]
-                               initWithFrame:CGRectMake(0.0f, 45.0f, 320.0f, 185.0f)];
-    [background setImage:[UIImage imageNamed:@"settings.png"]];
-    [mainView addSubview:background];
-    
-    UILabel *text = [[UILabel alloc]
-                     initWithFrame: CGRectMake(0, 220, 320, 200.0f)];
-    text.backgroundColor = [UIColor clearColor];
-    text.textAlignment = UITextAlignmentCenter;
-    text.numberOfLines = 0;
-    text.lineBreakMode = UILineBreakModeWordWrap;
-    text.font = [UIFont systemFontOfSize: 18];
-    text.text = NSLocalizedString(@"Siphon requires a valid\nSIP account.\n\nTo enter this information, select \"Settings\" from your Home screen, and then tap the \"Siphon\" entry.", @"SiphonApp");
-    [mainView addSubview:text];
-    
-    text = [[UILabel alloc] initWithFrame: CGRectMake(0, 420, 320, 40.0f)];
-    text.backgroundColor = [UIColor clearColor];
-    text.textAlignment = UITextAlignmentCenter;
-    text.font = [UIFont systemFontOfSize: 16];
-    text.text = NSLocalizedString(@"Press the Home button", @"SiphonApp");
-    [mainView addSubview:text];
-    
-    return mainView;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

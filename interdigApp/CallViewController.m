@@ -37,7 +37,7 @@
 
 @implementation CallViewController
 
-@synthesize dtmfCmd, voipVC;
+@synthesize dtmfCmd;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -72,7 +72,7 @@
     [menuView setTitle:@"keypad" image:[UIImage imageNamed:@"dialer.png"] forPosition:1];
     [menuView setTitle:@"speaker" image:[UIImage imageNamed:@"speaker.png"] forPosition:2];
 #if HOLD_ON
-    [menuView setTitle:NSLocalizedString(@"hold", @"Call View")
+    [menuView setTitle:@"hold"
                  image:[UIImage imageNamed:@"hold.png"] forPosition:4];
 #endif
     
@@ -92,7 +92,7 @@
                          forControlEvents:UIControlEventTouchUpInside];
     UIImage *buttonBackground = [UIImage imageNamed:@"bottombarblue.png"];
     UIImage *buttonBackgroundPressed = [UIImage imageNamed:@"bottombarblue_pressed.png"];
-    _menuButton = [BottomButtonBar createButtonWithTitle:NSLocalizedString(@"Hide Keypad", @"Call View")
+    _menuButton = [BottomButtonBar createButtonWithTitle:@"Hide Keypad"
                                                    image:nil
                                                    frame:CGRectZero
                                               background:buttonBackground
@@ -204,21 +204,13 @@
 
 - (void)endingCallWithId:(UInt32)call_id
 {
-    //AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    [self.voipVC callDisconnecting];
-    
     dtmfCmd = nil;
     [self setSpeakerPhoneEnabled:NO];
     [self setMute:NO];
     
-    if (_timer)
-    {
-        [_timer invalidate];
-        [_timer release];
-        _timer = nil;
-    }
-    [_lcd setLabel: NSLocalizedString(@"call ended", @"Call view")];
+    [_lcd setLabel:@"call ended"];
+    
+    [_lcd performSelector:@selector(setLabel:) withObject:@"Porfavor espere..." afterDelay:1.0];
     
     if (_current_call == call_id)
         [self findNextCall];
@@ -234,6 +226,13 @@
 #if HOLD_ON
     [[_menuView buttonAtPosition:4] setSelected:NO];
 #endif
+    
+    [self performSelector:@selector(dismissView) withObject:nil afterDelay:1.0];
+}
+
+-(void)dismissView
+{
+    [self.delegate callDisconnected];
 }
 
 - (void)endCallUpInside:(id)fp8
@@ -241,6 +240,11 @@
     pjsua_call_id cid = _current_call;
     [self endingCallWithId:_current_call];
     sip_hangup(&cid);
+}
+
+static void sip_hangup(pjsua_call_id *call_id)
+{
+    pjsua_call_hangup_all();
 }
 
 - (void)timeout:(id)unused
@@ -380,13 +384,14 @@
             [self showKeypad:NO animated:NO];
             [self.view addSubview:_containerView];
             
-            [_lcd setLabel: NSLocalizedString(@"calling...", @"Call view")];
+            [_lcd setLabel:@"calling..."];
             
             if (_current_call == PJSUA_INVALID_ID || _current_call == call_id)
                 _current_call = call_id;
             else
                 _new_call = call_id;
             break;
+            
         case PJSIP_INV_STATE_INCOMING: // After INVITE is received.
             [_defaultBottomBar removeFromSuperview];
             if (pjsua_call_get_count() == 1)
@@ -432,40 +437,8 @@
             [_timer fire];
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
-#if 1
-            
-#else
-            dtmfCmd = nil;
-            [self setSpeakerPhoneEnabled:NO];
-            [self setMute:NO];
-            
-            if (_timer)
-            {
-                [_timer invalidate];
-                [_timer release];
-                _timer = nil;
-            }
-            [_lcd setLabel: NSLocalizedString(@"call ended", @"Call view")];
-
-            if (_call[call_id])
-                [[app recentsViewController] addCall:_call[call_id]];
-            _call[call_id] = nil;
-
-            if (_current_call == call_id)
-                [self findNextCall];
-            _new_call = PJSUA_INVALID_ID;
-            [_dualBottomBar removeFromSuperview];
-            [_defaultBottomBar removeFromSuperview];
-            [_containerView removeFromSuperview];
-            
-            // FIXME not here
-            MenuCallView *menuView = (MenuCallView *)_switchViews[1];
-            [[menuView buttonAtPosition:0] setSelected:NO];
-            [[menuView buttonAtPosition:2] setSelected:NO];
-#if HOLD_ON
-            [[menuView buttonAtPosition:4] setSelected:NO];
-#endif
-#endif
+            [self endCallUpInside:nil];
+            //[self endingCallWithId:call_id];
             break;
     }
 }

@@ -38,7 +38,7 @@
 	if (self)
     {
 		// Initialization code
-        self.title = NSLocalizedString(@"Numpad", @"PhoneView");
+        self.title = @"Numpad";
         self.tabBarItem.image = [UIImage imageNamed:@"Dial.png"];
         forbiddenChars = @",;/?:&=+$";
         

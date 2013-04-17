@@ -26,7 +26,12 @@
 #import "DualButtonView.h"
 
 #include <pjsua-lib/pjsua.h>
-@class VOIPCallViewController;
+
+@protocol callViewDelegate <NSObject>
+
+-(void)callDisconnected;
+
+@end
 
 @interface CallViewController : UIViewController<PhonePadDelegate,
     MenuCallViewDelegate
@@ -65,12 +70,7 @@
 #endif
 }
 
-#if 0
-- (void)setState:(int)state callId:(pjsua_call_id)call_id;
-#else
 - (void)processCall:(NSDictionary *)userinfo;
-#endif
-
+@property (nonatomic, assign) id<callViewDelegate>delegate;
 @property (nonatomic, retain)  NSString *dtmfCmd;
-@property (nonatomic, retain) VOIPCallViewController *voipVC;
 @end

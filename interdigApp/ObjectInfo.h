@@ -36,5 +36,7 @@
 @property (nonatomic, assign) NSInteger inpid;
 @property (nonatomic, retain) NSArray *dataInput;
 @property (nonatomic, assign) BOOL security;
-
+@property (nonatomic, retain) NSString *sipServer;
+@property (nonatomic, retain) NSString *sipUser;
+@property (nonatomic, retain) NSString *sipPswd;
 @end

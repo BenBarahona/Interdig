@@ -173,9 +173,7 @@
 		490EFC6217151B2A00A55DA7 /* PhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6017151B2A00A55DA7 /* PhoneViewController.m */; };
 		490EFC6617151B9400A55DA7 /* DialerPhonePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6517151B9400A55DA7 /* DialerPhonePad.m */; };
 		490EFC6917151C0900A55DA7 /* AbsLCDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6817151C0800A55DA7 /* AbsLCDView.m */; };
-		490EFC7417151C6800A55DA7 /* call.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC6F17151C6800A55DA7 /* call.m */; };
 		490EFC7517151C6800A55DA7 /* dtmf.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7117151C6800A55DA7 /* dtmf.m */; };
-		490EFC7617151C6800A55DA7 /* ring.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7317151C6800A55DA7 /* ring.m */; };
 		490EFC7917151D4900A55DA7 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7817151D4900A55DA7 /* CallViewController.m */; };
 		490EFC8017151DB700A55DA7 /* BottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7B17151DB100A55DA7 /* BottomBar.m */; };
 		490EFC8117151DB700A55DA7 /* BottomButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 490EFC7D17151DB400A55DA7 /* BottomButtonBar.m */; };
@@ -893,12 +891,8 @@
 		490EFC6517151B9400A55DA7 /* DialerPhonePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialerPhonePad.m; sourceTree = "<group>"; };
 		490EFC6717151C0800A55DA7 /* AbsLCDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsLCDView.h; sourceTree = "<group>"; };
 		490EFC6817151C0800A55DA7 /* AbsLCDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsLCDView.m; sourceTree = "<group>"; };
-		490EFC6E17151C6800A55DA7 /* call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = call.h; sourceTree = "<group>"; };
-		490EFC6F17151C6800A55DA7 /* call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = call.m; sourceTree = "<group>"; };
 		490EFC7017151C6800A55DA7 /* dtmf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtmf.h; sourceTree = "<group>"; };
 		490EFC7117151C6800A55DA7 /* dtmf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dtmf.m; sourceTree = "<group>"; };
-		490EFC7217151C6800A55DA7 /* ring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ring.h; sourceTree = "<group>"; };
-		490EFC7317151C6800A55DA7 /* ring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ring.m; sourceTree = "<group>"; };
 		490EFC7717151D4800A55DA7 /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
 		490EFC7817151D4900A55DA7 /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
 		490EFC7A17151DB100A55DA7 /* BottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBar.h; sourceTree = "<group>"; };
@@ -1873,12 +1867,8 @@
 		490EFC6D17151C6800A55DA7 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				490EFC6E17151C6800A55DA7 /* call.h */,
-				490EFC6F17151C6800A55DA7 /* call.m */,
 				490EFC7017151C6800A55DA7 /* dtmf.h */,
 				490EFC7117151C6800A55DA7 /* dtmf.m */,
-				490EFC7217151C6800A55DA7 /* ring.h */,
-				490EFC7317151C6800A55DA7 /* ring.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -2982,9 +2972,7 @@
 				490EFC6217151B2A00A55DA7 /* PhoneViewController.m in Sources */,
 				490EFC6617151B9400A55DA7 /* DialerPhonePad.m in Sources */,
 				490EFC6917151C0900A55DA7 /* AbsLCDView.m in Sources */,
-				490EFC7417151C6800A55DA7 /* call.m in Sources */,
 				490EFC7517151C6800A55DA7 /* dtmf.m in Sources */,
-				490EFC7617151C6800A55DA7 /* ring.m in Sources */,
 				490EFC7917151D4900A55DA7 /* CallViewController.m in Sources */,
 				490EFC8017151DB700A55DA7 /* BottomBar.m in Sources */,
 				490EFC8117151DB700A55DA7 /* BottomButtonBar.m in Sources */,

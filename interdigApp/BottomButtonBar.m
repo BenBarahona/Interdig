@@ -84,9 +84,9 @@
         UIImage *buttonBackground = [UIImage imageNamed:@"bottombarred.png"];
         UIImage *buttonBackgroundPressed = [UIImage imageNamed:@"bottombarred_pressed.png"];
         UIImage *image = [UIImage imageNamed:@"decline.png"];
-        [self setSmallTitle:NSLocalizedString(@"Small end call", @"PhoneView")];
-        [self setBigTitle:NSLocalizedString(@"End call", @"PhoneView")];
-        UIButton *endCall = [BottomButtonBar createButtonWithTitle: NSLocalizedString(@"End call", @"PhoneView")
+        [self setSmallTitle:@"Small end call"];
+        [self setBigTitle:@"End call"];
+        UIButton *endCall = [BottomButtonBar createButtonWithTitle: @"End call"
                                                              image: image
                                                              frame: CGRectZero
                                                         background: buttonBackground
@@ -104,10 +104,7 @@
         UIImage *buttonBackground = [UIImage imageNamed:@"bottombarred.png"];
         UIImage *buttonBackgroundPressed = [UIImage imageNamed:@"bottombarred_pressed.png"];
         UIImage *image = [UIImage imageNamed:@"decline.png"];
-        //[self setSmallTitle:NSLocalizedString(@"Decline", @"PhoneView")];
-        //[self setBigTitle:NSLocalizedString(@"Decline", @"PhoneView")];
-        //UIButton *declineCall = [BottomButtonBar createButtonWithTitle: NSLocalizedString(@"Decline", @"PhoneView")
-        UIButton *declineCall = [BottomButtonBar createButtonWithTitle: NSLocalizedString(@"End Call + Answer", @"PhoneView")
+        UIButton *declineCall = [BottomButtonBar createButtonWithTitle: @"End Call + Answer"
                                                                  image: image
                                                                  frame: CGRectZero
                                                             background: buttonBackground

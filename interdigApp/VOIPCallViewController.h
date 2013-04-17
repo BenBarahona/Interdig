@@ -30,11 +30,14 @@ typedef struct app_config
     pjmedia_port *ringback_port;
 } app_config_struct;
 
-@interface VOIPCallViewController : UIViewController
+@interface VOIPCallViewController : UIViewController <callViewDelegate>
 {
     CallViewController    *callViewController;
 }
 
 @property app_config_struct _app_config;
-
+@property (nonatomic, retain) NSString *domain;
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSString *password;
+@property (nonatomic, retain) NSString *destinationNumber;
 @end
