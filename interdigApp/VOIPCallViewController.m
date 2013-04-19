@@ -9,6 +9,7 @@
 #import "VOIPCallViewController.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "Util.h"
 #define THIS_FILE "APP"
 
 #define SIP_DOMAIN "8.6.240.214"
@@ -46,6 +47,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(checkIfIsDisconnected:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(processCallState:)
                                                  name:@"CallState" object:nil];
@@ -55,6 +59,9 @@
     [callViewController.view setBounds:CGRectMake(0, 0, 320, 460)];
     [callViewController.view setClipsToBounds:YES];
     callViewController.delegate = self;
+    
+    isDisconnected = NO;
+    didAnswerCall = NO;
     [self makeCall:self._app_config];
 }
 
@@ -62,6 +69,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)checkIfIsDisconnected:(NSTimer *)timer
+{
+    NSLog(@"CHECKING IF DISCONNECTED");
+    if(isDisconnected)
+    {
+        if(!didAnswerCall)
+            [Util showAlertWithTitle:@"Interdig" andMessage:@"El servicio de llamada se encuentra inactivo"];
+        [timer invalidate];
+        [self disconnecting];
+    }
 }
 
 - (void)processCallState:(NSNotification *)notification
@@ -86,16 +105,20 @@
         case PJSIP_INV_STATE_CONNECTING: // After 2xx is sent/received.
             break;
         case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
+            didAnswerCall = YES;
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
             //[self callDisconnected:nil];
+            //[self dismissViewControllerAnimated:YES completion:nil];
             break;
     }
 }
 
 -(void)disconnecting
 {
+    NSLog(@"CLOSE VIEW AND PJSIP");
     [self dismissViewControllerAnimated:YES completion:nil];
+    //[self.navigationController popViewControllerAnimated:YES];
     
     pjsua_destroy();
 }
@@ -103,6 +126,7 @@
 -(void)callDisconnected:(id)sender
 {
     NSLog(@"DISMISS");
+    isDisconnected = YES;
     [self performSelector:@selector(disconnecting) withObject:nil afterDelay:1.0];
 }
 
@@ -205,15 +229,20 @@ static void error_exit(const char *title, pj_status_t status)
         error_exit("Error starting pjsua", status);
     
     /* Register to SIP server by creating SIP account. */
+    NSString *sipUser = [NSString stringWithFormat:@"sip:%@@%@", self.username, self.domain];
+    NSString *sipDomain = [NSString stringWithFormat:@"sip:%@", self.domain];
+    NSString *sipPassword = self.password;
+    NSString *sipNumber = [NSString stringWithFormat:@"sip:%@@%@", self.destinationNumber, self.domain];
+    
     pjsua_acc_config_default(&acc_cfg);
-    acc_cfg.id = pj_str("sip:" SIP_USER "@" SIP_DOMAIN);
-    acc_cfg.reg_uri = pj_str("sip:" SIP_DOMAIN);
+    acc_cfg.id = pj_str((char *)[sipUser UTF8String]);
+    acc_cfg.reg_uri = pj_str((char *)[sipDomain UTF8String]);
     acc_cfg.cred_count = 1;
     acc_cfg.cred_info[0].realm = pj_str("*");
     acc_cfg.cred_info[0].scheme = pj_str("digest");
-    acc_cfg.cred_info[0].username = pj_str(SIP_USER);
+    acc_cfg.cred_info[0].username = pj_str((char *)[self.username UTF8String]);
     acc_cfg.cred_info[0].data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;
-    acc_cfg.cred_info[0].data = pj_str(SIP_PASSWD);
+    acc_cfg.cred_info[0].data = pj_str((char *)[sipPassword UTF8String]);
     
     status = pjsua_acc_add(&acc_cfg, PJ_TRUE, &acc_id);
     if (status != PJ_SUCCESS)
@@ -222,7 +251,8 @@ static void error_exit(const char *title, pj_status_t status)
     
 
     /* If URL is specified, make call to the URL. */
-    char *c = "sip:1000@8.6.240.214";
+    char *c = (char *)[sipNumber UTF8String];
+    NSLog(@"NUMBER: %s", c);
     pj_str_t uri = pj_str(c);
     
     status = pjsua_call_make_call(acc_id, &uri, 0, NULL, NULL, NULL);

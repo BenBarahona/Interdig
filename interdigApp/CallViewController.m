@@ -212,12 +212,8 @@
     [self setSpeakerPhoneEnabled:NO];
     [self setMute:NO];
     
-    [_lcd setLabel:@"call ended"];
+    [_lcd setLabel:@"Llamada terminada... Porfavor espere"];
     
-    [_lcd performSelector:@selector(setLabel:) withObject:@"Porfavor espere..." afterDelay:1.0];
-    
-    if (_current_call == call_id)
-        [self findNextCall];
     _new_call = PJSUA_INVALID_ID;
     [_dualBottomBar removeFromSuperview];
     [_defaultBottomBar removeFromSuperview];
@@ -240,12 +236,11 @@
 
 - (void)endCallUpInside:(id)fp8
 {
-    pjsua_call_id cid = _current_call;
     [self endingCallWithId:_current_call];
-    sip_hangup(&cid);
+    sip_hangup();
 }
 
-static void sip_hangup(pjsua_call_id *call_id)
+static void sip_hangup()
 {
     pjsua_call_hangup_all();
 }
@@ -440,8 +435,8 @@ static void sip_hangup(pjsua_call_id *call_id)
             [_timer fire];
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
-            [self endCallUpInside:nil];
-            //[self endingCallWithId:call_id];
+            sip_hangup();
+            [self endingCallWithId:_current_call];
             break;
     }
 }
@@ -542,5 +537,10 @@ void audioSessionPropertyListener(void *inClientData, AudioSessionPropertyID inI
 AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange,
                                 audioSessionPropertyListener, NULL);
 #endif
+
+- (void)buttonClicked:(NSInteger)button
+{
+    NSLog(@"BTN CLICKED");
+}
 
 @end

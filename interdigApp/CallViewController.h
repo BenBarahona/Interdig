@@ -46,13 +46,9 @@
   UIView              *_switchViews[2];
   NSUInteger           _whichView;
   UIView		          *_containerView;
-  //PhonePad            *_phonePad;
-  //MenuCallView        *_menuView;
-#if defined(ONECALL) && (ONECALL == 1)
-#else
+
   DualButtonView      *_buttonView;
   BottomButtonBar     *_bottomBar;
-#endif
 
   BottomDualButtonBar *_defaultBottomBar;
   UIButton            *_menuButton;
@@ -62,12 +58,8 @@
   NSTimer *_timer;
   NSString *dtmfCmd;
 
-#if defined(ONECALL) && (ONECALL == 1)
-  pjsua_call_id  _call_id;
-#else
   pjsua_call_id  _current_call;
   pjsua_call_id  _new_call;
-#endif
 }
 
 - (void)processCall:(NSDictionary *)userinfo;

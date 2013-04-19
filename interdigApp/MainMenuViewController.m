@@ -688,7 +688,7 @@
             [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
             return;
         }
-        entered = [entered stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         ObjectInfo *selected = nil;
         selected = searching ? [self.searchResults objectAtIndex:alertView.tag] : [self.objectArray objectAtIndex:alertView.tag];
         
@@ -866,12 +866,13 @@
      [self.searchResults addObject:sTemp];
      }
      */
-    searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    searchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString *dbName = dbSearch.text;
     if([dbName isEqualToString:@""])
         dbName = self.dataBase;
-    dbName = [dbName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    dbName = [dbName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *mainURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.interdig.org/jbus1.cfm?db=%@&inp=%@", dbName, searchText]];
     

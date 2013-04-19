@@ -21,6 +21,7 @@
 enum alertPromptType{
     CHAT = 1,
     MESSAGE = 2,
+    EMAIL = 3,
 };
 
 @interface DetailViewController : UIViewController <UIAlertViewDelegate, UIActionSheetDelegate, UIWebViewDelegate, masInfoDelegate>
@@ -35,6 +36,8 @@ enum alertPromptType{
     IBOutlet UIButton *mapsBtn;
     IBOutlet UIButton *webSiteBtn;
     IBOutlet UIButton *masInfo;
+    IBOutlet UIButton *emailBtn;
+    
     IBOutlet HJManagedImageV *imageView;
     IBOutlet UIScrollView *scrollView;
     

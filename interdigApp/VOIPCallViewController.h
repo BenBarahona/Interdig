@@ -33,6 +33,8 @@ typedef struct app_config
 @interface VOIPCallViewController : UIViewController <callViewDelegate>
 {
     CallViewController    *callViewController;
+    BOOL isDisconnected;
+    BOOL didAnswerCall;
 }
 
 @property app_config_struct _app_config;

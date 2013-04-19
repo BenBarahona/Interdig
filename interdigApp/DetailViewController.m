@@ -69,6 +69,8 @@
         telefonoBtn.hidden = YES;
     if([self.thisObjectInfo.mapa isEqualToString:@""])
         mapsBtn.hidden = YES;
+    if([self.thisObjectInfo.email isEqualToString:@""])
+        emailBtn.hidden = YES;
     
     descripcion.text = self.thisObjectInfo.descripcion;
     titulo.text = self.thisObjectInfo.titulo;
@@ -135,12 +137,17 @@
     voip.destinationNumber = self.thisObjectInfo.ext;
     voip.password = self.thisObjectInfo.sipPswd;
     
+    /* TESTING */
+    //voip.domain = @"8.6.240.214";
+    //voip.username = @"1008";
+    //voip.destinationNumber = @"1007";
+    //voip.password = @"8686";
+    
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     app.voipVC = voip;
     
     [self presentViewController:voip animated:YES completion:nil];
     //[self.navigationController pushViewController:voip animated:YES];
-    
 }
 
 -(IBAction)enviarSMS_Click:(id)sender
@@ -151,6 +158,17 @@
         UIAlertPrompt *alertView = [[UIAlertPrompt alloc] initWithTitle:@"Enviar SMS" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
         [alertView show];	
         [alertView release];
+    }
+}
+
+-(IBAction)enviarEmail_Click:(id)sender
+{
+    if(![self.thisObjectInfo.email isEqualToString:@""])
+    {
+        alertType = EMAIL;
+            UIAlertPrompt *alertPrompt = [[UIAlertPrompt alloc] initWithTitle:@"Enviar E-Mail" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
+            [alertPrompt show];
+            [alertPrompt release];
     }
 }
 
@@ -177,7 +195,7 @@
                     [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
                     return;
                 }
-                entered = [entered stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                 NSLog(@"Entered text: %@", entered);
                 
                 NSString *urlString = [NSString stringWithFormat:@"http://www.interdig.org/jsms.cfm?db=%@&id=%@&men=%@", self.dataBase, self.thisObjectInfo.objectID, entered];
@@ -199,7 +217,8 @@
                     [Util showAlertWithTitle:@"Error" andMessage:@"Porfavor ingrese un nombre valido"];
                     return;
                 }
-                entered = [entered stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                
+                entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                 NSLog(@"Entered text: %@", entered);
                 
                 ChatViewController *chat = [[ChatViewController alloc] init];
@@ -208,6 +227,28 @@
                 chat.objectID = self.thisObjectInfo.objectID;
                 [self.navigationController pushViewController:chat animated:YES];
                 [chat release];
+                break;
+                
+            case EMAIL:
+                if([entered isEqualToString:@""])
+                {
+                    [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
+                    return;
+                }
+                entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                NSLog(@"Entered text: %@", entered);
+                
+                NSURL *urlEmail = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.interdig.org/jemail.cfm?db=%@&id=%@&men=%@", self.dataBase, self.thisObjectInfo.objectID, entered]];
+                
+                ASIHTTPRequest *emailRequest = [ASIHTTPRequest requestWithURL:urlEmail];
+                [emailRequest setDidFailSelector:@selector(enviarMensajitoFailed:)];
+                [emailRequest setDidFinishSelector:@selector(enviarEmailFinished:)];
+                [emailRequest setDelegate:self];
+                [emailRequest setTimeOutSeconds:30];
+                [emailRequest startAsynchronous];
+                
+                MBProgressHUD *hud2 = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud2.labelText = @"Enviando E-Mail";
                 break;
                 
             default:
@@ -221,6 +262,12 @@
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [Util showAlertWithTitle:@"Mensaje Enviado!" andMessage:@"Se ha enviado exitosamente su SMS!"];
+}
+
+-(void)enviarEmailFinished:(ASIHTTPRequest *)request
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [Util showAlertWithTitle:@"Mensaje Enviado!" andMessage:@"Se ha enviado exitosamente su E-Mail!"];
 }
 
 -(void) enviarMensajitoFailed:(ASIHTTPRequest *)request
