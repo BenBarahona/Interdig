@@ -80,6 +80,7 @@
         self.dataBase = DB_NAME;
         self.title = @"Interdig";
         self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=1000", self.dataBase];
+        //self.urlString = @"http://www.interdig.org/jce1.cfm?db=rio&cl=3259";
     }
     else if(!self.thisObjectInfo)
     {

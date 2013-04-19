@@ -204,6 +204,10 @@
 
 - (void)endingCallWithId:(UInt32)call_id
 {
+    NSLog(@"CALLING DISMISS VIEW");
+    [self dismissView];
+    //[self performSelector:@selector(dismissView) withObject:nil afterDelay:1.0];
+    
     dtmfCmd = nil;
     [self setSpeakerPhoneEnabled:NO];
     [self setMute:NO];
@@ -226,13 +230,12 @@
 #if HOLD_ON
     [[_menuView buttonAtPosition:4] setSelected:NO];
 #endif
-    
-    [self performSelector:@selector(dismissView) withObject:nil afterDelay:1.0];
 }
 
 -(void)dismissView
 {
-    [self.delegate callDisconnected];
+    NSLog(@"CALLING DELEGATE");
+    [self.delegate callDisconnected:nil];
 }
 
 - (void)endCallUpInside:(id)fp8

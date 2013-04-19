@@ -29,7 +29,7 @@
 
 @protocol callViewDelegate <NSObject>
 
--(void)callDisconnected;
+-(void)callDisconnected:(id)sender;
 
 @end
 

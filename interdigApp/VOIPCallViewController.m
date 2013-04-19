@@ -79,11 +79,7 @@
         case PJSIP_INV_STATE_INCOMING: // After INVITE is received.
             if (pjsua_call_get_count() == 1)
             {
-                //[self presentViewController:callViewController animated:YES completion:nil];
                 [self.view addSubview:callViewController.view];
-                NSLog(@"CALLVIEW FRAME: %@", NSStringFromCGRect(callViewController.view.frame));
-                
-                //[callViewController retain];
             }
             
         case PJSIP_INV_STATE_EARLY: // After response with To tag.
@@ -92,20 +88,22 @@
         case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
             break;
         case PJSIP_INV_STATE_DISCONNECTED:
-            //[self performSelector:@selector(disconnected) withObject:nil afterDelay:1.5];
-            //[callViewController dismissViewControllerAnimated:YES completion:NO];
+            //[self callDisconnected:nil];
             break;
     }
 }
 
--(void)callDisconnected
+-(void)disconnecting
 {
-    NSLog(@"DISMISS");
-    //[[callViewController view] removeFromSuperview];
     [self dismissViewControllerAnimated:YES completion:nil];
-    //[self.navigationController popToRootViewControllerAnimated:YES];
     
     pjsua_destroy();
+}
+
+-(void)callDisconnected:(id)sender
+{
+    NSLog(@"DISMISS");
+    [self performSelector:@selector(disconnecting) withObject:nil afterDelay:1.0];
 }
 
 /* Display error and exit application */
@@ -224,7 +222,7 @@ static void error_exit(const char *title, pj_status_t status)
     
 
     /* If URL is specified, make call to the URL. */
-    char *c = "sip:1007@8.6.240.214";
+    char *c = "sip:1000@8.6.240.214";
     pj_str_t uri = pj_str(c);
     
     status = pjsua_call_make_call(acc_id, &uri, 0, NULL, NULL, NULL);
@@ -380,6 +378,7 @@ static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
     
     if (ci.state == PJSIP_INV_STATE_DISCONNECTED) // Session is terminated.
     {
+        NSLog(@"DISCONNECTED!");
         ring_stop(&config);
     }
     else if (ci.state == PJSIP_INV_STATE_EARLY)
