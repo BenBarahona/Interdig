@@ -206,7 +206,6 @@
 {
     NSLog(@"CALLING DISMISS VIEW");
     [self dismissView];
-    //[self performSelector:@selector(dismissView) withObject:nil afterDelay:1.0];
     
     dtmfCmd = nil;
     [self setSpeakerPhoneEnabled:NO];
@@ -236,6 +235,7 @@
 
 - (void)endCallUpInside:(id)fp8
 {
+    [self.delegate userEndedCall];
     [self endingCallWithId:_current_call];
     sip_hangup();
 }

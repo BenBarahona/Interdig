@@ -30,7 +30,7 @@
 @protocol callViewDelegate <NSObject>
 
 -(void)callDisconnected:(id)sender;
-
+-(void)userEndedCall;
 @end
 
 @interface CallViewController : UIViewController<PhonePadDelegate,

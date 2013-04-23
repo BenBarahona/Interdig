@@ -322,7 +322,6 @@
 		498EEDE5172659F6006D6A8C /* libpjmedia-audiodev-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE0172659F6006D6A8C /* libpjmedia-audiodev-i686-apple-darwin9.a */; };
 		498EEDE6172659F6006D6A8C /* libpjmedia-codec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE1172659F6006D6A8C /* libpjmedia-codec-i686-apple-darwin9.a */; };
 		498EEDE7172659F6006D6A8C /* libpjmedia-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE2172659F6006D6A8C /* libpjmedia-i686-apple-darwin9.a */; };
-		498EEDE9172659F6006D6A8C /* libpjsdp-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE4172659F6006D6A8C /* libpjsdp-i686-apple-darwin9.a */; };
 		4995132F161C0BA400DCBAF8 /* DetailViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4995132E161C0BA400DCBAF8 /* DetailViewController~ipad.xib */; };
 		49A05530170B3E790096EB04 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A0552F170B3E780096EB04 /* CoreMedia.framework */; };
 		49A05532170B3E830096EB04 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05531170B3E830096EB04 /* CoreVideo.framework */; };
@@ -1280,7 +1279,6 @@
 				498EEDE5172659F6006D6A8C /* libpjmedia-audiodev-i686-apple-darwin9.a in Frameworks */,
 				498EEDE6172659F6006D6A8C /* libpjmedia-codec-i686-apple-darwin9.a in Frameworks */,
 				498EEDE7172659F6006D6A8C /* libpjmedia-i686-apple-darwin9.a in Frameworks */,
-				498EEDE9172659F6006D6A8C /* libpjsdp-i686-apple-darwin9.a in Frameworks */,
 				49F089A917265A2000492714 /* libpjnath-i686-apple-darwin9.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

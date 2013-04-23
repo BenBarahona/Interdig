@@ -130,6 +130,11 @@
     [self performSelector:@selector(disconnecting) withObject:nil afterDelay:1.0];
 }
 
+-(void)userEndedCall
+{
+    didAnswerCall = YES;
+}
+
 /* Display error and exit application */
 static void error_exit(const char *title, pj_status_t status)
 {
