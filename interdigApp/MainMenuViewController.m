@@ -14,7 +14,7 @@
 #import "WebViewController.h"
 #import "InputDataViewController.h"
 
-#define DB_NAME @"rio"
+#define DB_NAME @"interdig"
 
 @implementation MainMenuViewController
 @synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request;
