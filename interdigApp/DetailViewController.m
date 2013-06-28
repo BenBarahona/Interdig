@@ -138,11 +138,12 @@
     voip.password = self.thisObjectInfo.sipPswd;
     
     //TESTING
+    /*
     voip.domain = @"8.6.240.214";
     voip.username = @"1008";
     voip.destinationNumber = @"1007";
     voip.password = @"8686";
-    
+    */
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     app.voipVC = voip;
     

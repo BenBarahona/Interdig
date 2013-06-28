@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49063AA3172658B800A04E6C /* libpjsip-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063A9F172658B800A04E6C /* libpjsip-i686-apple-darwin9.a */; };
-		49063AA4172658B800A04E6C /* libpjsip-simple-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063AA0172658B800A04E6C /* libpjsip-simple-i686-apple-darwin9.a */; };
-		49063AA5172658B800A04E6C /* libpjsip-ua-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063AA1172658B800A04E6C /* libpjsip-ua-i686-apple-darwin9.a */; };
-		49063AA6172658B800A04E6C /* libpjsua-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063AA2172658B800A04E6C /* libpjsua-i686-apple-darwin9.a */; };
+		49063AA3172658B800A04E6C /* libpjsip-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063A9F172658B800A04E6C /* libpjsip-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49063AA4172658B800A04E6C /* libpjsip-simple-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063AA0172658B800A04E6C /* libpjsip-simple-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49063AA5172658B800A04E6C /* libpjsip-ua-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063AA1172658B800A04E6C /* libpjsip-ua-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49063AA6172658B800A04E6C /* libpjsua-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49063AA2172658B800A04E6C /* libpjsua-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		490ABA461618DC97002BED16 /* SearchOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490ABA441618DC97002BED16 /* SearchOverlayViewController.m */; };
 		490ABA471618DC97002BED16 /* SearchOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490ABA451618DC97002BED16 /* SearchOverlayViewController.xib */; };
 		490EF7331713C56700A55DA7 /* m_auto.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 490EEF4E1713C56500A55DA7 /* m_auto.h.in */; };
@@ -18,7 +18,6 @@
 		490EF7351713C56700A55DA7 /* libpj-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EEF9C1713C56500A55DA7 /* libpj-arm-apple-darwin9.a */; };
 		490EF7EE1713C56800A55DA7 /* libpjlib-util-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF0821713C56500A55DA7 /* libpjlib-util-arm-apple-darwin9.a */; };
 		490EF8A21713C56800A55DA7 /* config_auto.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 490EF1531713C56500A55DA7 /* config_auto.h.in */; };
-		490EF8A31713C56800A55DA7 /* config_auto.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 490EF1921713C56500A55DA7 /* config_auto.h.in */; };
 		490EF8A41713C56800A55DA7 /* libpjmedia-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AB1713C56500A55DA7 /* libpjmedia-arm-apple-darwin9.a */; };
 		490EF8A51713C56800A55DA7 /* libpjmedia-audiodev-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AC1713C56500A55DA7 /* libpjmedia-audiodev-arm-apple-darwin9.a */; };
 		490EF8A61713C56800A55DA7 /* libpjmedia-codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EF1AD1713C56500A55DA7 /* libpjmedia-codec-arm-apple-darwin9.a */; };
@@ -40,8 +39,6 @@
 		490EF91A1645C68A00F8E424 /* navigation_bar3.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF9141645C68A00F8E424 /* navigation_bar3.png */; };
 		490EF91B1645C68A00F8E424 /* navigation_bar3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF9151645C68A00F8E424 /* navigation_bar3@2x.png */; };
 		490EF91C1645C68A00F8E424 /* tab_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF9161645C68A00F8E424 /* tab_bar.png */; };
-		490EF9231713C56800A55DA7 /* pjturn-client-arm-apple-darwin9 in Resources */ = {isa = PBXBuildFile; fileRef = 490EF2391713C56500A55DA7 /* pjturn-client-arm-apple-darwin9 */; };
-		490EF9241713C56800A55DA7 /* pjturn-srv-arm-apple-darwin9 in Resources */ = {isa = PBXBuildFile; fileRef = 490EF23A1713C56500A55DA7 /* pjturn-srv-arm-apple-darwin9 */; };
 		490EF9331649049B00F8E424 /* cell_alba.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF91D1649049B00F8E424 /* cell_alba.png */; };
 		490EF9341649049B00F8E424 /* cell_alba@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF91E1649049B00F8E424 /* cell_alba@2x.png */; };
 		490EF9351649049B00F8E424 /* cell_apparel.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EF91F1649049B00F8E424 /* cell_apparel.png */; };
@@ -261,7 +258,7 @@
 		4917771416D039D5009651B2 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917770E16D039D5009651B2 /* DCRoundSwitchKnobLayer.m */; };
 		4917771516D039D5009651B2 /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917771016D039D5009651B2 /* DCRoundSwitchOutlineLayer.m */; };
 		4917771616D039D5009651B2 /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917771216D039D5009651B2 /* DCRoundSwitchToggleLayer.m */; };
-		495F8ED31726594600EA82DF /* libpj-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 495F8ED21726594600EA82DF /* libpj-i686-apple-darwin9.a */; };
+		495F8ED31726594600EA82DF /* libpj-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 495F8ED21726594600EA82DF /* libpj-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4964569A162BC72700D71F11 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49645698162BC72700D71F11 /* ChatViewController.m */; };
 		496456B0162BCB6100D71F11 /* SSMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496456AA162BCB6100D71F11 /* SSMessagesViewController.m */; };
 		496456B1162BCB6100D71F11 /* SSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496456AD162BCB6100D71F11 /* SSMessageTableViewCell.m */; };
@@ -319,21 +316,21 @@
 		49789B38161C206100274518 /* MasInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49789B36161C206100274518 /* MasInfoViewController.xib */; };
 		4986F02A16AC9B08009C9261 /* InputDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4986F02816AC9B08009C9261 /* InputDataViewController.m */; };
 		4986F02B16AC9B08009C9261 /* InputDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4986F02916AC9B08009C9261 /* InputDataViewController.xib */; };
-		498EEDE5172659F6006D6A8C /* libpjmedia-audiodev-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE0172659F6006D6A8C /* libpjmedia-audiodev-i686-apple-darwin9.a */; };
-		498EEDE6172659F6006D6A8C /* libpjmedia-codec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE1172659F6006D6A8C /* libpjmedia-codec-i686-apple-darwin9.a */; };
-		498EEDE7172659F6006D6A8C /* libpjmedia-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE2172659F6006D6A8C /* libpjmedia-i686-apple-darwin9.a */; };
+		498EEDE5172659F6006D6A8C /* libpjmedia-audiodev-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE0172659F6006D6A8C /* libpjmedia-audiodev-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		498EEDE6172659F6006D6A8C /* libpjmedia-codec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE1172659F6006D6A8C /* libpjmedia-codec-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		498EEDE7172659F6006D6A8C /* libpjmedia-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 498EEDE2172659F6006D6A8C /* libpjmedia-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4995132F161C0BA400DCBAF8 /* DetailViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4995132E161C0BA400DCBAF8 /* DetailViewController~ipad.xib */; };
 		49A05530170B3E790096EB04 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A0552F170B3E780096EB04 /* CoreMedia.framework */; };
 		49A05532170B3E830096EB04 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05531170B3E830096EB04 /* CoreVideo.framework */; };
 		49A05534170B3E920096EB04 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05533170B3E920096EB04 /* OpenGLES.framework */; };
 		49A05536170B3EA90096EB04 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05535170B3EA90096EB04 /* AudioToolbox.framework */; };
-		49A9790D17265861000B2437 /* libg7221codec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790517265861000B2437 /* libg7221codec-i686-apple-darwin9.a */; };
-		49A9790E17265862000B2437 /* libgsmcodec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790617265861000B2437 /* libgsmcodec-i686-apple-darwin9.a */; };
-		49A9790F17265862000B2437 /* libilbccodec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790717265861000B2437 /* libilbccodec-i686-apple-darwin9.a */; };
-		49A9791017265862000B2437 /* libmilenage-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790817265861000B2437 /* libmilenage-i686-apple-darwin9.a */; };
-		49A9791217265862000B2437 /* libresample-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790A17265861000B2437 /* libresample-i686-apple-darwin9.a */; };
-		49A9791317265862000B2437 /* libspeex-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790B17265861000B2437 /* libspeex-i686-apple-darwin9.a */; };
-		49A9791417265862000B2437 /* libsrtp-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790C17265861000B2437 /* libsrtp-i686-apple-darwin9.a */; };
+		49A9790D17265861000B2437 /* libg7221codec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790517265861000B2437 /* libg7221codec-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49A9790E17265862000B2437 /* libgsmcodec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790617265861000B2437 /* libgsmcodec-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49A9790F17265862000B2437 /* libilbccodec-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790717265861000B2437 /* libilbccodec-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49A9791017265862000B2437 /* libmilenage-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790817265861000B2437 /* libmilenage-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49A9791217265862000B2437 /* libresample-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790A17265861000B2437 /* libresample-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49A9791317265862000B2437 /* libspeex-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790B17265861000B2437 /* libspeex-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49A9791417265862000B2437 /* libsrtp-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790C17265861000B2437 /* libsrtp-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		49B4159F16158336001C2433 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B4159E16158336001C2433 /* UIKit.framework */; };
 		49B415A116158336001C2433 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B415A016158336001C2433 /* Foundation.framework */; };
 		49B415A316158336001C2433 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B415A216158336001C2433 /* CoreGraphics.framework */; };
@@ -392,7 +389,7 @@
 		49B4165E16163513001C2433 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B4165D16163513001C2433 /* TPKeyboardAvoidingScrollView.m */; };
 		49B41661161635A5001C2433 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B41660161635A5001C2433 /* ObjectInfo.m */; };
 		49B41664161635B3001C2433 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B41663161635B3001C2433 /* Util.m */; };
-		49D9952C1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D9952B1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a */; };
+		49D9952C1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D9952B1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		49E3EFCB16FE5C920027504A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E3EFC916FE5C920027504A /* LoginViewController.m */; };
 		49E3EFCC16FE5C920027504A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3EFCA16FE5C920027504A /* LoginViewController.xib */; };
 		49E3EFD916FFA1070027504A /* libCrittercism_v3_4_9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E3EFD816FFA1070027504A /* libCrittercism_v3_4_9.a */; };
@@ -400,7 +397,16 @@
 		49E3F00A170A13CB0027504A /* VOIPCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3F008170A13CB0027504A /* VOIPCallViewController.xib */; };
 		49E6E4DF16B0B0F600489C2C /* 216-compose.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E6E4DD16B0B0F600489C2C /* 216-compose.png */; };
 		49E6E4E016B0B0F600489C2C /* 216-compose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E6E4DE16B0B0F600489C2C /* 216-compose@2x.png */; };
-		49F089A917265A2000492714 /* libpjnath-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F089A817265A2000492714 /* libpjnath-i686-apple-darwin9.a */; };
+		49F089A917265A2000492714 /* libpjnath-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F089A817265A2000492714 /* libpjnath-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49F089BE177C089900492714 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089AC177C089900492714 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089BF177C089900492714 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089AE177C089900492714 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089C0177C089900492714 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089B0177C089900492714 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089C1177C089900492714 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089B2177C089900492714 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089C2177C089900492714 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089B4177C089900492714 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089C3177C089900492714 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089B7177C089900492714 /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089C4177C089900492714 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089B9177C089900492714 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089C5177C089900492714 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089BB177C089900492714 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F089C6177C089900492714 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089BD177C089900492714 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9D90347B161F5F7500971288 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D90347A161F5F7500971288 /* MediaPlayer.framework */; };
 		9D93C359161A0D8D00860C3A /* UIAlertPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93C358161A0D8D00860C3A /* UIAlertPrompt.m */; };
 		9D93C35B161A0EA800860C3A /* UIAlertPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93C358161A0D8D00860C3A /* UIAlertPrompt.m */; };
@@ -463,7 +469,6 @@
 		490ABA431618DC97002BED16 /* SearchOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchOverlayViewController.h; sourceTree = "<group>"; };
 		490ABA441618DC97002BED16 /* SearchOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchOverlayViewController.m; sourceTree = "<group>"; };
 		490ABA451618DC97002BED16 /* SearchOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchOverlayViewController.xib; sourceTree = "<group>"; };
-		490EEECD1713C56500A55DA7 /* pjlib-test-arm-apple-darwin9 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "pjlib-test-arm-apple-darwin9"; sourceTree = "<group>"; };
 		490EEF3C1713C56500A55DA7 /* activesock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activesock.h; sourceTree = "<group>"; };
 		490EEF3D1713C56500A55DA7 /* addr_resolv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addr_resolv.h; sourceTree = "<group>"; };
 		490EEF3E1713C56500A55DA7 /* array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array.h; sourceTree = "<group>"; };
@@ -558,7 +563,6 @@
 		490EEF991713C56500A55DA7 /* pjlib++.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "pjlib++.hpp"; sourceTree = "<group>"; };
 		490EEF9A1713C56500A55DA7 /* pjlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pjlib.h; sourceTree = "<group>"; };
 		490EEF9C1713C56500A55DA7 /* libpj-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpj-arm-apple-darwin9.a"; sourceTree = "<group>"; };
-		490EF0361713C56500A55DA7 /* pjlib-util-test-arm-apple-darwin9 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "pjlib-util-test-arm-apple-darwin9"; sourceTree = "<group>"; };
 		490EF06A1713C56500A55DA7 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
 		490EF06B1713C56500A55DA7 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		490EF06C1713C56500A55DA7 /* crc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc32.h; sourceTree = "<group>"; };
@@ -583,7 +587,6 @@
 		490EF07F1713C56500A55DA7 /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
 		490EF0801713C56500A55DA7 /* pjlib-util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "pjlib-util.h"; sourceTree = "<group>"; };
 		490EF0821713C56500A55DA7 /* libpjlib-util-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpjlib-util-arm-apple-darwin9.a"; sourceTree = "<group>"; };
-		490EF0AB1713C56500A55DA7 /* pjmedia-test-arm-apple-darwin9 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "pjmedia-test-arm-apple-darwin9"; sourceTree = "<group>"; };
 		490EF1491713C56500A55DA7 /* alaw_ulaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alaw_ulaw.h; sourceTree = "<group>"; };
 		490EF14A1713C56500A55DA7 /* avi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avi.h; sourceTree = "<group>"; };
 		490EF14B1713C56500A55DA7 /* avi_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avi_stream.h; sourceTree = "<group>"; };
@@ -683,9 +686,6 @@
 		490EF1AD1713C56500A55DA7 /* libpjmedia-codec-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpjmedia-codec-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		490EF1AE1713C56500A55DA7 /* libpjmedia-videodev-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpjmedia-videodev-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		490EF1AF1713C56500A55DA7 /* libpjsdp-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpjsdp-arm-apple-darwin9.a"; sourceTree = "<group>"; };
-		490EF2381713C56500A55DA7 /* pjnath-test-arm-apple-darwin9 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "pjnath-test-arm-apple-darwin9"; sourceTree = "<group>"; };
-		490EF2391713C56500A55DA7 /* pjturn-client-arm-apple-darwin9 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "pjturn-client-arm-apple-darwin9"; sourceTree = "<group>"; };
-		490EF23A1713C56500A55DA7 /* pjturn-srv-arm-apple-darwin9 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "pjturn-srv-arm-apple-darwin9"; sourceTree = "<group>"; };
 		490EF27C1713C56500A55DA7 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		490EF27D1713C56500A55DA7 /* errno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errno.h; sourceTree = "<group>"; };
 		490EF27E1713C56500A55DA7 /* ice_session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ice_session.h; sourceTree = "<group>"; };
@@ -702,7 +702,6 @@
 		490EF2891713C56500A55DA7 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
 		490EF28A1713C56500A55DA7 /* pjnath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pjnath.h; sourceTree = "<group>"; };
 		490EF28C1713C56500A55DA7 /* libpjnath-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpjnath-arm-apple-darwin9.a"; sourceTree = "<group>"; };
-		490EF2B41713C56500A55DA7 /* pjsip-test-arm-apple-darwin9 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "pjsip-test-arm-apple-darwin9"; sourceTree = "<group>"; };
 		490EF3241713C56600A55DA7 /* print_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = print_util.h; sourceTree = "<group>"; };
 		490EF3251713C56600A55DA7 /* sip_auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sip_auth.h; sourceTree = "<group>"; };
 		490EF3261713C56600A55DA7 /* sip_auth_aka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sip_auth_aka.h; sourceTree = "<group>"; };
@@ -1213,6 +1212,25 @@
 		49E6E4DD16B0B0F600489C2C /* 216-compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "216-compose.png"; sourceTree = "<group>"; };
 		49E6E4DE16B0B0F600489C2C /* 216-compose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "216-compose@2x.png"; sourceTree = "<group>"; };
 		49F089A817265A2000492714 /* libpjnath-i686-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjnath-i686-apple-darwin9.a"; path = "../pjproject-2.0-simulator/pjnath/lib/libpjnath-i686-apple-darwin9.a"; sourceTree = "<group>"; };
+		49F089AB177C089900492714 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		49F089AC177C089900492714 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		49F089AD177C089900492714 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		49F089AE177C089900492714 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		49F089AF177C089900492714 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		49F089B0177C089900492714 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		49F089B1177C089900492714 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		49F089B2177C089900492714 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		49F089B3177C089900492714 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		49F089B4177C089900492714 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		49F089B5177C089900492714 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		49F089B6177C089900492714 /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		49F089B7177C089900492714 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		49F089B8177C089900492714 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		49F089B9177C089900492714 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		49F089BA177C089900492714 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		49F089BB177C089900492714 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		49F089BC177C089900492714 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		49F089BD177C089900492714 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		9D90347A161F5F7500971288 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9D93C357161A0D8D00860C3A /* UIAlertPrompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertPrompt.h; sourceTree = "<group>"; };
 		9D93C358161A0D8D00860C3A /* UIAlertPrompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertPrompt.m; sourceTree = "<group>"; };
@@ -1299,20 +1317,11 @@
 		490EEECB1713C56500A55DA7 /* pjlib */ = {
 			isa = PBXGroup;
 			children = (
-				490EEECC1713C56500A55DA7 /* bin */,
 				490EEF3A1713C56500A55DA7 /* include */,
 				490EEF9B1713C56500A55DA7 /* lib */,
 			);
 			name = pjlib;
 			path = "../pjproject-2.0-device/pjlib";
-			sourceTree = "<group>";
-		};
-		490EEECC1713C56500A55DA7 /* bin */ = {
-			isa = PBXGroup;
-			children = (
-				490EEECD1713C56500A55DA7 /* pjlib-test-arm-apple-darwin9 */,
-			);
-			path = bin;
 			sourceTree = "<group>";
 		};
 		490EEF3A1713C56500A55DA7 /* include */ = {
@@ -1450,20 +1459,11 @@
 		490EF0341713C56500A55DA7 /* pjlib-util */ = {
 			isa = PBXGroup;
 			children = (
-				490EF0351713C56500A55DA7 /* bin */,
 				490EF0681713C56500A55DA7 /* include */,
 				490EF0811713C56500A55DA7 /* lib */,
 			);
 			name = "pjlib-util";
 			path = "../pjproject-2.0-device/pjlib-util";
-			sourceTree = "<group>";
-		};
-		490EF0351713C56500A55DA7 /* bin */ = {
-			isa = PBXGroup;
-			children = (
-				490EF0361713C56500A55DA7 /* pjlib-util-test-arm-apple-darwin9 */,
-			);
-			path = bin;
 			sourceTree = "<group>";
 		};
 		490EF0681713C56500A55DA7 /* include */ = {
@@ -1515,20 +1515,11 @@
 		490EF0A91713C56500A55DA7 /* pjmedia */ = {
 			isa = PBXGroup;
 			children = (
-				490EF0AA1713C56500A55DA7 /* bin */,
 				490EF1471713C56500A55DA7 /* include */,
 				490EF1AA1713C56500A55DA7 /* lib */,
 			);
 			name = pjmedia;
 			path = "../pjproject-2.0-device/pjmedia";
-			sourceTree = "<group>";
-		};
-		490EF0AA1713C56500A55DA7 /* bin */ = {
-			isa = PBXGroup;
-			children = (
-				490EF0AB1713C56500A55DA7 /* pjmedia-test-arm-apple-darwin9 */,
-			);
-			path = bin;
 			sourceTree = "<group>";
 		};
 		490EF1471713C56500A55DA7 /* include */ = {
@@ -1679,22 +1670,11 @@
 		490EF2361713C56500A55DA7 /* pjnath */ = {
 			isa = PBXGroup;
 			children = (
-				490EF2371713C56500A55DA7 /* bin */,
 				490EF27A1713C56500A55DA7 /* include */,
 				490EF28B1713C56500A55DA7 /* lib */,
 			);
 			name = pjnath;
 			path = "../pjproject-2.0-device/pjnath";
-			sourceTree = "<group>";
-		};
-		490EF2371713C56500A55DA7 /* bin */ = {
-			isa = PBXGroup;
-			children = (
-				490EF2381713C56500A55DA7 /* pjnath-test-arm-apple-darwin9 */,
-				490EF2391713C56500A55DA7 /* pjturn-client-arm-apple-darwin9 */,
-				490EF23A1713C56500A55DA7 /* pjturn-srv-arm-apple-darwin9 */,
-			);
-			path = bin;
 			sourceTree = "<group>";
 		};
 		490EF27A1713C56500A55DA7 /* include */ = {
@@ -1738,20 +1718,11 @@
 		490EF2B21713C56500A55DA7 /* pjsip */ = {
 			isa = PBXGroup;
 			children = (
-				490EF2B31713C56500A55DA7 /* bin */,
 				490EF3221713C56600A55DA7 /* include */,
 				490EF35C1713C56600A55DA7 /* lib */,
 			);
 			name = pjsip;
 			path = "../pjproject-2.0-device/pjsip";
-			sourceTree = "<group>";
-		};
-		490EF2B31713C56500A55DA7 /* bin */ = {
-			isa = PBXGroup;
-			children = (
-				490EF2B41713C56500A55DA7 /* pjsip-test-arm-apple-darwin9 */,
-			);
-			path = bin;
 			sourceTree = "<group>";
 		};
 		490EF3221713C56600A55DA7 /* include */ = {
@@ -2398,6 +2369,7 @@
 		49B4165A161634E1001C2433 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				49F089AA177C089900492714 /* AFNetworking */,
 				49E3EFD516FFA1070027504A /* CrittercismSDK */,
 				4917770A16D039D4009651B2 /* DCRoundSwitch */,
 				49B4165C16163513001C2433 /* TPKeyboardAvoidingScrollView.h */,
@@ -2595,6 +2567,32 @@
 				49E3EFD816FFA1070027504A /* libCrittercism_v3_4_9.a */,
 			);
 			path = CrittercismSDK;
+			sourceTree = "<group>";
+		};
+		49F089AA177C089900492714 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				49F089AB177C089900492714 /* AFHTTPClient.h */,
+				49F089AC177C089900492714 /* AFHTTPClient.m */,
+				49F089AD177C089900492714 /* AFHTTPRequestOperation.h */,
+				49F089AE177C089900492714 /* AFHTTPRequestOperation.m */,
+				49F089AF177C089900492714 /* AFImageRequestOperation.h */,
+				49F089B0177C089900492714 /* AFImageRequestOperation.m */,
+				49F089B1177C089900492714 /* AFJSONRequestOperation.h */,
+				49F089B2177C089900492714 /* AFJSONRequestOperation.m */,
+				49F089B3177C089900492714 /* AFNetworkActivityIndicatorManager.h */,
+				49F089B4177C089900492714 /* AFNetworkActivityIndicatorManager.m */,
+				49F089B5177C089900492714 /* AFNetworking.h */,
+				49F089B6177C089900492714 /* AFPropertyListRequestOperation.h */,
+				49F089B7177C089900492714 /* AFPropertyListRequestOperation.m */,
+				49F089B8177C089900492714 /* AFURLConnectionOperation.h */,
+				49F089B9177C089900492714 /* AFURLConnectionOperation.m */,
+				49F089BA177C089900492714 /* AFXMLRequestOperation.h */,
+				49F089BB177C089900492714 /* AFXMLRequestOperation.m */,
+				49F089BC177C089900492714 /* UIImageView+AFNetworking.h */,
+				49F089BD177C089900492714 /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2899,9 +2897,6 @@
 				490EF7331713C56700A55DA7 /* m_auto.h.in in Resources */,
 				490EF7341713C56700A55DA7 /* os_auto.h.in in Resources */,
 				490EF8A21713C56800A55DA7 /* config_auto.h.in in Resources */,
-				490EF8A31713C56800A55DA7 /* config_auto.h.in in Resources */,
-				490EF9231713C56800A55DA7 /* pjturn-client-arm-apple-darwin9 in Resources */,
-				490EF9241713C56800A55DA7 /* pjturn-srv-arm-apple-darwin9 in Resources */,
 				490EF9D71713C56800A55DA7 /* sip_autoconf.h.in in Resources */,
 				490EFCAB1716B56300A55DA7 /* bigben.caf in Resources */,
 				490EFCAC1716B56300A55DA7 /* diamond.caf in Resources */,
@@ -3076,6 +3071,15 @@
 				490EFC8C17151F3100A55DA7 /* DualButtonView.m in Sources */,
 				490EFC901716902600A55DA7 /* MenuCallView.m in Sources */,
 				490EFC931716904800A55DA7 /* PushButton.m in Sources */,
+				49F089BE177C089900492714 /* AFHTTPClient.m in Sources */,
+				49F089BF177C089900492714 /* AFHTTPRequestOperation.m in Sources */,
+				49F089C0177C089900492714 /* AFImageRequestOperation.m in Sources */,
+				49F089C1177C089900492714 /* AFJSONRequestOperation.m in Sources */,
+				49F089C2177C089900492714 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				49F089C3177C089900492714 /* AFPropertyListRequestOperation.m in Sources */,
+				49F089C4177C089900492714 /* AFURLConnectionOperation.m in Sources */,
+				49F089C5177C089900492714 /* AFXMLRequestOperation.m in Sources */,
+				49F089C6177C089900492714 /* UIImageView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
