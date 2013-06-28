@@ -35,6 +35,8 @@ typedef struct app_config
     CallViewController    *callViewController;
     BOOL isDisconnected;
     BOOL didAnswerCall;
+    
+    NSTimer *timer;
 }
 
 @property app_config_struct _app_config;

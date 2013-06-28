@@ -47,7 +47,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(checkIfIsDisconnected:) userInfo:nil repeats:YES];
+    timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(checkIfIsDisconnected:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -65,20 +65,25 @@
     [self makeCall:self._app_config];
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [timer invalidate];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)checkIfIsDisconnected:(NSTimer *)timer
+-(void)checkIfIsDisconnected:(NSTimer *)_timer
 {
     NSLog(@"CHECKING IF DISCONNECTED");
     if(isDisconnected)
     {
         if(!didAnswerCall)
             [Util showAlertWithTitle:@"Interdig" andMessage:@"El servicio de llamada se encuentra inactivo"];
-        [timer invalidate];
+        [_timer invalidate];
         [self disconnecting];
     }
 }
