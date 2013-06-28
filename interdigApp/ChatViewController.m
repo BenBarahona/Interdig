@@ -11,6 +11,7 @@
 #import "SSMessageTableViewCell.h"
 #import <SSToolkit/SSTextField.h>
 #import "ASIHTTPRequest.h"
+#import "AFNetworking.h"
 #import "SBJson.h"
 #import "WebViewController.h"
 

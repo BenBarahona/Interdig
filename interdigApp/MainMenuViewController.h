@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "GeneralTableViewCell.h"
-#import "ASIHTTPRequest.h"
+//#import "ASIHTTPRequest.h"
+#import "AFNetworking.h"
 #import "ObjectInfo.h"
 #import "HJObjManager.h"
 #import "SearchOverlayViewController.h"

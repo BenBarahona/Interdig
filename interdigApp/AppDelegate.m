@@ -137,12 +137,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    /*
-     Called when the application is about to terminate.
-     Save data if appropriate.
-     See also applicationDidEnterBackground:.
-     */
-    //[self sipCleanup];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults objectForKey:@"cta_user"] != nil)
@@ -156,10 +150,5 @@
     
     [defaults synchronize];
 }
-
-
-/***************
- PJSIP SHIT
- ***************/
 
 @end

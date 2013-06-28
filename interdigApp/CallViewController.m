@@ -206,7 +206,6 @@
 {
     NSLog(@"CALLING DISMISS VIEW");
     [self dismissView];
-    //[self performSelector:@selector(dismissView) withObject:nil afterDelay:1.0];
     
     dtmfCmd = nil;
     [self setSpeakerPhoneEnabled:NO];
@@ -236,6 +235,7 @@
 
 - (void)endCallUpInside:(id)fp8
 {
+    [self.delegate userEndedCall];
     [self endingCallWithId:_current_call];
     sip_hangup();
 }
@@ -452,10 +452,17 @@ static void sip_hangup()
 
 - (void)setMute:(BOOL)enable
 {
+    @try {
     if (enable)
         pjsua_conf_adjust_rx_level(0 /* pjsua_conf_port_id slot*/, 0.0f);
     else
         pjsua_conf_adjust_rx_level(0 /* pjsua_conf_port_id slot*/, 1.0f);
+        
+    }
+    @catch(NSException *e)
+    {
+        NSLog(@"Exception: %@", e);
+    }
 }
 
 - (void)setHoldEnabled: (BOOL)enable
