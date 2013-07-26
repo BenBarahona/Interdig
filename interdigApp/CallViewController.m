@@ -209,7 +209,7 @@
     
     dtmfCmd = nil;
     [self setSpeakerPhoneEnabled:NO];
-    [self setMute:NO];
+    //[self setMute:NO];
     
     [_lcd setLabel:@"Llamada terminada... Porfavor espere"];
     

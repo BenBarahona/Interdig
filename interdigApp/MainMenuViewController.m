@@ -14,7 +14,7 @@
 #import "WebViewController.h"
 #import "InputDataViewController.h"
 
-#define DB_NAME @"interdig"
+#define DB_NAME @"rio"
 
 @implementation MainMenuViewController
 @synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request;
@@ -78,7 +78,7 @@
     if(!self.dataBase)
     {
         self.dataBase = DB_NAME;
-        self.title = @"Interdig";
+        self.title = @"Brazil 2014";
         self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=1000", self.dataBase];
         //self.urlString = @"http://www.interdig.org/jce1.cfm?db=rio&cl=3259";
     }
