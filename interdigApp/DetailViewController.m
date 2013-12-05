@@ -156,9 +156,19 @@
     if(![self.thisObjectInfo.sms isEqualToString:@""])
     {
         alertType = MESSAGE;
-        UIAlertPrompt *alertView = [[UIAlertPrompt alloc] initWithTitle:@"Enviar SMS" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
-        [alertView show];	
-        [alertView release];
+        if([Util isIOS7])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enviar SMS" message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Enviar", nil];
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [alert show];
+            [alert release];
+        }
+        else
+        {
+            UIAlertPrompt *alertView = [[UIAlertPrompt alloc] initWithTitle:@"Enviar SMS" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
+            [alertView show];
+            [alertView release];
+        }
     }
 }
 
@@ -167,9 +177,19 @@
     if(![self.thisObjectInfo.email isEqualToString:@""])
     {
         alertType = EMAIL;
+        if([Util isIOS7])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enviar E-Mail" message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Enviar", nil];
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [alert show];
+            [alert release];
+        }
+        else
+        {
             UIAlertPrompt *alertPrompt = [[UIAlertPrompt alloc] initWithTitle:@"Enviar E-Mail" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
             [alertPrompt show];
             [alertPrompt release];
+        }
     }
 }
 

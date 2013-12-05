@@ -274,6 +274,12 @@
 
 -(void)dealloc
 {
+    [imageURL release];
+    [mapURL release];
+    [itemTitle release];
+    [itemSubtitle release];
+    [request clearDelegatesAndCancel];
+    [request release];
     [super dealloc];
 }
 @end

@@ -9,7 +9,7 @@
 #import "ObjectInfo.h"
 
 @implementation ObjectInfo
-@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security, sipPswd, sipServer, sipUser;
+@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security, sipPswd, sipServer, sipUser, tipo;
 
 -(id)initWithDictionary:(NSDictionary *)dataObject
 {
@@ -41,6 +41,7 @@
         self.sipServer = [dataObject objectForKey:@"sipserver"];
         self.sipUser = [dataObject objectForKey:@"username"];
         self.sipPswd = [dataObject objectForKey:@"password"];
+        self.tipo = [[dataObject objectForKey:@"tipo"] integerValue];
     }
     
     return self;

@@ -13,8 +13,9 @@
 #import "SBJson.h"
 #import "WebViewController.h"
 #import "InputDataViewController.h"
+#import "MapLocationViewController.h"
 
-#define DB_NAME @"rio"
+#define DB_NAME @"interdig"
 
 @implementation MainMenuViewController
 @synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request;
@@ -75,37 +76,40 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    if(!self.dataBase)
+    if(!self.urlString)
     {
-        self.dataBase = DB_NAME;
-        self.title = @"Brazil 2014";
-        self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=1000", self.dataBase];
-        //self.urlString = @"http://www.interdig.org/jce1.cfm?db=rio&cl=3259";
-    }
-    else if(!self.thisObjectInfo)
-    {
-        self.title = self.dataBase;
-        self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=1000", self.dataBase];
-    }
-    else
-    {
-        /*
-         UIImage *btnImage = [UIImage imageNamed:[self getBackButtonImageString]];
-         UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, btnImage.size.width, btnImage.size.height)];
-         [back setBackgroundImage:btnImage forState:UIControlStateNormal];
-         [back addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-         [back setTitle:@"Atras" forState:UIControlStateNormal];
-         [back.titleLabel setFont:[UIFont boldSystemFontOfSize:12]];
-         
-         UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithCustomView:back];
-         //UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:@"Atras" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonClicked:)];
-         //[backBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-         self.navigationItem.leftBarButtonItem = backBtn;
-         
-         [back release];
-         [backBtn release];
-         */
-        self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=%@", self.dataBase, self.thisObjectInfo.claveSig];
+        if(!self.dataBase)
+        {
+            self.dataBase = DB_NAME;
+            self.title = DB_NAME;
+            self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=1000", self.dataBase];
+            //self.urlString = @"http://www.interdig.org/jce1.cfm?db=rio&cl=3259";
+        }
+        else if(!self.thisObjectInfo)
+        {
+            self.title = self.dataBase;
+            self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=1000", self.dataBase];
+        }
+        else
+        {
+            /*
+             UIImage *btnImage = [UIImage imageNamed:[self getBackButtonImageString]];
+             UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, btnImage.size.width, btnImage.size.height)];
+             [back setBackgroundImage:btnImage forState:UIControlStateNormal];
+             [back addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+             [back setTitle:@"Atras" forState:UIControlStateNormal];
+             [back.titleLabel setFont:[UIFont boldSystemFontOfSize:12]];
+             
+             UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithCustomView:back];
+             //UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:@"Atras" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonClicked:)];
+             //[backBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+             self.navigationItem.leftBarButtonItem = backBtn;
+             
+             [back release];
+             [backBtn release];
+             */
+            self.urlString = [NSString stringWithFormat:@"http://www.interdig.org/jce1.cfm?db=%@&cl=%@", self.dataBase, self.thisObjectInfo.claveSig];
+        }
     }
     
     [self getInfoFromURL:self.urlString];
@@ -216,7 +220,7 @@
     {
         NSString *response = [_request responseString];
         NSArray *dict = [response JSONValue];
-        NSLog(@"%@", response);
+        //NSLog(@"%@", response);
         [self.objectArray removeAllObjects];
         for(NSDictionary *item in dict)
         {
@@ -515,6 +519,19 @@
     
     if(!searching && [selected.claveActual intValue] < 3000)
     {
+        if(selected.tipo > 2)
+        {
+            MapLocationViewController *map = [[MapLocationViewController alloc] initWithNibName:@"MapLocationViewController" bundle:nil];
+            map.title = selected.titulo;
+            map.database = self.dataBase;
+            map.tipoURL = selected.tipo;
+            
+            [self.navigationController pushViewController:map animated:YES];
+            [map release];
+            
+            return;
+        }
+        
         if([selected.claveActual isEqualToString:@"1000"] || ![selected.claveSig isEqualToString:selected.claveActual])
         {
             MainMenuViewController *detailViewController = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];

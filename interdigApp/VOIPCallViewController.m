@@ -34,6 +34,7 @@
 @implementation VOIPCallViewController
 @synthesize _app_config, domain, username, destinationNumber, password;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -140,7 +141,7 @@
     didAnswerCall = YES;
 }
 
-/* Display error and exit application */
+// Display error and exit application
 static void error_exit(const char *title, pj_status_t status)
 {
     NSLog(@"ERROR: %s STATUS:%d", title, status);
@@ -153,15 +154,15 @@ static void error_exit(const char *title, pj_status_t status)
     pjsua_acc_id acc_id;
     pj_status_t status;
     
-    /* Create pjsua first! */
+    // Create pjsua first!
     status = pjsua_create();
     if (status != PJ_SUCCESS)
         error_exit("Error in pjsua_create()", status);
     
-    /* Create pool for application */
+    // Create pool for application
     this_config.pool = pjsua_pool_create("pjsua", 1000, 1000);
     
-    /* Init pjsua */
+    // Init pjsua
     pjsua_config cfg = this_config.cfg;
     pjsua_logging_config log_cfg = this_config.log_cfg;
     pjsua_acc_config acc_cfg = this_config.acc_cfg;
@@ -183,7 +184,7 @@ static void error_exit(const char *title, pj_status_t status)
     
     
     pjsua_media_config_default(&this_config.media_cfg);
-    /* Create ringback tones */
+    // Create ringback tones
     unsigned i, samples_per_frame;
     pjmedia_tone_desc tone[RING_CNT+RINGBACK_CNT];
     pj_str_t name;
@@ -192,7 +193,7 @@ static void error_exit(const char *title, pj_status_t status)
     this_config.media_cfg.clock_rate *
     this_config.media_cfg.channel_count / 1000;
     
-    /* Ringback tone (call is ringing) */
+    // Ringback tone (call is ringing) 
     name = pj_str("ringback");
     
     status = pjmedia_tonegen_create2(this_config.pool, &name,
@@ -225,7 +226,7 @@ static void error_exit(const char *title, pj_status_t status)
         error_exit("Error creating ringback", status);
     
     
-    /* Add UDP transport. */
+    // Add UDP transport. 
     pjsua_transport_config_default(&cfg2);
     cfg2.port = 5060;
     status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &cfg2, NULL);
@@ -233,12 +234,12 @@ static void error_exit(const char *title, pj_status_t status)
         error_exit("Error creating transport", status);
         
     
-    /* Initialization is done, now start pjsua */
+    // Initialization is done, now start pjsua
     status = pjsua_start();
     if (status != PJ_SUCCESS)
         error_exit("Error starting pjsua", status);
-    
-    /* Register to SIP server by creating SIP account. */
+
+    // Register to SIP server by creating SIP account.
     NSString *sipUser = [NSString stringWithFormat:@"sip:%@@%@", self.username, self.domain];
     NSString *sipDomain = [NSString stringWithFormat:@"sip:%@", self.domain];
     NSString *sipPassword = self.password;
@@ -260,7 +261,7 @@ static void error_exit(const char *title, pj_status_t status)
     
     
 
-    /* If URL is specified, make call to the URL. */
+    // If URL is specified, make call to the URL.
     char *c = (char *)[sipNumber UTF8String];
     NSLog(@"NUMBER: %s", c);
     pj_str_t uri = pj_str(c);
@@ -303,7 +304,7 @@ static void postCallStateNotification(pjsua_call_id call_id, const pjsua_call_in
 
 static void ring_init(app_config_struct app_config)
 {
-    /* Create ringback tones */
+    // Create ringback tones
     unsigned i, samples_per_frame;
     pjmedia_tone_desc tone[RING_CNT+RINGBACK_CNT];
     pj_str_t name;
@@ -313,7 +314,7 @@ static void ring_init(app_config_struct app_config)
     app_config.media_cfg.clock_rate *
     app_config.media_cfg.channel_count / 1000;
     
-    /* Ringback tone (call is ringing) */
+    // Ringback tone (call is ringing)
     name = pj_str("ringback");
     status = pjmedia_tonegen_create2(app_config.pool, &name,
                                      app_config.media_cfg.clock_rate,
@@ -357,7 +358,7 @@ static void ring_stop(app_config_struct *app_config)
         if (--app_config->ringback_cnt == 0 &&
             app_config->ringback_slot != PJSUA_INVALID_ID)
         {
-            pjsua_conf_disconnect(app_config->ringback_slot, 0);
+            //pjsua_conf_disconnect(app_config->ringback_slot, 0);
             pjmedia_tonegen_rewind(app_config->ringback_port);
         }
     }
@@ -384,29 +385,14 @@ static void ringback_start(app_config_struct *app_config)
     thisVC._app_config = *(app_config);
 }
 
-/* Callback called by the library upon receiving incoming call */
+// Callback called by the library upon receiving incoming call
 static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id,
                              pjsip_rx_data *rdata)
 {
     NSLog(@"Incoming call!");
-    /*
-     pjsua_call_info ci;
-     
-     PJ_UNUSED_ARG(acc_id);
-     PJ_UNUSED_ARG(rdata);
-     
-     pjsua_call_get_info(call_id, &ci);
-     
-     PJ_LOG(3,(THIS_FILE, "Incoming call from %.*s!!",
-     (int)ci.remote_info.slen,
-     ci.remote_info.ptr));
-     
-     // Automatically answer incoming calls with 200/OK
-     pjsua_call_answer(call_id, 200, NULL, NULL);
-     */
 }
 
-/* Callback called by the library when call's state has changed */
+// Callback called by the library when call's state has changed
 static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
 {
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -443,7 +429,7 @@ static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
               ci.state_text.ptr));
 }
 
-/* Callback called by the library when call's media state has changed */
+// Callback called by the library when call's media state has changed
 static void on_call_media_state(pjsua_call_id call_id)
 {
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;

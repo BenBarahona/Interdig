@@ -250,7 +250,6 @@
 		490EFD1A1716B5AE00A55DA7 /* sixsqbuttonsel_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEC1716B5AE00A55DA7 /* sixsqbuttonsel_5.png */; };
 		490EFD1B1716B5AE00A55DA7 /* sixsqbuttonsel_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */; };
 		490EFD1C1716B5AE00A55DA7 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEE1716B5AE00A55DA7 /* speaker.png */; };
-		490EFD1D1716B5AE00A55DA7 /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEF1716B5AE00A55DA7 /* Thumbs.db */; };
 		490EFD1E1716B5AE00A55DA7 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCF01716B5AE00A55DA7 /* message.png */; };
 		4917770416CC9FAA009651B2 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770216CC9FA4009651B2 /* 01-refresh.png */; };
 		4917770516CC9FAA009651B2 /* 01-refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770316CC9FA7009651B2 /* 01-refresh@2x.png */; };
@@ -258,6 +257,8 @@
 		4917771416D039D5009651B2 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917770E16D039D5009651B2 /* DCRoundSwitchKnobLayer.m */; };
 		4917771516D039D5009651B2 /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917771016D039D5009651B2 /* DCRoundSwitchOutlineLayer.m */; };
 		4917771616D039D5009651B2 /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917771216D039D5009651B2 /* DCRoundSwitchToggleLayer.m */; };
+		495F305517E4B749009EB432 /* MapLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495F305317E4B749009EB432 /* MapLocationViewController.m */; };
+		495F305617E4B749009EB432 /* MapLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495F305417E4B749009EB432 /* MapLocationViewController.xib */; };
 		495F8ED31726594600EA82DF /* libpj-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 495F8ED21726594600EA82DF /* libpj-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4964569A162BC72700D71F11 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49645698162BC72700D71F11 /* ChatViewController.m */; };
 		496456B0162BCB6100D71F11 /* SSMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496456AA162BCB6100D71F11 /* SSMessagesViewController.m */; };
@@ -389,6 +390,10 @@
 		49B4165E16163513001C2433 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B4165D16163513001C2433 /* TPKeyboardAvoidingScrollView.m */; };
 		49B41661161635A5001C2433 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B41660161635A5001C2433 /* ObjectInfo.m */; };
 		49B41664161635B3001C2433 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B41663161635B3001C2433 /* Util.m */; };
+		49CC217E17F2935F00D8B65B /* interdig-29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CC217A17F2935F00D8B65B /* interdig-29x29.png */; };
+		49CC217F17F2935F00D8B65B /* interdig-58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CC217B17F2935F00D8B65B /* interdig-58x58.png */; };
+		49CC218017F2935F00D8B65B /* interdig-80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CC217C17F2935F00D8B65B /* interdig-80x80.png */; };
+		49CC218117F2935F00D8B65B /* interdig-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CC217D17F2935F00D8B65B /* interdig-120x120.png */; };
 		49D9952C1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D9952B1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		49E3EFCB16FE5C920027504A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E3EFC916FE5C920027504A /* LoginViewController.m */; };
 		49E3EFCC16FE5C920027504A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3EFCA16FE5C920027504A /* LoginViewController.xib */; };
@@ -998,7 +1003,6 @@
 		490EFCEC1716B5AE00A55DA7 /* sixsqbuttonsel_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_5.png; sourceTree = "<group>"; };
 		490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_6.png; sourceTree = "<group>"; };
 		490EFCEE1716B5AE00A55DA7 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
-		490EFCEF1716B5AE00A55DA7 /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		490EFCF01716B5AE00A55DA7 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		4917770216CC9FA4009651B2 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		4917770316CC9FA7009651B2 /* 01-refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh@2x.png"; sourceTree = "<group>"; };
@@ -1010,6 +1014,9 @@
 		4917771016D039D5009651B2 /* DCRoundSwitchOutlineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchOutlineLayer.m; sourceTree = "<group>"; };
 		4917771116D039D5009651B2 /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
 		4917771216D039D5009651B2 /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
+		495F305217E4B749009EB432 /* MapLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLocationViewController.h; sourceTree = "<group>"; };
+		495F305317E4B749009EB432 /* MapLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLocationViewController.m; sourceTree = "<group>"; };
+		495F305417E4B749009EB432 /* MapLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapLocationViewController.xib; sourceTree = "<group>"; };
 		495F8ED21726594600EA82DF /* libpj-i686-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpj-i686-apple-darwin9.a"; path = "../pjproject-2.0-simulator/pjlib/lib/libpj-i686-apple-darwin9.a"; sourceTree = "<group>"; };
 		49645697162BC72700D71F11 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		49645698162BC72700D71F11 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
@@ -1091,6 +1098,7 @@
 		49A9790A17265861000B2437 /* libresample-i686-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libresample-i686-apple-darwin9.a"; path = "../pjproject-2.0-simulator/third_party/lib/libresample-i686-apple-darwin9.a"; sourceTree = "<group>"; };
 		49A9790B17265861000B2437 /* libspeex-i686-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libspeex-i686-apple-darwin9.a"; path = "../pjproject-2.0-simulator/third_party/lib/libspeex-i686-apple-darwin9.a"; sourceTree = "<group>"; };
 		49A9790C17265861000B2437 /* libsrtp-i686-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsrtp-i686-apple-darwin9.a"; path = "../pjproject-2.0-simulator/third_party/lib/libsrtp-i686-apple-darwin9.a"; sourceTree = "<group>"; };
+		49B1574517A351E900519C8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		49B4159A16158336001C2433 /* interdigApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interdigApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B4159E16158336001C2433 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49B415A016158336001C2433 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1199,6 +1207,10 @@
 		49B41660161635A5001C2433 /* ObjectInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInfo.m; sourceTree = "<group>"; };
 		49B41662161635B3001C2433 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		49B41663161635B3001C2433 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		49CC217A17F2935F00D8B65B /* interdig-29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-29x29.png"; sourceTree = "<group>"; };
+		49CC217B17F2935F00D8B65B /* interdig-58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-58x58.png"; sourceTree = "<group>"; };
+		49CC217C17F2935F00D8B65B /* interdig-80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-80x80.png"; sourceTree = "<group>"; };
+		49CC217D17F2935F00D8B65B /* interdig-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-120x120.png"; sourceTree = "<group>"; };
 		49D9952B1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util-i686-apple-darwin9.a"; path = "../pjproject-2.0-simulator/pjlib-util/lib/libpjlib-util-i686-apple-darwin9.a"; sourceTree = "<group>"; };
 		49E3EFC816FE5C920027504A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		49E3EFC916FE5C920027504A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -1982,7 +1994,6 @@
 				490EFCEC1716B5AE00A55DA7 /* sixsqbuttonsel_5.png */,
 				490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */,
 				490EFCEE1716B5AE00A55DA7 /* speaker.png */,
-				490EFCEF1716B5AE00A55DA7 /* Thumbs.db */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2148,6 +2159,7 @@
 		49B4158F16158336001C2433 = {
 			isa = PBXGroup;
 			children = (
+				49B1574517A351E900519C8C /* MessageUI.framework */,
 				496458BE1645BAE700D71F11 /* Default@2x.png */,
 				496458BC1645BACB00D71F11 /* Default.png */,
 				4964587B1645A22F00D71F11 /* Default-568h@2x.png */,
@@ -2155,6 +2167,10 @@
 				496458771645A01C00D71F11 /* interdig-72x72.png */,
 				496458751645A00400D71F11 /* interdig-114x114.png */,
 				4964587316459FFB00D71F11 /* interdig-57x57.png */,
+				49CC217A17F2935F00D8B65B /* interdig-29x29.png */,
+				49CC217B17F2935F00D8B65B /* interdig-58x58.png */,
+				49CC217C17F2935F00D8B65B /* interdig-80x80.png */,
+				49CC217D17F2935F00D8B65B /* interdig-120x120.png */,
 				4964583C162BE18B00D71F11 /* SSToolkit.xcodeproj */,
 				49B415A416158336001C2433 /* interdigApp */,
 				49B415BC16158336001C2433 /* interdigAppTests */,
@@ -2545,6 +2561,9 @@
 				49E3F006170A13CA0027504A /* VOIPCallViewController.h */,
 				49E3F007170A13CB0027504A /* VOIPCallViewController.m */,
 				49E3F008170A13CB0027504A /* VOIPCallViewController.xib */,
+				495F305217E4B749009EB432 /* MapLocationViewController.h */,
+				495F305317E4B749009EB432 /* MapLocationViewController.m */,
+				495F305417E4B749009EB432 /* MapLocationViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2643,6 +2662,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				TargetAttributes = {
+					49B4159916158336001C2433 = {
+						DevelopmentTeam = 2H8MX8LNZS;
+					};
+				};
 			};
 			buildConfigurationList = 49B4159416158336001C2433 /* Build configuration list for PBXProject "interdigApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2697,6 +2721,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CC218017F2935F00D8B65B /* interdig-80x80.png in Resources */,
 				49645851162BE1DC00D71F11 /* SSToolkitResources.bundle in Resources */,
 				49B415A916158336001C2433 /* InfoPlist.strings in Resources */,
 				49B415D116158660001C2433 /* MainMenuViewController.xib in Resources */,
@@ -2711,6 +2736,7 @@
 				496DDA1B161D52E400FA7B71 /* MapViewController.xib in Resources */,
 				9DE9E03B1624AABF0034419A /* 18-envelope.png in Resources */,
 				9DE9E03C1624AABF0034419A /* 18-envelope@2x.png in Resources */,
+				49CC217E17F2935F00D8B65B /* interdig-29x29.png in Resources */,
 				496DDA351628ED9B00FA7B71 /* 103-map.png in Resources */,
 				496DDA361628ED9B00FA7B71 /* 103-map@2x.png in Resources */,
 				496DDA3F162927E800FA7B71 /* 246-route.png in Resources */,
@@ -2786,6 +2812,7 @@
 				490EF9411649049B00F8E424 /* cell_news.png in Resources */,
 				490EF9421649049B00F8E424 /* cell_news@2x.png in Resources */,
 				490EF9431649049B00F8E424 /* cell_orion.png in Resources */,
+				49CC218117F2935F00D8B65B /* interdig-120x120.png in Resources */,
 				490EF9441649049B00F8E424 /* cell_orion@2x.png in Resources */,
 				490EF9451649049B00F8E424 /* cell_turismo.png in Resources */,
 				490EF9461649049B00F8E424 /* cell_turismo@2x.png in Resources */,
@@ -2828,6 +2855,7 @@
 				490EF9DB164A292400F8E424 /* video_news.png in Resources */,
 				490EF9DC164A292400F8E424 /* video_news@2x.png in Resources */,
 				490EF9DD164A292400F8E424 /* video_orion.png in Resources */,
+				49CC217F17F2935F00D8B65B /* interdig-58x58.png in Resources */,
 				490EF9DE164A292400F8E424 /* video_orion@2x.png in Resources */,
 				490EF9DF164A292400F8E424 /* video_villeda.png in Resources */,
 				490EF9E0164A292400F8E424 /* video_villeda@2x.png in Resources */,
@@ -2964,8 +2992,8 @@
 				490EFD1A1716B5AE00A55DA7 /* sixsqbuttonsel_5.png in Resources */,
 				490EFD1B1716B5AE00A55DA7 /* sixsqbuttonsel_6.png in Resources */,
 				490EFD1C1716B5AE00A55DA7 /* speaker.png in Resources */,
-				490EFD1D1716B5AE00A55DA7 /* Thumbs.db in Resources */,
 				490EFD1E1716B5AE00A55DA7 /* message.png in Resources */,
+				495F305617E4B749009EB432 /* MapLocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3080,6 +3108,7 @@
 				49F089C4177C089900492714 /* AFURLConnectionOperation.m in Sources */,
 				49F089C5177C089900492714 /* AFXMLRequestOperation.m in Sources */,
 				49F089C6177C089900492714 /* UIImageView+AFNetworking.m in Sources */,
+				495F305517E4B749009EB432 /* MapLocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3232,8 +3261,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A6C698E3-95E0-4F29-9205-4A6BD39CC488";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6C698E3-95E0-4F29-9205-4A6BD39CC488";
+				PROVISIONING_PROFILE = "DB11375A-751E-4C57-963D-2AB199C88455";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB11375A-751E-4C57-963D-2AB199C88455";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3243,8 +3272,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ruben Bermudez";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ruben Bermudez";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "interdigApp/interdigApp-Prefix.pch";
@@ -3288,8 +3317,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A6C698E3-95E0-4F29-9205-4A6BD39CC488";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6C698E3-95E0-4F29-9205-4A6BD39CC488";
+				PROVISIONING_PROFILE = "DB11375A-751E-4C57-963D-2AB199C88455";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB11375A-751E-4C57-963D-2AB199C88455";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -11,6 +11,7 @@
 #import "Util.h"
 #import "InputDataViewController.h"
 #import "Crittercism.h"
+#import "MapLocationViewController.h"
 
 #define NAVBAR @"navigation_bar3.png"
 
@@ -36,6 +37,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor whiteColor], UITextAttributeTextColor,
+                                [UIColor blackColor], UITextAttributeTextShadowColor,
+                                [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset
+                                , nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    
     [Crittercism enableWithAppID:@"514f6904c463c276d7000002"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -62,9 +70,12 @@
     nvc.tabBarItem.image = [UIImage imageNamed:@"interdig-57x57"];
     nvc.tabBarItem.title = @"Interdig";
     
-    
-    //voipVC = [[VOIPCallViewController alloc] init];
-    
+    /*
+    MapLocationViewController *map = [[MapLocationViewController alloc] init];
+    UINavigationController *mapNVC = [[UINavigationController alloc] initWithRootViewController:map];
+    mapNVC.tabBarItem.image = [UIImage imageNamed:@"103-map"];
+    mapNVC.tabBarItem.title = @"Mapa";
+    */
     /*
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     [userDef setObject:SIP_USER forKey:@"username"];
@@ -75,7 +86,7 @@
     [userDef setObject:[NSNumber numberWithInt:60] forKey:@"regTimeout"];
     [userDef synchronize];
     */
-    //[tabController setViewControllers:[NSArray arrayWithObjects:nvc, voipVC, nil]];
+    //[tabController setViewControllers:[NSArray arrayWithObjects:nvc, map, nil]];
     
     //[self.window setRootViewController:tabController];
     [self.window setRootViewController:nvc];

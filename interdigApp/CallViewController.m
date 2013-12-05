@@ -60,12 +60,12 @@
 	CGRect frame = CGRectMake(0.0f, 70.0f, 320.0f, 320.0f);
 	_containerView = [[UIView alloc] initWithFrame:frame];
     
-    /** Phone Pad **/
+    // Phone Pad
     PhonePad *phonePad = [[PhonePad alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 320.0f)];
     [phonePad setPlaysSounds: TRUE];
     [phonePad setDelegate: self];
     
-    /** Menu **/
+    // Menu
     MenuCallView *menuView = [[MenuCallView alloc] initWithFrame: CGRectMake(18.0f, 52.0f, 285.0f, 216.0f)];
     [menuView setDelegate:self];
     [menuView setTitle:@"mute" image:[UIImage imageNamed:@"mute.png"] forPosition:0];
@@ -80,7 +80,7 @@
     _switchViews[1] = menuView;
     _whichView = 0;
     
-    /** LCD **/
+    // LCD
     _lcd = [[LCDView alloc] initWithDefaultSize];
     [_lcd setLabel:@""]; // name or number of callee
     [_lcd setText:@""];   // timer, call state for example
@@ -335,9 +335,7 @@ static void sip_hangup()
         sip_call_play_digits(_current_call, &dtmf);
 }
 
-/*
- * Find next call when current call is disconnected
- */
+//Find next call when current call is disconnected
 - (BOOL)findNextCall
 {
     int i, max;
@@ -454,9 +452,9 @@ static void sip_hangup()
 {
     @try {
     if (enable)
-        pjsua_conf_adjust_rx_level(0 /* pjsua_conf_port_id slot*/, 0.0f);
+        pjsua_conf_adjust_rx_level(0 , 0.0f);
     else
-        pjsua_conf_adjust_rx_level(0 /* pjsua_conf_port_id slot*/, 1.0f);
+        pjsua_conf_adjust_rx_level(0 , 1.0f);
         
     }
     @catch(NSException *e)
@@ -516,6 +514,7 @@ static void sip_hangup()
             break;
     }
 }
+ 
 
 #if 0
 void audioSessionPropertyListener(void *inClientData, AudioSessionPropertyID inID,
@@ -523,17 +522,6 @@ void audioSessionPropertyListener(void *inClientData, AudioSessionPropertyID inI
 {
 	if (inID == kAudioSessionProperty_AudioRouteChange)
 	{
-		/* A CFDictionaryRef object containing the reason the audio route
-		 * changed and the name of the old route. This object is available
-		 * to your application only by way of a property listener callback
-		 * function. See AudioSessionAddPropertyListener. The CFDictionary
-		 * object contains two keys and values.
-		 * The kAudioSession_AudioRouteChangeKey_Reason key has a CFNumberRef
-		 * value that identifies the reason for the route change. See “Audio
-		 * Session Route Change Reasons.”
-		 * The kAudioSession_AudioRouteChangeKey_OldRoute key has a CFStringRef
-		 * value that names the old audio route.
-		 */
 		CFDictionaryRef dictionary = (CFDictionaryRef)inData;
 		CFNumberRef reason = CFDictionaryGetValue (dictionary,kAudioSession_AudioRouteChangeKey_Reason);
         

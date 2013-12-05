@@ -39,4 +39,5 @@
 @property (nonatomic, retain) NSString *sipServer;
 @property (nonatomic, retain) NSString *sipUser;
 @property (nonatomic, retain) NSString *sipPswd;
+@property (nonatomic, assign) NSUInteger tipo;
 @end
