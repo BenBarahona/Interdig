@@ -332,6 +332,7 @@
 		49A9791217265862000B2437 /* libresample-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790A17265861000B2437 /* libresample-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		49A9791317265862000B2437 /* libspeex-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790B17265861000B2437 /* libspeex-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		49A9791417265862000B2437 /* libsrtp-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A9790C17265861000B2437 /* libsrtp-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49AC048618890C7C006D8BE8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B1574517A351E900519C8C /* MessageUI.framework */; };
 		49B4159F16158336001C2433 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B4159E16158336001C2433 /* UIKit.framework */; };
 		49B415A116158336001C2433 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B415A016158336001C2433 /* Foundation.framework */; };
 		49B415A316158336001C2433 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B415A216158336001C2433 /* CoreGraphics.framework */; };
@@ -1258,6 +1259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AC048618890C7C006D8BE8 /* MessageUI.framework in Frameworks */,
 				49A05536170B3EA90096EB04 /* AudioToolbox.framework in Frameworks */,
 				49A05534170B3E920096EB04 /* OpenGLES.framework in Frameworks */,
 				49A05532170B3E830096EB04 /* CoreVideo.framework in Frameworks */,
@@ -3257,12 +3259,12 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-ObjC",
 					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "086493B4-9045-44A3-82A2-F841DE12124B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "086493B4-9045-44A3-82A2-F841DE12124B";
+				PROVISIONING_PROFILE = "72C87DBF-9FCF-486B-BB16-860648DE44B0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "72C87DBF-9FCF-486B-BB16-860648DE44B0";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3313,12 +3315,12 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-ObjC",
 					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F292C170-FBF1-44A0-938D-2204448D2599";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F292C170-FBF1-44A0-938D-2204448D2599";
+				PROVISIONING_PROFILE = "B58519B8-71E3-45FA-B302-F456F12165BB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B58519B8-71E3-45FA-B302-F456F12165BB";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -15,7 +15,7 @@
 #import "InputDataViewController.h"
 #import "MapLocationViewController.h"
 
-#define DB_NAME @"expo"
+#define DB_NAME @"egob"
 
 @implementation MainMenuViewController
 @synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request;

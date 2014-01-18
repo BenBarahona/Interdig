@@ -19,8 +19,8 @@
         self.objectID = [dataObject objectForKey:@"id"];
         self.titulo = [dataObject objectForKey:@"titulo"];
         self.descripcion = [dataObject objectForKey:@"desl"];
-        self.claveActual = [dataObject objectForKey:@"clave"];
-        self.claveSig = [dataObject objectForKey:@"cla"];
+        self.claveActual = ([[dataObject objectForKey:@"clave"] isKindOfClass:[NSString class]]) ? [dataObject objectForKey:@"clave"] : [[dataObject objectForKey:@"clave"] stringValue];
+        self.claveSig = ([[dataObject objectForKey:@"cla"] isKindOfClass:[NSString class]]) ? [dataObject objectForKey:@"cla"] : [[dataObject objectForKey:@"cla"] stringValue];
         self.email = [dataObject objectForKey:@"email"];
         self.photoURL = [dataObject objectForKey:@"filename"];
         self.address1 = [dataObject objectForKey:@"ad1"];

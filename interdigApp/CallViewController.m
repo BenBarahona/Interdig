@@ -48,7 +48,6 @@
 	return self;
 }
 
-
 - (void)loadView
 {
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];

@@ -147,7 +147,7 @@
 
 -(void)requestDidFinish:(ASIHTTPRequest *)request
 {
-    NSLog(@"REQUEST FINISHED: %@", request);
+    NSLog(@"REQUEST FINISHED: %@", request.responseString);
     if(request.responseStatusCode == 200 || request.responseStatusCode == 201)
     {
         //Do stuff
@@ -199,7 +199,7 @@
 {
     //Refreshing chat messages http://www.interdig.org/jchat2.cfm?db=rio&idme=xxxxxx
     NSString *urlString = [NSString stringWithFormat:@"http://www.interdig.org/jchat2.cfm?db=%@&idme=%@", self.dataBase, self.randomNumber];
-    NSLog(@"URL: %@", urlString);
+    NSLog(@"CHAT URL: %@", urlString);
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [request setDelegate:self];
     [request setDidFinishSelector:@selector(refreshChatDidFinish:)];
@@ -217,6 +217,7 @@
 -(void)refreshChatDidFinish:(ASIHTTPRequest *)request
 {
     NSLog(@"CHAT REFRESHED: %@", request.responseString);
+    
     if(request.responseStatusCode == 200 || request.responseStatusCode == 201)
     {
         //Do stuff

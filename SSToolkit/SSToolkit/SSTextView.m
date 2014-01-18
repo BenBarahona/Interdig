@@ -10,15 +10,11 @@
 
 @interface SSTextView ()
 - (void)_initialize;
-- (void)_updateShouldDrawPlaceholder;
 - (void)_textChanged:(NSNotification *)notification;
 @end
 
 
-@implementation SSTextView {
-	BOOL _shouldDrawPlaceholder;
-}
-
+@implementation SSTextView
 
 #pragma mark - Accessors
 
@@ -27,7 +23,19 @@
 
 - (void)setText:(NSString *)string {
 	[super setText:string];
-	[self _updateShouldDrawPlaceholder];
+	[self setNeedsDisplay];
+}
+
+
+- (void)insertText:(NSString *)string {
+	[super insertText:string];
+	[self setNeedsDisplay];
+}
+
+
+- (void)setAttributedText:(NSAttributedString *)attributedText {
+	[super setAttributedText:attributedText];
+	[self setNeedsDisplay];
 }
 
 
@@ -37,7 +45,25 @@
 	}
 	
 	_placeholder = string;
-	[self _updateShouldDrawPlaceholder];
+	[self setNeedsDisplay];
+}
+
+
+- (void)setContentInset:(UIEdgeInsets)contentInset {
+	[super setContentInset:contentInset];
+	[self setNeedsDisplay];
+}
+
+
+- (void)setFont:(UIFont *)font {
+	[super setFont:font];
+	[self setNeedsDisplay];
+}
+
+
+- (void)setTextAlignment:(NSTextAlignment)textAlignment {
+	[super setTextAlignment:textAlignment];
+	[self setNeedsDisplay];
 }
 
 
@@ -68,10 +94,24 @@
 
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
-	
-	if (_shouldDrawPlaceholder) {
+
+	if (self.text.length == 0 && self.placeholder) {
+		// Inset the rect
+		rect = UIEdgeInsetsInsetRect(rect, self.contentInset);
+
+		// TODO: This is hacky. Not sure why 8 is the magic number
+		if (self.contentInset.left == 0.0f) {
+			rect.origin.x += 8.0f;
+		}
+		rect.origin.y += 8.0f;
+
+		// Draw the text
 		[_placeholderTextColor set];
-		[_placeholder drawInRect:CGRectMake(8.0f, 8.0f, self.frame.size.width - 16.0f, self.frame.size.height - 16.0f) withFont:self.font];
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
+		[_placeholder drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
+#else
+		[_placeholder drawInRect:rect withFont:self.font lineBreakMode:UILineBreakModeTailTruncation alignment:self.textAlignment];
+#endif
 	}
 }
 
@@ -82,22 +122,11 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_textChanged:) name:UITextViewTextDidChangeNotification object:self];
 	
 	self.placeholderTextColor = [UIColor colorWithWhite:0.702f alpha:1.0f];
-	_shouldDrawPlaceholder = NO;
-}
-
-
-- (void)_updateShouldDrawPlaceholder {
-	BOOL prev = _shouldDrawPlaceholder;
-	_shouldDrawPlaceholder = self.placeholder && self.placeholderTextColor && self.text.length == 0;
-	
-	if (prev != _shouldDrawPlaceholder) {
-		[self setNeedsDisplay];
-	}
 }
 
 
 - (void)_textChanged:(NSNotification *)notification {
-	[self _updateShouldDrawPlaceholder];	
+	[self setNeedsDisplay];
 }
 
 @end
