@@ -384,6 +384,17 @@
 		49B4165E16163513001C2433 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B4165D16163513001C2433 /* TPKeyboardAvoidingScrollView.m */; };
 		49B41661161635A5001C2433 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B41660161635A5001C2433 /* ObjectInfo.m */; };
 		49B41664161635B3001C2433 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B41663161635B3001C2433 /* Util.m */; };
+		49B4784B18F2AC72006CF377 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784018F2AC72006CF377 /* Default-568h@2x.png */; };
+		49B4784C18F2AC72006CF377 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784118F2AC72006CF377 /* Default.png */; };
+		49B4784D18F2AC72006CF377 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784218F2AC72006CF377 /* Default@2x.png */; };
+		49B4784E18F2AC72006CF377 /* interdig-29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784318F2AC72006CF377 /* interdig-29x29.png */; };
+		49B4784F18F2AC72006CF377 /* interdig-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784418F2AC72006CF377 /* interdig-57x57.png */; };
+		49B4785018F2AC72006CF377 /* interdig-58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784518F2AC72006CF377 /* interdig-58x58.png */; };
+		49B4785118F2AC72006CF377 /* interdig-72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784618F2AC72006CF377 /* interdig-72x72.png */; };
+		49B4785218F2AC72006CF377 /* interdig-80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784718F2AC72006CF377 /* interdig-80x80.png */; };
+		49B4785318F2AC72006CF377 /* interdig-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784818F2AC72006CF377 /* interdig-114x114.png */; };
+		49B4785418F2AC72006CF377 /* interdig-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784918F2AC72006CF377 /* interdig-120x120.png */; };
+		49B4785518F2AC72006CF377 /* interdig-144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4784A18F2AC72006CF377 /* interdig-144x144.png */; };
 		49D9952C1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D9952B1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		49E3EFCB16FE5C920027504A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E3EFC916FE5C920027504A /* LoginViewController.m */; };
 		49E3EFCC16FE5C920027504A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3EFCA16FE5C920027504A /* LoginViewController.xib */; };
@@ -1195,6 +1206,17 @@
 		49B41660161635A5001C2433 /* ObjectInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInfo.m; sourceTree = "<group>"; };
 		49B41662161635B3001C2433 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		49B41663161635B3001C2433 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		49B4784018F2AC72006CF377 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		49B4784118F2AC72006CF377 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		49B4784218F2AC72006CF377 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		49B4784318F2AC72006CF377 /* interdig-29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-29x29.png"; sourceTree = "<group>"; };
+		49B4784418F2AC72006CF377 /* interdig-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-57x57.png"; sourceTree = "<group>"; };
+		49B4784518F2AC72006CF377 /* interdig-58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-58x58.png"; sourceTree = "<group>"; };
+		49B4784618F2AC72006CF377 /* interdig-72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-72x72.png"; sourceTree = "<group>"; };
+		49B4784718F2AC72006CF377 /* interdig-80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-80x80.png"; sourceTree = "<group>"; };
+		49B4784818F2AC72006CF377 /* interdig-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-114x114.png"; sourceTree = "<group>"; };
+		49B4784918F2AC72006CF377 /* interdig-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-120x120.png"; sourceTree = "<group>"; };
+		49B4784A18F2AC72006CF377 /* interdig-144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interdig-144x144.png"; sourceTree = "<group>"; };
 		49D9952B1726597A005D5F43 /* libpjlib-util-i686-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util-i686-apple-darwin9.a"; path = "../pjproject-2.0-simulator/pjlib-util/lib/libpjlib-util-i686-apple-darwin9.a"; sourceTree = "<group>"; };
 		49E3EFC816FE5C920027504A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		49E3EFC916FE5C920027504A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -2143,6 +2165,17 @@
 		49B4158F16158336001C2433 = {
 			isa = PBXGroup;
 			children = (
+				49B4784018F2AC72006CF377 /* Default-568h@2x.png */,
+				49B4784118F2AC72006CF377 /* Default.png */,
+				49B4784218F2AC72006CF377 /* Default@2x.png */,
+				49B4784318F2AC72006CF377 /* interdig-29x29.png */,
+				49B4784418F2AC72006CF377 /* interdig-57x57.png */,
+				49B4784518F2AC72006CF377 /* interdig-58x58.png */,
+				49B4784618F2AC72006CF377 /* interdig-72x72.png */,
+				49B4784718F2AC72006CF377 /* interdig-80x80.png */,
+				49B4784818F2AC72006CF377 /* interdig-114x114.png */,
+				49B4784918F2AC72006CF377 /* interdig-120x120.png */,
+				49B4784A18F2AC72006CF377 /* interdig-144x144.png */,
 				49B1574517A351E900519C8C /* MessageUI.framework */,
 				4964583C162BE18B00D71F11 /* SSToolkit.xcodeproj */,
 				49B415A416158336001C2433 /* interdigApp */,
@@ -2711,6 +2744,7 @@
 				496DDA1B161D52E400FA7B71 /* MapViewController.xib in Resources */,
 				9DE9E03B1624AABF0034419A /* 18-envelope.png in Resources */,
 				9DE9E03C1624AABF0034419A /* 18-envelope@2x.png in Resources */,
+				49B4784E18F2AC72006CF377 /* interdig-29x29.png in Resources */,
 				496DDA351628ED9B00FA7B71 /* 103-map.png in Resources */,
 				496DDA361628ED9B00FA7B71 /* 103-map@2x.png in Resources */,
 				496DDA3F162927E800FA7B71 /* 246-route.png in Resources */,
@@ -2740,6 +2774,7 @@
 				496458BB1645BAB500D71F11 /* bg_image@2x.png in Resources */,
 				496458C61645BEF500D71F11 /* icon_email.png in Resources */,
 				496458C71645BEF500D71F11 /* icon_email@2x.png in Resources */,
+				49B4784F18F2AC72006CF377 /* interdig-57x57.png in Resources */,
 				496458C81645BEF500D71F11 /* icon_sms.png in Resources */,
 				496458C91645BEF500D71F11 /* icon_sms@2x.png in Resources */,
 				496458CA1645BEF500D71F11 /* icon_video.png in Resources */,
@@ -2751,6 +2786,7 @@
 				490EF9091645C4A200F8E424 /* button_mail.png in Resources */,
 				490EF90A1645C4A200F8E424 /* button_mail@2x.png in Resources */,
 				490EF90B1645C4A200F8E424 /* button_map.png in Resources */,
+				49B4784D18F2AC72006CF377 /* Default@2x.png in Resources */,
 				490EF90C1645C4A200F8E424 /* button_map@2x.png in Resources */,
 				490EF90D1645C4A200F8E424 /* button_video.png in Resources */,
 				490EF90E1645C4A200F8E424 /* button_video@2x.png in Resources */,
@@ -2774,6 +2810,7 @@
 				490EF93C1649049B00F8E424 /* cell_honduras@2x.png in Resources */,
 				490EF93D1649049B00F8E424 /* cell_intur.png in Resources */,
 				490EF93E1649049B00F8E424 /* cell_intur@2x.png in Resources */,
+				49B4785018F2AC72006CF377 /* interdig-58x58.png in Resources */,
 				490EF93F1649049B00F8E424 /* cell_koica.png in Resources */,
 				490EF9401649049B00F8E424 /* cell_koica@2x.png in Resources */,
 				490EF9411649049B00F8E424 /* cell_news.png in Resources */,
@@ -2784,6 +2821,7 @@
 				490EF9461649049B00F8E424 /* cell_turismo@2x.png in Resources */,
 				490EF9471649049B00F8E424 /* cell_workersHonduras.png in Resources */,
 				490EF9481649049B00F8E424 /* cell_workersHonduras@2x.png in Resources */,
+				49B4785418F2AC72006CF377 /* interdig-120x120.png in Resources */,
 				490EF94F16490B8000F8E424 /* button_info.png in Resources */,
 				490EF95016490B8000F8E424 /* button_info@2x.png in Resources */,
 				490EF95316490D6A00F8E424 /* icon_arrow.png in Resources */,
@@ -2816,6 +2854,7 @@
 				490EF9D6164A292400F8E424 /* video_honduras@2x.png in Resources */,
 				490EF9D7164A292400F8E424 /* video_intur.png in Resources */,
 				490EF9D8164A292400F8E424 /* video_intur@2x.png in Resources */,
+				49B4785518F2AC72006CF377 /* interdig-144x144.png in Resources */,
 				490EF9D9164A292400F8E424 /* video_koica.png in Resources */,
 				490EF9DA164A292400F8E424 /* video_koica@2x.png in Resources */,
 				490EF9DB164A292400F8E424 /* video_news.png in Resources */,
@@ -2897,6 +2936,7 @@
 				490EFCAD1716B56300A55DA7 /* dingdong.caf in Resources */,
 				490EFCAE1716B56300A55DA7 /* doorbell.caf in Resources */,
 				490EFCAF1716B56300A55DA7 /* dtmf-#.aif in Resources */,
+				49B4785218F2AC72006CF377 /* interdig-80x80.png in Resources */,
 				490EFCB01716B56300A55DA7 /* dtmf-0.aif in Resources */,
 				490EFCB11716B56300A55DA7 /* dtmf-1.aif in Resources */,
 				490EFCB21716B56300A55DA7 /* dtmf-2.aif in Resources */,
@@ -2918,6 +2958,7 @@
 				490EFCF21716B5AE00A55DA7 /* addcontact.png in Resources */,
 				490EFCF31716B5AE00A55DA7 /* addcontact_pressed.png in Resources */,
 				490EFCF41716B5AE00A55DA7 /* answer.png in Resources */,
+				49B4784B18F2AC72006CF377 /* Default-568h@2x.png in Resources */,
 				490EFCF51716B5AE00A55DA7 /* bottombarblue.png in Resources */,
 				490EFCF61716B5AE00A55DA7 /* bottombarblue_pressed.png in Resources */,
 				490EFCF71716B5AE00A55DA7 /* bottombargreen.png in Resources */,
@@ -2926,6 +2967,7 @@
 				490EFCFA1716B5AE00A55DA7 /* bottombarred_pressed.png in Resources */,
 				490EFCFB1716B5AE00A55DA7 /* call.png in Resources */,
 				490EFCFC1716B5AE00A55DA7 /* callblue.png in Resources */,
+				49B4785118F2AC72006CF377 /* interdig-72x72.png in Resources */,
 				490EFCFD1716B5AE00A55DA7 /* decline.png in Resources */,
 				490EFCFE1716B5AE00A55DA7 /* default-iphone.png in Resources */,
 				490EFCFF1716B5AE00A55DA7 /* default-ipod.png in Resources */,
@@ -2944,7 +2986,9 @@
 				490EFD0C1716B5AE00A55DA7 /* contacts.png in Resources */,
 				490EFD0D1716B5AE00A55DA7 /* dialer.png in Resources */,
 				490EFD0E1716B5AE00A55DA7 /* hold.png in Resources */,
+				49B4785318F2AC72006CF377 /* interdig-114x114.png in Resources */,
 				490EFD0F1716B5AE00A55DA7 /* mute.png in Resources */,
+				49B4784C18F2AC72006CF377 /* Default.png in Resources */,
 				490EFD101716B5AE00A55DA7 /* sixsqbutton_1.png in Resources */,
 				490EFD111716B5AE00A55DA7 /* sixsqbutton_2.png in Resources */,
 				490EFD121716B5AE00A55DA7 /* sixsqbutton_3.png in Resources */,

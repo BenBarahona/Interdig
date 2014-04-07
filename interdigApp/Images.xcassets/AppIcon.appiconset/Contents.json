@@ -1,24 +1,6 @@
 {
   "images" : [
     {
-      "size" : "57x57",
-      "idiom" : "iphone",
-      "filename" : "interdig-57x57.png",
-      "scale" : "1x"
-    },
-    {
-      "size" : "57x57",
-      "idiom" : "iphone",
-      "filename" : "interdig-114x114.png",
-      "scale" : "2x"
-    },
-    {
-      "size" : "60x60",
-      "idiom" : "iphone",
-      "filename" : "interdig-120x120.png",
-      "scale" : "2x"
-    },
-    {
       "size" : "29x29",
       "idiom" : "iphone",
       "filename" : "interdig-29x29.png",
@@ -34,6 +16,24 @@
       "size" : "40x40",
       "idiom" : "iphone",
       "filename" : "interdig-80x80.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "interdig-57x57.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "interdig-114x114.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "interdig-120x120.png",
       "scale" : "2x"
     }
   ],
