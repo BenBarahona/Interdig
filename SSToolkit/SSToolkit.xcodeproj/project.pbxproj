@@ -168,6 +168,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4997F86418F250DB00AF6715 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SSToolkit.strings"; sourceTree = "<group>"; };
 		5841B48216013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SSToolkitAdditions.h"; sourceTree = "<group>"; };
 		5841B48316013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SSToolkitAdditions.m"; sourceTree = "<group>"; };
 		962F5F5B156CCD1200408648 /* NSNumber+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+SSToolkitAdditions.h"; sourceTree = "<group>"; };
@@ -826,6 +827,7 @@
 				sv,
 				zh_Hans,
 				zh_Hant,
+				"pt-BR",
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* TWToolkit */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
@@ -991,6 +993,7 @@
 				B2303FA0152102F200326775 /* sv */,
 				B2303FA1152102F400326775 /* zh_Hans */,
 				B2303FA2152102F600326775 /* zh_Hant */,
+				4997F86418F250DB00AF6715 /* pt-BR */,
 			);
 			name = SSToolkit.strings;
 			sourceTree = "<group>";
