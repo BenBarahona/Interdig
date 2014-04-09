@@ -3261,8 +3261,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DB11375A-751E-4C57-963D-2AB199C88455";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB11375A-751E-4C57-963D-2AB199C88455";
+				PROVISIONING_PROFILE = "49A63382-BDD2-4203-858C-5FD9E1B52727";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49A63382-BDD2-4203-858C-5FD9E1B52727";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3272,8 +3272,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ruben Bermudez";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ruben Bermudez";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "interdigApp/interdigApp-Prefix.pch";
@@ -3317,8 +3317,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DB11375A-751E-4C57-963D-2AB199C88455";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB11375A-751E-4C57-963D-2AB199C88455";
+				PROVISIONING_PROFILE = "6F10152E-ECD5-4C8A-A750-984A63C7BCC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6F10152E-ECD5-4C8A-A750-984A63C7BCC4";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
