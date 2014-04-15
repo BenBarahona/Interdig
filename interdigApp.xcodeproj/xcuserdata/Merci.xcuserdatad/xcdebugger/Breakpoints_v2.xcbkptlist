@@ -569,11 +569,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/MainMenuViewController.m"
-            timestampString = "400975704.632904"
+            timestampString = "419009369.594796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "868"
-            endingLineNumber = "868"
+            startingLineNumber = "886"
+            endingLineNumber = "886"
             landmarkName = "@implementation MainMenuViewController"
             landmarkType = "3">
          </BreakpointContent>
