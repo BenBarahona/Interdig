@@ -699,7 +699,16 @@
 {
     if (buttonIndex != [alertView cancelButtonIndex])
     {
-        NSString *entered = [(UIAlertPrompt *)alertView enteredText];
+        NSString *entered = @"";
+        if([alertView isKindOfClass:[UIAlertPrompt class]])
+        {
+            entered = [(UIAlertPrompt *)alertView enteredText];
+        }
+        else{
+            UITextField *textField = [alertView textFieldAtIndex:0];
+            entered = textField.text;
+        }
+        
         if([entered isEqualToString:@""])
         {
             [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
@@ -858,9 +867,18 @@
 
 -(void)openAlertViewWithTitle:(NSString *)title andPlaceHolderMessage:(NSString *)placeholder andButtontitle:(NSString *)btnTitle andTag:(NSInteger)tag
 {
-    alertPrompt = [[UIAlertPrompt alloc] initWithTitle:title message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:btnTitle];
-    [alertPrompt show];
-    [alertPrompt release];
+    if([Util isIOS7])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:btnTitle, nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alert show];
+    }
+    else {
+        alertPrompt = [[UIAlertPrompt alloc] initWithTitle:title message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:btnTitle];
+        alertPrompt.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alertPrompt show];
+        [alertPrompt release];
+    }
 }
 
 /********************
