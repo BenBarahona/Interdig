@@ -3216,8 +3216,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "interdigApp/interdigApp-Prefix.pch";
@@ -3261,8 +3261,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "10B854F3-F5DC-49D2-A811-94A89DE5924D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10B854F3-F5DC-49D2-A811-94A89DE5924D";
+				PROVISIONING_PROFILE = "14729313-81AD-4027-A4B7-E6F243818CF9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "14729313-81AD-4027-A4B7-E6F243818CF9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3272,8 +3272,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "interdigApp/interdigApp-Prefix.pch";
@@ -3317,8 +3317,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "10B854F3-F5DC-49D2-A811-94A89DE5924D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10B854F3-F5DC-49D2-A811-94A89DE5924D";
+				PROVISIONING_PROFILE = "14729313-81AD-4027-A4B7-E6F243818CF9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "14729313-81AD-4027-A4B7-E6F243818CF9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
