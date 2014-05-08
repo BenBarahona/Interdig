@@ -208,7 +208,15 @@
 {
     if (buttonIndex != [alertView cancelButtonIndex])
     {
-        NSString *entered = [(UIAlertPrompt *)alertView enteredText];
+        NSString *entered = @"";
+        if([alertView isKindOfClass:[UIAlertPrompt class]])
+        {
+            entered = [(UIAlertPrompt *)alertView enteredText];
+        }
+        else{
+            UITextField *textField = [alertView textFieldAtIndex:0];
+            entered = textField.text;
+        }
         switch (alertType) {
             case MESSAGE:
                 if([entered isEqualToString:@""])
