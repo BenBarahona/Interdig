@@ -67,6 +67,7 @@
     
     MainMenuViewController *menu = [[MainMenuViewController alloc] init];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:menu];
+    nvc.navigationBar.tintColor = [UIColor whiteColor];
     nvc.tabBarItem.image = [UIImage imageNamed:@"interdig-57x57"];
     nvc.tabBarItem.title = @"Interdig";
     

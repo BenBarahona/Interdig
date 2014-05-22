@@ -18,7 +18,7 @@
 #define DB_NAME @"interdig"
 
 @implementation MainMenuViewController
-@synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request;
+@synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request, mapPoints;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,6 +78,10 @@
     // Do any additional setup after loading the view from its nib.
     if(!self.urlString)
     {
+        showMapOption = NO;
+        showContactOptions = NO;
+        mapPoints = [[NSMutableArray alloc] init];
+        
         if(!self.dataBase)
         {
             self.dataBase = DB_NAME;
@@ -226,9 +230,28 @@
         {
             ObjectInfo *newItem = [[ObjectInfo alloc] initWithDictionary:item];
             [self.objectArray addObject:newItem];
+            //NSLog(@"Lat %f Long %f", newItem.latitude, newItem.longitude);
+            if(newItem.latitude != 0 && newItem.longitude != 0)
+            {
+                NSDictionary *point = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       [NSNumber numberWithFloat:newItem.latitude], @"lat",
+                                       [NSNumber numberWithFloat:newItem.longitude], @"long",
+                                       newItem.titulo, @"titulo",
+                                       newItem.objectID, @"id",
+                                       nil];
+                [self.mapPoints addObject:point];
+                showMapOption = YES;
+            }
+            
+            if(searching || [newItem.claveActual intValue] > 3000)
+            {
+                showContactOptions = YES;
+            }
+            
             [newItem release];
         }
         [mainTableView reloadData];
+        [self configureRightBarButtons];
     }
     else if([_request responseStatusCode] >= 500)
     {
@@ -317,7 +340,7 @@
     thisItem = searching ? [self.searchResults objectAtIndex:indexPath.row] : [self.objectArray objectAtIndex:indexPath.row];
     
     //Either SMS, Web Site, Video, or Email
-    if( ((thisItem.sms != nil && ![thisItem.sms isEqualToString:@""]) ||
+    if( ( (thisItem.sms != nil && ![thisItem.sms isEqualToString:@""]) ||
          (thisItem.video != nil && ![thisItem.video isEqualToString:@""]) ||
          (thisItem.email != nil && ![thisItem.email isEqualToString:@""] && ![thisItem.email isEqualToString:@" "]) ||
          (thisItem.siteURL != nil && ![thisItem.siteURL isEqualToString:@""]))
@@ -362,7 +385,7 @@
     {
         cell.chatLabel.hidden = cell.chatImage.hidden = YES;
     }
-    
+    /*
     if(searching || [thisItem.claveActual intValue] > 3000)
     {
         UIImage *btnImage = [UIImage imageNamed:@"replyall"];
@@ -378,6 +401,7 @@
     {
         self.navigationItem.rightBarButtonItem = nil;
     }
+    */
     
     
     if(self.dataBase == nil || [self.dataBase isEqualToString:@"interdig"])
@@ -1208,9 +1232,60 @@
     }
 }
 
+- (void)configureRightBarButtons
+{
+    NSMutableArray *barButtonItems = [[NSMutableArray alloc] init];
+    if(showContactOptions)
+    {
+        UIImage *btnImage = [UIImage imageNamed:@"replyall"];
+        UIButton *barBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, btnImage.size.width, btnImage.size.height)];
+        [barBtn addTarget:self action:@selector(didSelectOptionsButton) forControlEvents:UIControlEventTouchUpInside];
+        [barBtn setImage:btnImage forState:UIControlStateNormal];
+        UIBarButtonItem *options = [[UIBarButtonItem alloc] initWithCustomView:barBtn];
+        [barButtonItems addObject:options];
+        [barBtn release];
+        [options release];
+    }
+    if(showMapOption)
+    {
+        UIImage *btnImage = [UIImage imageNamed:@"103-map"];
+        UIButton *barBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, btnImage.size.width, btnImage.size.height)];
+        [barBtn addTarget:self action:@selector(didSelectMapButton) forControlEvents:UIControlEventTouchUpInside];
+        [barBtn setImage:btnImage forState:UIControlStateNormal];
+        UIBarButtonItem *options = [[UIBarButtonItem alloc] initWithCustomView:barBtn];
+        [barButtonItems addObject:options];
+        [barBtn release];
+        [options release];
+    }
+    
+    if([barButtonItems count] > 0)
+    {
+        self.navigationItem.rightBarButtonItems = barButtonItems;
+    }
+    else
+    {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    [barButtonItems release];
+}
+
+- (void) didSelectMapButton
+{
+    
+    MapLocationViewController *map = [[MapLocationViewController alloc] initWithNibName:@"MapLocationViewController" bundle:nil];
+    map.title = self.title;
+    map.database = self.dataBase;
+    map.items = self.mapPoints;
+    
+    [self.navigationController pushViewController:map animated:YES];
+    [map release];
+}
+
 
 -(void)dealloc
 {
+    [mapPoints release];
     [objManager cancelLoadingObjects];
     [objManager release];
     [objectArray release];

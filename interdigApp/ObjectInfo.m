@@ -9,7 +9,7 @@
 #import "ObjectInfo.h"
 
 @implementation ObjectInfo
-@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security, sipPswd, sipServer, sipUser, tipo;
+@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security, sipPswd, sipServer, sipUser, tipo, latitude, longitude;
 
 -(id)initWithDictionary:(NSDictionary *)dataObject
 {
@@ -42,6 +42,14 @@
         self.sipUser = [dataObject objectForKey:@"username"];
         self.sipPswd = [dataObject objectForKey:@"password"];
         self.tipo = [[dataObject objectForKey:@"tipo"] integerValue];
+        self.longitude = ([dataObject objectForKey:@"lat"] != nil || [[dataObject objectForKey:@"lat"] isEqualToString:@""]) ? [[dataObject objectForKey:@"lat"] floatValue] : 0;
+        self.latitude = ([dataObject objectForKey:@"long"] != nil || [[dataObject objectForKey:@"long"] isEqualToString:@""]) ? [[dataObject objectForKey:@"long"] floatValue] : 0;
+        
+        if([self.sms isKindOfClass:[NSNumber class]])
+        {
+            NSNumber *_sms = (NSNumber *)self.sms;
+            self.sms = [_sms stringValue];
+        }
     }
     
     return self;

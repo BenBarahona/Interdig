@@ -40,4 +40,6 @@
 @property (nonatomic, retain) NSString *sipUser;
 @property (nonatomic, retain) NSString *sipPswd;
 @property (nonatomic, assign) NSUInteger tipo;
+@property (nonatomic, assign) CGFloat latitude;
+@property (nonatomic, assign) CGFloat longitude;
 @end

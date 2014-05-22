@@ -107,7 +107,7 @@
 -(void)requestDidFinish:(ASIHTTPRequest *)_request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    NSLog(@"Request finished: %@", [_request responseString]);
+    //NSLog(@"Request finished: %@", [_request responseString]);
     NSDictionary *responseArray = [[_request responseString] JSONValue];
     if([[responseArray objectForKey:@"status"] isEqualToString:@"OK"])
     {
@@ -121,6 +121,7 @@
         [map addAnnotation:itemLocation];
         [itemLocation release];
         
+        [self pinButtonClicked:nil];
     }
     else if([[responseArray objectForKey:@"status"] isEqualToString:@"ZERO_RESULTS"])
     {
@@ -150,11 +151,12 @@
 
 - (void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views
 {
-	MKAnnotationView *annotationView = [views objectAtIndex:0];
-	id <MKAnnotation> mp = [annotationView annotation];
-	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 1500, 1500);
-	[mv setRegion:region animated:YES];
-	[mv selectAnnotation:mp animated:YES];
+        MKAnnotationView *annotationView = [views objectAtIndex:0];
+        id <MKAnnotation> mp = [annotationView annotation];
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 1500, 1500);
+    
+        [mv setRegion:region animated:YES];
+        [mv selectAnnotation:mp animated:YES];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)sender viewForAnnotation:(id<MKAnnotation>)annotation
@@ -194,6 +196,10 @@
 
 -(IBAction)locationButtonClicked:(id)sender
 {
+    for (id annotion in map.selectedAnnotations)
+    {
+        [map deselectAnnotation:annotion animated:YES];
+    }
     if(sender)
         setRegionToUser = YES;
     else
@@ -226,6 +232,10 @@
 
 -(IBAction)pinButtonClicked:(id)sender
 {
+    for (id annotion in map.selectedAnnotations)
+    {
+        [map deselectAnnotation:annotion animated:YES];
+    }
 	id <MKAnnotation> mp = itemLocation;
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 1500, 1500);
 	[map setRegion:region animated:YES];

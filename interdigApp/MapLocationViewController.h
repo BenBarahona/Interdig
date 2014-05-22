@@ -22,6 +22,8 @@
     BOOL openGoogleMaps;
     
     Annotation *selectedAnnotation;
+    
+    IBOutlet UIBarButtonItem *refreshBtn;
 }
 
 @property (nonatomic, retain) NSMutableArray *items;

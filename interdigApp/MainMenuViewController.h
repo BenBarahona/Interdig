@@ -30,6 +30,9 @@
     BOOL searching;
     BOOL letUserSelectRow;
     BOOL _reloading;
+    BOOL showMapOption;
+    BOOL showContactOptions;
+    
     EGORefreshTableHeaderView *_refreshHeaderView;
     SearchOverlayViewController *overlay;
     
@@ -39,6 +42,7 @@
     HJObjManager *objManager;
 }
 
+@property (nonatomic, retain) NSMutableArray *mapPoints;
 @property (nonatomic, retain) ASIHTTPRequest *request;
 @property (nonatomic, retain) NSString *dataBase;
 @property (nonatomic, retain) ObjectInfo *thisObjectInfo;

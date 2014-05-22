@@ -48,7 +48,16 @@
     // Do any additional setup after loading the view from its nib.
     userLocation = mapView.userLocation;
     [mapView setShowsUserLocation:YES];
-    [self getMapPoints:nil];
+    if(self.items == nil)
+    {
+        [self getMapPoints:nil];
+    }
+    else
+    {
+        [refreshBtn setEnabled:NO];
+        [self addAnotations];
+        [self centerMapToAnnotions:nil];
+    }
     
     //UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"01-refresh"] style:UIBarButtonSystemItemRefresh target:self action:@selector(getMapPoints)];
     //self.navigationItem.rightBarButtonItem = refreshBarButton;
@@ -80,8 +89,9 @@
         NSError *error = nil;
         self.items = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
         
-        [self zoomInToHonduras];
+        //[self zoomInToHonduras];
         [self addAnotations];
+        [self centerMapToAnnotions:nil];
         if(error)
         {
             NSLog(@"Error parsing JSON");
@@ -244,5 +254,20 @@
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
+}
+
+- (IBAction) centerMapToAnnotions:(id)sender
+{
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in mapView.annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        if (MKMapRectIsNull(zoomRect)) {
+            zoomRect = pointRect;
+        } else {
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
+    }
+    [mapView setVisibleMapRect:zoomRect animated:YES];
 }
 @end
