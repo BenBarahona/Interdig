@@ -13,16 +13,11 @@
 #import "HJManagedImageV.h"
 #import "UIAlertPrompt.h"
 #import "MasInfoViewController.h"
+#import "Util.h"
 
 @protocol newDataBaseDelegate <NSObject>
 -(void)createNewMainMenuWithDB:(NSString *)db;
 @end
-
-enum alertPromptType{
-    CHAT = 1,
-    MESSAGE = 2,
-    EMAIL = 3,
-};
 
 @interface DetailViewController : UIViewController <UIAlertViewDelegate, UIActionSheetDelegate, UIWebViewDelegate, masInfoDelegate>
 {

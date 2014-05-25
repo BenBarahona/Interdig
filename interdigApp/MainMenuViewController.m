@@ -166,7 +166,11 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    
+    if(self.request)
+    {
+        self.request.delegate = nil;
+        [self.request cancel];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -238,6 +242,7 @@
                                        [NSNumber numberWithFloat:newItem.longitude], @"long",
                                        newItem.titulo, @"titulo",
                                        newItem.objectID, @"id",
+                                       newItem, @"info",
                                        nil];
                 [self.mapPoints addObject:point];
                 showMapOption = YES;

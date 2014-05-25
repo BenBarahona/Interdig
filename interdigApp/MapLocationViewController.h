@@ -12,8 +12,9 @@
 #import "Annotation.h"
 #import "AFNetworking.h"
 #import "ObjectInfo.h"
+#import "Util.h"
 
-@interface MapLocationViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIActionSheetDelegate>
+@interface MapLocationViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {
     IBOutlet MKMapView *mapView;
 
@@ -24,9 +25,12 @@
     Annotation *selectedAnnotation;
     
     IBOutlet UIBarButtonItem *refreshBtn;
+    
+    enum alertPromptType alertType;
 }
 
 @property (nonatomic, retain) NSMutableArray *items;
 @property (nonatomic, assign) NSUInteger tipoURL;
 @property (nonatomic, retain) NSString *database;
+@property (nonatomic, assign) BOOL annotationTypeGPS;
 @end

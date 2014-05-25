@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class Reachability;
+
+enum alertPromptType{
+    CHAT = 1,
+    MESSAGE = 2,
+    EMAIL = 3,
+};
+
 @interface Util : NSObject
 {
     

@@ -43,6 +43,12 @@
     return self;
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [requestQueue cancelAllOperations];
+    requestQueue.delegate = nil;
+}
+
 -(NSMutableArray *)chatArray
 {
     if(!chatArray)

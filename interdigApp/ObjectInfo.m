@@ -42,8 +42,8 @@
         self.sipUser = [dataObject objectForKey:@"username"];
         self.sipPswd = [dataObject objectForKey:@"password"];
         self.tipo = [[dataObject objectForKey:@"tipo"] integerValue];
-        self.longitude = ([dataObject objectForKey:@"lat"] != nil || [[dataObject objectForKey:@"lat"] isEqualToString:@""]) ? [[dataObject objectForKey:@"lat"] floatValue] : 0;
-        self.latitude = ([dataObject objectForKey:@"long"] != nil || [[dataObject objectForKey:@"long"] isEqualToString:@""]) ? [[dataObject objectForKey:@"long"] floatValue] : 0;
+        self.latitude = ([dataObject objectForKey:@"lat"] != nil || [[dataObject objectForKey:@"lat"] isEqualToString:@""]) ? [[dataObject objectForKey:@"lat"] floatValue] : 0;
+        self.longitude = ([dataObject objectForKey:@"long"] != nil || [[dataObject objectForKey:@"long"] isEqualToString:@""]) ? [[dataObject objectForKey:@"long"] floatValue] : 0;
         
         if([self.sms isKindOfClass:[NSNumber class]])
         {

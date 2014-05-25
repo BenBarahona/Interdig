@@ -11,13 +11,21 @@
 #import "MBProgressHUD.h"
 #import "Util.h"
 #import "MainMenuViewController.h"
+#import "ChatViewController.h"
+#import "VOIPCallViewController.h"
+#import "AppDelegate.h"
+
+#define OPTION_SMS @"Enviar Sms"
+#define OPTION_LLAMAR @"Llamar"
+#define OPTION_EMAIL @"Enviar Email"
+#define OPTION_CHAT @"Chat"
 
 @interface MapLocationViewController ()
 
 @end
 
 @implementation MapLocationViewController
-@synthesize items, tipoURL, database;
+@synthesize items, tipoURL, database, annotationTypeGPS;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,10 +58,12 @@
     [mapView setShowsUserLocation:YES];
     if(self.items == nil)
     {
+        self.annotationTypeGPS = YES;
         [self getMapPoints:nil];
     }
     else
     {
+        self.annotationTypeGPS = NO;
         [refreshBtn setEnabled:NO];
         [self addAnotations];
         [self centerMapToAnnotions:nil];
@@ -139,7 +149,9 @@
     for (NSDictionary *info in self.items)
     {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[info objectForKey:@"lat"] floatValue], [[info objectForKey:@"long"] floatValue]);
-        Annotation *annotation = [[Annotation alloc] initWithCoordinate:coordinate andTitle:[info objectForKey:@"titulo"] andSubtitle:[info objectForKey:@"id"]];
+        
+        ObjectInfo *objInfo = [info objectForKey:@"info"];
+        Annotation *annotation = [[Annotation alloc] initWithCoordinate:coordinate andTitle:[info objectForKey:@"titulo"] andSubtitle:[info objectForKey:@"id"] andInfo:objInfo];
         [mapView addAnnotation:annotation];
         //[annotation release];
     }
@@ -185,9 +197,46 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     selectedAnnotation = view.annotation;
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Seleccione una accion" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Obtener Direcciones", @"Resultados", nil];
-    [sheet showInView:self.view];
+    UIActionSheet *sheet = nil;
+    if(self.annotationTypeGPS)
+    {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Seleccione una accion" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Obtener Direcciones", @"Resultados", nil];
+    }
+    else if(selectedAnnotation.objectInfo != nil)
+    {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Seleccione una accion" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Obtener Direcciones", nil];
+        NSInteger cancelIndex = 1;
+        
+        ObjectInfo *inf = selectedAnnotation.objectInfo;
+        if(![inf.sms isKindOfClass:[NSNull class]] || ![inf.sms isEqualToString:@""])
+        {
+            [sheet addButtonWithTitle:OPTION_SMS];
+            cancelIndex++;
+        }
+        
+        if(![inf.telefono isKindOfClass:[NSNull class]] || ![inf.telefono isEqualToString:@""])
+        {
+            [sheet addButtonWithTitle:OPTION_LLAMAR];
+            cancelIndex++;
+        }
+        
+        if(![inf.email isKindOfClass:[NSNull class]] || ![inf.email isEqualToString:@""])
+        {
+            [sheet addButtonWithTitle:OPTION_EMAIL];
+            cancelIndex++;
+        }
+        
+        if(inf.chatOn)
+        {
+            [sheet addButtonWithTitle:CHAT];
+            cancelIndex++;
+        }
+        
+        [sheet addButtonWithTitle:@"Cancel"];
+        sheet.cancelButtonIndex = cancelIndex;
+    }
     
+    [sheet showInView:self.view];
     [sheet release];
 }
 
@@ -207,15 +256,38 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if(buttonIndex == actionSheet.cancelButtonIndex)
+    {
+        return;
+    }
+    
+    NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
     NSLog(@"Selected: %d", buttonIndex);
     if(buttonIndex == 0)
     {
         [self getDirectionsToPin:selectedAnnotation];
     }
-    else if(buttonIndex == 1)
+    else if(buttonIndex == 1 && self.annotationTypeGPS)
     {
         [self getResultadosParaUrna:selectedAnnotation];
     }
+    else if([title isEqualToString:OPTION_SMS])
+    {
+        [self enviarSMS_Click];
+    }
+    else if([title isEqualToString:OPTION_EMAIL])
+    {
+        [self enviarEmail_Click];
+    }
+    else if([title isEqualToString:OPTION_LLAMAR])
+    {
+        [self llamarClicked];
+    }
+    else if([title isEqualToString:OPTION_CHAT])
+    {
+        [self chatBtnClick];
+    }
+    
 }
 
 
@@ -270,4 +342,185 @@
     }
     [mapView setVisibleMapRect:zoomRect animated:YES];
 }
+
+
+-(void)enviarSMS_Click
+{
+        alertType = MESSAGE;
+        if([Util isIOS7])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enviar SMS" message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Enviar", nil];
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [alert show];
+            [alert release];
+        }
+        else
+        {
+            UIAlertPrompt *alertView = [[UIAlertPrompt alloc] initWithTitle:@"Enviar SMS" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
+            [alertView show];
+            [alertView release];
+        }
+}
+
+-(void)enviarEmail_Click
+{
+        alertType = EMAIL;
+        if([Util isIOS7])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enviar E-Mail" message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Enviar", nil];
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [alert show];
+            [alert release];
+        }
+        else
+        {
+            UIAlertPrompt *alertPrompt = [[UIAlertPrompt alloc] initWithTitle:@"Enviar E-Mail" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
+            [alertPrompt show];
+            [alertPrompt release];
+        }
+}
+
+-(void)chatBtnClick
+{
+    ObjectInfo *selected = selectedAnnotation.objectInfo;
+    
+    ChatViewController *chat = [[ChatViewController alloc] init];
+    chat.userName = @"";
+    chat.dataBase = self.database;
+    chat.objectID = selected.objectID;
+    [self.navigationController pushViewController:chat animated:YES];
+    [chat release];
+}
+
+-(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != [alertView cancelButtonIndex])
+    {
+        NSString *entered = @"";
+        if([alertView isKindOfClass:[UIAlertPrompt class]])
+        {
+            entered = [(UIAlertPrompt *)alertView enteredText];
+        }
+        else{
+            UITextField *textField = [alertView textFieldAtIndex:0];
+            entered = textField.text;
+        }
+        
+        ObjectInfo *selected = selectedAnnotation.objectInfo;
+        
+        switch (alertType) {
+            case MESSAGE:
+                if([entered isEqualToString:@""])
+                {
+                    [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
+                    return;
+                }
+                entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                NSLog(@"Entered text: %@", entered);
+                
+                NSString *urlString = [NSString stringWithFormat:@"http://www.interdig.org/jsms.cfm?db=%@&id=%@&men=%@", self.database, selected.objectID, entered];
+                NSURL *url = [NSURL URLWithString:urlString];
+                NSLog(@"SMS URL: %@", urlString);
+                ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+                [request setDidFailSelector:@selector(enviarMensajitoFailed:)];
+                [request setDidFinishSelector:@selector(enviarMensajitoFinished:)];
+                [request setDelegate:self];
+                [request setTimeOutSeconds:30];
+                [request startAsynchronous];
+                
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.labelText = @"Enviando SMS";
+                break;
+                
+            case CHAT:
+                if([entered isEqualToString:@""])
+                {
+                    [Util showAlertWithTitle:@"Error" andMessage:@"Porfavor ingrese un nombre valido"];
+                    return;
+                }
+                
+                entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                NSLog(@"Entered text: %@", entered);
+                
+                ChatViewController *chat = [[ChatViewController alloc] init];
+                chat.userName = entered;
+                chat.dataBase = self.database;
+                chat.objectID = selected.objectID;
+                [self.navigationController pushViewController:chat animated:YES];
+                [chat release];
+                break;
+                
+            case EMAIL:
+                if([entered isEqualToString:@""])
+                {
+                    [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
+                    return;
+                }
+                entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                NSLog(@"Entered text: %@", entered);
+                
+                NSURL *urlEmail = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.interdig.org/jemail.cfm?db=%@&id=%@&men=%@", self.database, selected.objectID, entered]];
+                
+                NSLog(@"EMAIL URL: %@", urlEmail.path);
+                
+                ASIHTTPRequest *emailRequest = [ASIHTTPRequest requestWithURL:urlEmail];
+                [emailRequest setDidFailSelector:@selector(enviarMensajitoFailed:)];
+                [emailRequest setDidFinishSelector:@selector(enviarEmailFinished:)];
+                [emailRequest setDelegate:self];
+                [emailRequest setTimeOutSeconds:30];
+                [emailRequest startAsynchronous];
+                
+                MBProgressHUD *hud2 = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud2.labelText = @"Enviando E-Mail";
+                break;
+                
+            default:
+                NSLog(@"This should not happen");
+                break;
+        }
+    }
+}
+
+-(void)enviarMensajitoFinished:(ASIHTTPRequest *)request
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [Util showAlertWithTitle:@"Mensaje Enviado!" andMessage:@"Se ha enviado exitosamente su SMS!"];
+}
+
+-(void)enviarEmailFinished:(ASIHTTPRequest *)request
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [Util showAlertWithTitle:@"Mensaje Enviado!" andMessage:@"Se ha enviado exitosamente su E-Mail!"];
+}
+
+-(void) enviarMensajitoFailed:(ASIHTTPRequest *)request
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [Util showAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"Error al mandar mensaje - %@", [request error]]];
+}
+
+-(void)llamarClicked
+{
+    ObjectInfo *selected = selectedAnnotation.objectInfo;
+    
+    VOIPCallViewController *voip = [[VOIPCallViewController alloc] init];
+    voip.domain = selected.sipServer;
+    voip.username = selected.sipUser;
+    voip.destinationNumber = selected.ext;
+    voip.password = selected.sipPswd;
+    
+    //TESTING
+    /*
+     voip.domain = @"8.6.240.214";
+     voip.username = @"1008";
+     voip.destinationNumber = @"1007";
+     voip.password = @"8686";
+     */
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.voipVC = voip;
+    
+    [self presentViewController:voip animated:YES completion:nil];
+}
+
+
 @end
