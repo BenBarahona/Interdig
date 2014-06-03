@@ -58,7 +58,7 @@
     [mapView setShowsUserLocation:YES];
     if(self.items == nil)
     {
-        self.annotationTypeGPS = YES;
+        self.annotationTypeGPS = NO;
         [self getMapPoints:nil];
     }
     else
@@ -197,16 +197,11 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     selectedAnnotation = view.annotation;
-    UIActionSheet *sheet = nil;
-    if(self.annotationTypeGPS)
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Seleccione una accion" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Obtener Direcciones", nil];
+    NSInteger cancelIndex = 1;
+    
+    if(selectedAnnotation.objectInfo != nil)
     {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Seleccione una accion" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Obtener Direcciones", @"Resultados", nil];
-    }
-    else if(selectedAnnotation.objectInfo != nil)
-    {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Seleccione una accion" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Obtener Direcciones", nil];
-        NSInteger cancelIndex = 1;
-        
         ObjectInfo *inf = selectedAnnotation.objectInfo;
         if(![inf.sms isKindOfClass:[NSNull class]] || ![inf.sms isEqualToString:@""])
         {
@@ -231,10 +226,10 @@
             [sheet addButtonWithTitle:CHAT];
             cancelIndex++;
         }
-        
-        [sheet addButtonWithTitle:@"Cancel"];
-        sheet.cancelButtonIndex = cancelIndex;
     }
+    
+    [sheet addButtonWithTitle:@"Cancel"];
+    sheet.cancelButtonIndex = cancelIndex;
     
     [sheet showInView:self.view];
     [sheet release];

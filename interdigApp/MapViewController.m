@@ -117,7 +117,7 @@
         coordinate.latitude = [[[[results objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"] floatValue];
         coordinate.longitude = [[[[results objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"] floatValue];
         
-        itemLocation = [[Annotation alloc] initWithCoordinate:coordinate andTitle:self.itemTitle andSubtitle:self.itemSubtitle];
+        itemLocation = [[Annotation alloc] initWithCoordinate:coordinate andTitle:self.itemTitle andSubtitle:self.itemSubtitle andInfo:nil];
         [map addAnnotation:itemLocation];
         [itemLocation release];
         
