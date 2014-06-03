@@ -552,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/MainMenuViewController.m"
-            timestampString = "422731487.034355"
+            timestampString = "423466518.232543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "897"
-            endingLineNumber = "897"
+            startingLineNumber = "901"
+            endingLineNumber = "901"
             landmarkName = "-openAlertViewWithTitle:andPlaceHolderMessage:andButtontitle:andTag:"
             landmarkType = "5">
          </BreakpointContent>
@@ -904,11 +904,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/MainMenuViewController.m"
-            timestampString = "422731487.034355"
+            timestampString = "423466518.232543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "586"
-            endingLineNumber = "586"
+            startingLineNumber = "590"
+            endingLineNumber = "590"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1414,11 +1414,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/MainMenuViewController.m"
-            timestampString = "422731487.034355"
+            timestampString = "423466518.232543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1032"
-            endingLineNumber = "1032"
+            startingLineNumber = "1036"
+            endingLineNumber = "1036"
             landmarkName = "-searchBarSearchButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1430,11 +1430,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/MainMenuViewController.m"
-            timestampString = "422731487.034355"
+            timestampString = "423466518.232543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "960"
-            endingLineNumber = "960"
+            startingLineNumber = "964"
+            endingLineNumber = "964"
             landmarkName = "-searchFinished:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1446,11 +1446,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/MainMenuViewController.m"
-            timestampString = "422731487.034355"
+            timestampString = "423466518.232543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1255"
-            endingLineNumber = "1255"
+            startingLineNumber = "1259"
+            endingLineNumber = "1259"
             landmarkName = "-configureRightBarButtons"
             landmarkType = "5">
          </BreakpointContent>

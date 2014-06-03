@@ -408,7 +408,9 @@
     }
     */
     
-    
+    cell.bgImage.image = [UIImage imageNamed:@"cell_fecamco"];
+    cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_fecamco_down"];
+    /*
     if(self.dataBase == nil || [self.dataBase isEqualToString:@"interdig"])
     {
         switch (indexPath.row) {
@@ -537,6 +539,8 @@
         cell.bgImage.image = [UIImage imageNamed:@"cell_fecamco"];
         cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_fecamco_down"];
     }
+    */
+    
     return cell;
 }
 
