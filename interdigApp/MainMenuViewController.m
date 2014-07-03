@@ -15,7 +15,7 @@
 #import "InputDataViewController.h"
 #import "MapLocationViewController.h"
 
-#define DB_NAME @"brazil2014"
+#define DB_NAME @"saypen"
 
 @implementation MainMenuViewController
 @synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request, mapPoints;
