@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Reachability;
+@class ObjectInfo;
 
 enum alertPromptType{
     CHAT = 1,
@@ -20,10 +21,15 @@ enum alertPromptType{
 {
     
 }
+
+@property (nonatomic, retain) NSMutableArray *eCommerceItems;
+
++ (Util *) sharedInstance;
 +(BOOL)internetConnectionAvailable;
 +(void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message;
 +(void)showAlertWithMessage:(NSString *)message andDelegate:(id<UIAlertViewDelegate>)delegate;
 +(BOOL)isUserOnIpad;
 +(NSString *) URLEncodedString_ch:(NSString *)string;
 +(BOOL)isIOS7;
++ (BOOL) checkIfItemIsInEcommerceItems:(ObjectInfo *)item;
 @end

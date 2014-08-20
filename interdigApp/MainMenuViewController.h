@@ -40,6 +40,8 @@
     
     IBOutlet UILabel *noSearchResults;
     HJObjManager *objManager;
+    
+    UIBarButtonItem *cartBarButton;
 }
 
 @property (nonatomic, retain) NSMutableArray *mapPoints;

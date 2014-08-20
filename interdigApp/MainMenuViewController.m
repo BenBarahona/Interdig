@@ -14,6 +14,8 @@
 #import "WebViewController.h"
 #import "InputDataViewController.h"
 #import "MapLocationViewController.h"
+#import "eCommerceTableViewCell.h"
+#import "ShoppingViewController.h"
 
 #define DB_NAME @"interdig"
 
@@ -147,6 +149,8 @@
         NSLog(@"%@", self.dataBase);
         dbSearch.text = @"interdig";
     }
+    
+    [self configureRightBarButtons];
 }
 
 -(IBAction)retryConection:(id)sender
@@ -207,8 +211,7 @@
         
         [self.request startAsynchronous];
         
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Obteniendo datos...";
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         wifi.hidden = noSearchResults.hidden = retryBtn.hidden = YES;
     }
@@ -327,221 +330,137 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 130;
+    ObjectInfo *thisItem = nil;
+    thisItem = searching ? [self.searchResults objectAtIndex:indexPath.row] : [self.objectArray objectAtIndex:indexPath.row];
+    
+    return thisItem.venta == 0 ? 130 : 145;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"GeneralTableViewCell";
-    GeneralTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if(cell == nil)
-    {
-        cell = [[[GeneralTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Configure the cell...
     ObjectInfo *thisItem = nil;
     thisItem = searching ? [self.searchResults objectAtIndex:indexPath.row] : [self.objectArray objectAtIndex:indexPath.row];
     
-    //Either SMS, Web Site, Video, or Email
-    if( ( (thisItem.sms != nil && ![thisItem.sms isEqualToString:@""]) ||
-         (thisItem.video != nil && ![thisItem.video isEqualToString:@""]) ||
-         (thisItem.email != nil && ![thisItem.email isEqualToString:@""] && ![thisItem.email isEqualToString:@" "]) ||
-         (thisItem.siteURL != nil && ![thisItem.siteURL isEqualToString:@""]))
-       /*&& [thisItem.dataBase isEqualToString:@""]*/)
+    if(thisItem.venta == 0)
     {
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        static NSString *CellIdentifier = @"GeneralTableViewCell";
+        GeneralTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
-        UIButton *more = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        more.tag = indexPath.row;
-        [more setImage:[UIImage imageNamed:[self getIconImageString]] forState:UIControlStateNormal];
-        [more addTarget:self action:@selector(didSelectAccessoryButton:) forControlEvents:UIControlEventTouchUpInside];
-        cell.accessoryView = more;
-        [more release];
-    }
-    else
-    {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    cell.labelText.text = thisItem.titulo;
-    cell.imageURL = thisItem.photoURL;
-    [cell.cellImage setImage:[UIImage imageNamed:@""]];
-    
-    if(![thisItem.photoURL isEqualToString:@""])
-    {
-        cell.cellImage.url = [NSURL URLWithString:thisItem.photoURL];
-        [cell.cellImage showLoadingWheel];
-        [self.objManager manage:cell.cellImage];
-    }
-    if([thisItem.claveActual intValue] > 3000)
-    {
-        cell.chatLabel.hidden = cell.chatImage.hidden = NO;
-        if(thisItem.chatOn)
+        if(cell == nil)
         {
-            cell.chatImage.image = [UIImage imageNamed:@"greenButton"];
+            cell = [[[GeneralTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        
+        // Configure the cell...
+        
+        //Either SMS, Web Site, Video, or Email
+        if( ( (thisItem.sms != nil && ![thisItem.sms isEqualToString:@""]) ||
+             (thisItem.video != nil && ![thisItem.video isEqualToString:@""]) ||
+             (thisItem.email != nil && ![thisItem.email isEqualToString:@""] && ![thisItem.email isEqualToString:@" "]) ||
+             (thisItem.siteURL != nil && ![thisItem.siteURL isEqualToString:@""]))
+           /*&& [thisItem.dataBase isEqualToString:@""]*/)
+        {
+            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+            
+            UIButton *more = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+            more.tag = indexPath.row;
+            [more setImage:[UIImage imageNamed:[self getIconImageString]] forState:UIControlStateNormal];
+            [more addTarget:self action:@selector(didSelectAccessoryButton:) forControlEvents:UIControlEventTouchUpInside];
+            cell.accessoryView = more;
+            [more release];
         }
         else
         {
-            cell.chatImage.image = [UIImage imageNamed:@"redButton"];
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
-    }
-    else
-    {
-        cell.chatLabel.hidden = cell.chatImage.hidden = YES;
-    }
-    /*
-    if(searching || [thisItem.claveActual intValue] > 3000)
-    {
-        UIImage *btnImage = [UIImage imageNamed:@"replyall"];
-        UIButton *barBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, btnImage.size.width, btnImage.size.height)];
-        [barBtn addTarget:self action:@selector(didSelectOptionsButton) forControlEvents:UIControlEventTouchUpInside];
-        [barBtn setImage:btnImage forState:UIControlStateNormal];
-        UIBarButtonItem *options = [[UIBarButtonItem alloc] initWithCustomView:barBtn];
-        self.navigationItem.rightBarButtonItem = options;
-        [barBtn release];
-        [options release];
-    }
-    else
-    {
-        self.navigationItem.rightBarButtonItem = nil;
-    }
-    */
-    
-    cell.bgImage.image = [UIImage imageNamed:@"cell_fecamco"];
-    cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_fecamco_down"];
-    /*
-    if(self.dataBase == nil || [self.dataBase isEqualToString:@"interdig"])
-    {
-        switch (indexPath.row) {
-            case 0:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_alba"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_alba_down"];
-                break;
-            case 1:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_brasil"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_brasil_down"];
-                break;
-            case 2:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_fecamco"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_fecamco_down"];
-                break;
-            case 3:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_honduras"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_honduras_down"];
-                break;
-            case 4:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_intur"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_intur_down"];
-                break;
-            case 5:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_orion"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_orion_down"];
-                break;
-            case 6:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_koica"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_koica_down"];
-                break;
-            case 7:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_news"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_news_down"];
-                break;
-            case 8:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_apparel"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_apparel_down"];
-                break;
-            case 9:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_turismo"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_turismo_down"];
-                break;
-            case 10:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_villeda"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_villeda_down"];
-                break;
-            case 11:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_workersHonduras"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_workersHonduras_down"];
-                break;
-            default:
-                cell.bgImage.image = [UIImage imageNamed:@"cell_fecamco"];
-                cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_fecamco_down"];
-                break;
+        cell.labelText.text = thisItem.titulo;
+        cell.imageURL = thisItem.photoURL;
+        [cell.cellImage setImage:[UIImage imageNamed:@""]];
+        
+        if(![thisItem.photoURL isEqualToString:@""])
+        {
+            cell.cellImage.url = [NSURL URLWithString:thisItem.photoURL];
+            [cell.cellImage showLoadingWheel];
+            [self.objManager manage:cell.cellImage];
         }
-    }
-    else if([self.dataBase isEqualToString:@"alba"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_alba"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_alba_down"];
-    }
-    else if([self.dataBase isEqualToString:@"fecamco"])
-    {
+        if([thisItem.claveActual intValue] > 3000)
+        {
+            cell.chatLabel.hidden = cell.chatImage.hidden = NO;
+            if(thisItem.chatOn)
+            {
+                cell.chatImage.image = [UIImage imageNamed:@"greenButton"];
+            }
+            else
+            {
+                cell.chatImage.image = [UIImage imageNamed:@"redButton"];
+            }
+        }
+        else
+        {
+            cell.chatLabel.hidden = cell.chatImage.hidden = YES;
+        }
+        
         cell.bgImage.image = [UIImage imageNamed:@"cell_fecamco"];
         cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_fecamco_down"];
-    }
-    else if([self.dataBase isEqualToString:@"egob"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_honduras"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_honduras_down"];
-    }
-    else if([self.dataBase isEqualToString:@"intur"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_intur"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_intur_down"];
-    }
-    else if([self.dataBase isEqualToString:@"orion"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_orion"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_orion_down"];
-    }
-    else if([self.dataBase isEqualToString:@"kepco"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_koica"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_koica_down"];
-    }
-    else if([self.dataBase isEqualToString:@"news"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_news"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_news_down"];
-    }
-    else if([self.dataBase isEqualToString:@"offprice"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_apparel"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_apparel_down"];
-    }
-    else if([self.dataBase isEqualToString:@"turismo1"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_turismo"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_turismo_down"];
-    }
-    else if([self.dataBase isEqualToString:@"comision"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_villeda"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_villeda_down"];
-    }
-    else if([self.dataBase isEqualToString:@"canada1"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_workersHonduras"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_workersHonduras_down"];
-    }
-    else if([self.dataBase isEqualToString:@"brazil"] || [self.dataBase isEqualToString:@"saopaulo"]
-            || [self.dataBase isEqualToString:@"rio"] || [self.dataBase isEqualToString:@"belohorizonte"]
-            || [self.dataBase isEqualToString:@"cuiaba"] || [self.dataBase isEqualToString:@"brasilia"]
-            || [self.dataBase isEqualToString:@"curitiba"] || [self.dataBase isEqualToString:@"fortaleza"]
-            || [self.dataBase isEqualToString:@"manaus"] || [self.dataBase isEqualToString:@"natal"]
-            || [self.dataBase isEqualToString:@"portoalegre"] || [self.dataBase isEqualToString:@"recife"]
-            || [self.dataBase isEqualToString:@"bahia"])
-    {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_brasil"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_brasil_down"];
+        
+        return cell;
     }
     else
     {
-        cell.bgImage.image = [UIImage imageNamed:@"cell_fecamco"];
-        cell.bgImage.highlightedImage = [UIImage imageNamed:@"cell_fecamco_down"];
+        static NSString *ECommerceCellIdentifier = @"eCommerceCell";
+        eCommerceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ECommerceCellIdentifier];
+        
+        if(cell == nil)
+        {
+            cell = [[[eCommerceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ECommerceCellIdentifier] autorelease];
+            
+            UIButton *select = [UIButton buttonWithType:UIButtonTypeSystem];
+            select.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+            select.frame = CGRectMake(148, 105, 172, 39);
+            [select addTarget:self action:@selector(didSelectECommerceItem:) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:select];
+            cell.select = select;
+        }
+        
+        cell.select.tag = indexPath.row;
+//        [cell.select addTarget:self action:@selector(didSelectECommerceItem:) forControlEvents:UIControlEventTouchUpInside];
+        
+        cell.item = thisItem;
+        cell.mainImage.image = nil;
+        [cell.mainImage setImageWithURL:[NSURL URLWithString:thisItem.photoURL]];
+        cell.name.text = thisItem.titulo;
+        cell.price.text = [NSString stringWithFormat:@"Precio: %d", thisItem.precio];
+        cell.stock.text = [NSString stringWithFormat:@"Stock: %d", thisItem.stock];
+        
+        if([Util checkIfItemIsInEcommerceItems:thisItem])
+        {
+            [cell.checkbox setImage:[UIImage imageNamed:@"checkbox_true"]];
+            [cell.select setTitle:@"Eliminar" forState:UIControlStateNormal];
+        }
+        else
+        {
+            [cell.checkbox setImage:[UIImage imageNamed:@"checkbox_false"]];
+            [cell.select setTitle:@"Seleccionar" forState:UIControlStateNormal];
+        }
+        
+        return cell;
     }
-    */
+}
+
+-(void) didSelectECommerceItem:(UIButton *)sender
+{
+    ObjectInfo *item = [self.objectArray objectAtIndex:sender.tag];
     
-    return cell;
+    if([Util checkIfItemIsInEcommerceItems:item])
+    {
+        [[Util sharedInstance].eCommerceItems removeObject:item];
+    }
+    else
+    {
+        [[Util sharedInstance].eCommerceItems addObject:item];
+    }
+    [mainTableView reloadData];
+    [self configureRightBarButtons];
 }
 
 #pragma mark - Table view delegate
@@ -1266,6 +1185,21 @@
         [barBtn release];
         [options release];
     }
+    if([[Util sharedInstance].eCommerceItems lastObject])
+    {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setImage:[UIImage imageNamed:@"shopping-cart-icon"] forState:UIControlStateNormal];
+            [btn setFrame:CGRectMake(0, 0, 44, 34)];
+        [btn addTarget:self action:@selector(showShoppingVC) forControlEvents:UIControlEventTouchUpInside];
+            UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
+            [barButtonItems addObject:barBtn];
+            
+            [barBtn release];
+    }
+    else
+    {
+        cartBarButton = nil;
+    }
     
     if([barButtonItems count] > 0)
     {
@@ -1291,6 +1225,12 @@
     [map release];
 }
 
+- (void) showShoppingVC
+{
+    ShoppingViewController *shop = [[ShoppingViewController alloc] init];
+    shop.list = [Util sharedInstance].eCommerceItems;
+    [self.navigationController pushViewController:shop animated:YES];
+}
 
 -(void)dealloc
 {

@@ -193,7 +193,7 @@ static void error_exit(const char *title, pj_status_t status)
     this_config.media_cfg.clock_rate *
     this_config.media_cfg.channel_count / 1000;
     
-    // Ringback tone (call is ringing) 
+    // Ringback tone (call is ringing)
     name = pj_str("ringback");
     
     status = pjmedia_tonegen_create2(this_config.pool, &name,
@@ -224,7 +224,6 @@ static void error_exit(const char *title, pj_status_t status)
                                  &this_config.ringback_slot);
     if (status != PJ_SUCCESS)
         error_exit("Error creating ringback", status);
-    
     
     // Add UDP transport. 
     pjsua_transport_config_default(&cfg2);
@@ -405,11 +404,11 @@ static void on_call_state(pjsua_call_id call_id, pjsip_event *e)
     if (ci.state == PJSIP_INV_STATE_DISCONNECTED) // Session is terminated.
     {
         NSLog(@"DISCONNECTED!");
-        ring_stop(&config);
+        //ring_stop(&config);
     }
     else if (ci.state == PJSIP_INV_STATE_EARLY)
     {
-        ringback_start(&config);
+        //ringback_start(&config);
 	}
     
     

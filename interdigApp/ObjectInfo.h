@@ -42,4 +42,8 @@
 @property (nonatomic, assign) NSUInteger tipo;
 @property (nonatomic, assign) CGFloat latitude;
 @property (nonatomic, assign) CGFloat longitude;
+@property (nonatomic, assign) CGFloat venta;
+@property (nonatomic, assign) NSInteger precio;
+@property (nonatomic, assign) NSInteger stock;
+@property (nonatomic, assign) NSInteger cantidad;
 @end

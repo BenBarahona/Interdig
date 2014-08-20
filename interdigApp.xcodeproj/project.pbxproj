@@ -251,6 +251,13 @@
 		490EFD1B1716B5AE00A55DA7 /* sixsqbuttonsel_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */; };
 		490EFD1C1716B5AE00A55DA7 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCEE1716B5AE00A55DA7 /* speaker.png */; };
 		490EFD1E1716B5AE00A55DA7 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 490EFCF01716B5AE00A55DA7 /* message.png */; };
+		490FBECA1966656700E4D795 /* eCommerceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 490FBEC81966656700E4D795 /* eCommerceTableViewCell.m */; };
+		490FBECB1966656700E4D795 /* eCommerceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490FBEC91966656700E4D795 /* eCommerceTableViewCell.xib */; };
+		490FBECF196D1B7500E4D795 /* checkbox_true.png in Resources */ = {isa = PBXBuildFile; fileRef = 490FBECD196D1B7400E4D795 /* checkbox_true.png */; };
+		490FBED0196D1B7500E4D795 /* checkbox_false.png in Resources */ = {isa = PBXBuildFile; fileRef = 490FBECE196D1B7400E4D795 /* checkbox_false.png */; };
+		490FBED2196E4EE200E4D795 /* shopping-cart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 490FBED1196E4EE200E4D795 /* shopping-cart-icon.png */; };
+		490FBED6196FABE700E4D795 /* ShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490FBED4196FABE700E4D795 /* ShoppingViewController.m */; };
+		490FBED7196FABE700E4D795 /* ShoppingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490FBED5196FABE700E4D795 /* ShoppingViewController.xib */; };
 		4917770416CC9FAA009651B2 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770216CC9FA4009651B2 /* 01-refresh.png */; };
 		4917770516CC9FAA009651B2 /* 01-refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4917770316CC9FA7009651B2 /* 01-refresh@2x.png */; };
 		4917771316D039D5009651B2 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4917770C16D039D5009651B2 /* DCRoundSwitch.m */; };
@@ -412,6 +419,12 @@
 		49F089C4177C089900492714 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089B9177C089900492714 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		49F089C5177C089900492714 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089BB177C089900492714 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		49F089C6177C089900492714 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F089BD177C089900492714 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49F4175619820C36005FA71F /* shoppingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4175419820C36005FA71F /* shoppingViewCell.m */; };
+		49F4175719820C36005FA71F /* shoppingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F4175519820C36005FA71F /* shoppingViewCell.xib */; };
+		49F4175C19820DF2005FA71F /* Actions-arrow-down-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F4175819820DF2005FA71F /* Actions-arrow-down-icon.png */; };
+		49F4175D19820DF2005FA71F /* Actions-arrow-down-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F4175919820DF2005FA71F /* Actions-arrow-down-icon@2x.png */; };
+		49F4175E19820DF2005FA71F /* Actions-arrow-up-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F4175A19820DF2005FA71F /* Actions-arrow-up-icon.png */; };
+		49F4175F19820DF2005FA71F /* Actions-arrow-up-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F4175B19820DF2005FA71F /* Actions-arrow-up-icon@2x.png */; };
 		9D90347B161F5F7500971288 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D90347A161F5F7500971288 /* MediaPlayer.framework */; };
 		9D93C359161A0D8D00860C3A /* UIAlertPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93C358161A0D8D00860C3A /* UIAlertPrompt.m */; };
 		9D93C35B161A0EA800860C3A /* UIAlertPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D93C358161A0D8D00860C3A /* UIAlertPrompt.m */; };
@@ -1004,6 +1017,15 @@
 		490EFCED1716B5AE00A55DA7 /* sixsqbuttonsel_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sixsqbuttonsel_6.png; sourceTree = "<group>"; };
 		490EFCEE1716B5AE00A55DA7 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		490EFCF01716B5AE00A55DA7 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		490FBEC71966656700E4D795 /* eCommerceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eCommerceTableViewCell.h; sourceTree = "<group>"; };
+		490FBEC81966656700E4D795 /* eCommerceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eCommerceTableViewCell.m; sourceTree = "<group>"; };
+		490FBEC91966656700E4D795 /* eCommerceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eCommerceTableViewCell.xib; sourceTree = "<group>"; };
+		490FBECD196D1B7400E4D795 /* checkbox_true.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_true.png; sourceTree = "<group>"; };
+		490FBECE196D1B7400E4D795 /* checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_false.png; sourceTree = "<group>"; };
+		490FBED1196E4EE200E4D795 /* shopping-cart-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart-icon.png"; sourceTree = "<group>"; };
+		490FBED3196FABE700E4D795 /* ShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingViewController.h; sourceTree = "<group>"; };
+		490FBED4196FABE700E4D795 /* ShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingViewController.m; sourceTree = "<group>"; };
+		490FBED5196FABE700E4D795 /* ShoppingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingViewController.xib; sourceTree = "<group>"; };
 		4917770216CC9FA4009651B2 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		4917770316CC9FA7009651B2 /* 01-refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh@2x.png"; sourceTree = "<group>"; };
 		4917770B16D039D5009651B2 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
@@ -1243,6 +1265,13 @@
 		49F089BB177C089900492714 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		49F089BC177C089900492714 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		49F089BD177C089900492714 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		49F4175319820C36005FA71F /* shoppingViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shoppingViewCell.h; sourceTree = "<group>"; };
+		49F4175419820C36005FA71F /* shoppingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shoppingViewCell.m; sourceTree = "<group>"; };
+		49F4175519820C36005FA71F /* shoppingViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shoppingViewCell.xib; sourceTree = "<group>"; };
+		49F4175819820DF2005FA71F /* Actions-arrow-down-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Actions-arrow-down-icon.png"; sourceTree = "<group>"; };
+		49F4175919820DF2005FA71F /* Actions-arrow-down-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Actions-arrow-down-icon@2x.png"; sourceTree = "<group>"; };
+		49F4175A19820DF2005FA71F /* Actions-arrow-up-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Actions-arrow-up-icon.png"; sourceTree = "<group>"; };
+		49F4175B19820DF2005FA71F /* Actions-arrow-up-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Actions-arrow-up-icon@2x.png"; sourceTree = "<group>"; };
 		9D90347A161F5F7500971288 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9D93C357161A0D8D00860C3A /* UIAlertPrompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertPrompt.h; sourceTree = "<group>"; };
 		9D93C358161A0D8D00860C3A /* UIAlertPrompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertPrompt.m; sourceTree = "<group>"; };
@@ -2329,6 +2358,13 @@
 		49B416161615882C001C2433 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49F4175819820DF2005FA71F /* Actions-arrow-down-icon.png */,
+				49F4175919820DF2005FA71F /* Actions-arrow-down-icon@2x.png */,
+				49F4175A19820DF2005FA71F /* Actions-arrow-up-icon.png */,
+				49F4175B19820DF2005FA71F /* Actions-arrow-up-icon@2x.png */,
+				490FBED1196E4EE200E4D795 /* shopping-cart-icon.png */,
+				490FBECD196D1B7400E4D795 /* checkbox_true.png */,
+				490FBECE196D1B7400E4D795 /* checkbox_false.png */,
 				490EFCC11716B5AE00A55DA7 /* VOIP */,
 				490EFC941716B56300A55DA7 /* Sounds */,
 				49B4165B161634EB001C2433 /* Icons */,
@@ -2564,6 +2600,9 @@
 				495F305217E4B749009EB432 /* MapLocationViewController.h */,
 				495F305317E4B749009EB432 /* MapLocationViewController.m */,
 				495F305417E4B749009EB432 /* MapLocationViewController.xib */,
+				490FBED3196FABE700E4D795 /* ShoppingViewController.h */,
+				490FBED4196FABE700E4D795 /* ShoppingViewController.m */,
+				490FBED5196FABE700E4D795 /* ShoppingViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2574,6 +2613,12 @@
 				49B4163D16159B77001C2433 /* GeneralTableViewCell.h */,
 				49B4163E16159B77001C2433 /* GeneralTableViewCell.m */,
 				49B4164016159B88001C2433 /* GeneralTableViewCell.xib */,
+				490FBEC71966656700E4D795 /* eCommerceTableViewCell.h */,
+				490FBEC81966656700E4D795 /* eCommerceTableViewCell.m */,
+				490FBEC91966656700E4D795 /* eCommerceTableViewCell.xib */,
+				49F4175319820C36005FA71F /* shoppingViewCell.h */,
+				49F4175419820C36005FA71F /* shoppingViewCell.m */,
+				49F4175519820C36005FA71F /* shoppingViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2730,6 +2775,7 @@
 				49B41659161634DA001C2433 /* DetailViewController.xib in Resources */,
 				490ABA471618DC97002BED16 /* SearchOverlayViewController.xib in Resources */,
 				9D93C360161A0F7F00860C3A /* WebViewController.xib in Resources */,
+				49F4175D19820DF2005FA71F /* Actions-arrow-down-icon@2x.png in Resources */,
 				4995132F161C0BA400DCBAF8 /* DetailViewController~ipad.xib in Resources */,
 				49789B33161C1A5D00274518 /* SearchOverlayViewController~ipad.xib in Resources */,
 				49789B38161C206100274518 /* MasInfoViewController.xib in Resources */,
@@ -2774,7 +2820,9 @@
 				496458BF1645BAE800D71F11 /* Default@2x.png in Resources */,
 				496458C61645BEF500D71F11 /* icon_email.png in Resources */,
 				496458C71645BEF500D71F11 /* icon_email@2x.png in Resources */,
+				490FBED2196E4EE200E4D795 /* shopping-cart-icon.png in Resources */,
 				496458C81645BEF500D71F11 /* icon_sms.png in Resources */,
+				49F4175E19820DF2005FA71F /* Actions-arrow-up-icon.png in Resources */,
 				496458C91645BEF500D71F11 /* icon_sms@2x.png in Resources */,
 				496458CA1645BEF500D71F11 /* icon_video.png in Resources */,
 				496458CB1645BEF500D71F11 /* icon_video@2x.png in Resources */,
@@ -2785,6 +2833,7 @@
 				490EF9091645C4A200F8E424 /* button_mail.png in Resources */,
 				490EF90A1645C4A200F8E424 /* button_mail@2x.png in Resources */,
 				490EF90B1645C4A200F8E424 /* button_map.png in Resources */,
+				49F4175719820C36005FA71F /* shoppingViewCell.xib in Resources */,
 				490EF90C1645C4A200F8E424 /* button_map@2x.png in Resources */,
 				490EF90D1645C4A200F8E424 /* button_video.png in Resources */,
 				490EF90E1645C4A200F8E424 /* button_video@2x.png in Resources */,
@@ -2818,6 +2867,7 @@
 				490EF9451649049B00F8E424 /* cell_turismo.png in Resources */,
 				490EF9461649049B00F8E424 /* cell_turismo@2x.png in Resources */,
 				490EF9471649049B00F8E424 /* cell_workersHonduras.png in Resources */,
+				49F4175C19820DF2005FA71F /* Actions-arrow-down-icon.png in Resources */,
 				490EF9481649049B00F8E424 /* cell_workersHonduras@2x.png in Resources */,
 				490EF94F16490B8000F8E424 /* button_info.png in Resources */,
 				490EF95016490B8000F8E424 /* button_info@2x.png in Resources */,
@@ -2851,6 +2901,7 @@
 				490EF9D6164A292400F8E424 /* video_honduras@2x.png in Resources */,
 				490EF9D7164A292400F8E424 /* video_intur.png in Resources */,
 				490EF9D8164A292400F8E424 /* video_intur@2x.png in Resources */,
+				49F4175F19820DF2005FA71F /* Actions-arrow-up-icon@2x.png in Resources */,
 				490EF9D9164A292400F8E424 /* video_koica.png in Resources */,
 				490EF9DA164A292400F8E424 /* video_koica@2x.png in Resources */,
 				490EF9DB164A292400F8E424 /* video_news.png in Resources */,
@@ -2901,11 +2952,13 @@
 				490EFA4F165DDDC900F8E424 /* cell_news_down.png in Resources */,
 				490EFA50165DDDC900F8E424 /* cell_news_down@2x.png in Resources */,
 				490EFA51165DDDC900F8E424 /* cell_orion_down.png in Resources */,
+				490FBED0196D1B7500E4D795 /* checkbox_false.png in Resources */,
 				490EFA52165DDDC900F8E424 /* cell_orion_down@2x.png in Resources */,
 				490EFA53165DDDC900F8E424 /* cell_turismo_down.png in Resources */,
 				490EFA54165DDDC900F8E424 /* cell_turismo_down@2x.png in Resources */,
 				490EFA55165DDDC900F8E424 /* cell_villeda_down.png in Resources */,
 				490EFA56165DDDC900F8E424 /* cell_villeda_down@2x.png in Resources */,
+				490FBECF196D1B7500E4D795 /* checkbox_true.png in Resources */,
 				490EFA57165DDDC900F8E424 /* cell_workersHonduras_down.png in Resources */,
 				490EFA58165DDDC900F8E424 /* cell_workersHonduras_down@2x.png in Resources */,
 				490EFA5B165DE29500F8E424 /* replyall.png in Resources */,
@@ -2963,6 +3016,7 @@
 				490EFCFC1716B5AE00A55DA7 /* callblue.png in Resources */,
 				490EFCFD1716B5AE00A55DA7 /* decline.png in Resources */,
 				490EFCFE1716B5AE00A55DA7 /* default-iphone.png in Resources */,
+				490FBED7196FABE700E4D795 /* ShoppingViewController.xib in Resources */,
 				490EFCFF1716B5AE00A55DA7 /* default-ipod.png in Resources */,
 				490EFD001716B5AE00A55DA7 /* delete.png in Resources */,
 				490EFD011716B5AE00A55DA7 /* delete_pressed.png in Resources */,
@@ -2984,6 +3038,7 @@
 				490EFD111716B5AE00A55DA7 /* sixsqbutton_2.png in Resources */,
 				490EFD121716B5AE00A55DA7 /* sixsqbutton_3.png in Resources */,
 				490EFD131716B5AE00A55DA7 /* sixsqbutton_4.png in Resources */,
+				490FBECB1966656700E4D795 /* eCommerceTableViewCell.xib in Resources */,
 				490EFD141716B5AE00A55DA7 /* sixsqbutton_5.png in Resources */,
 				490EFD151716B5AE00A55DA7 /* sixsqbutton_6.png in Resources */,
 				490EFD161716B5AE00A55DA7 /* sixsqbuttonsel_1.png in Resources */,
@@ -3065,8 +3120,10 @@
 				49B41637161588A8001C2433 /* ASIInputStream.m in Sources */,
 				49B41638161588A8001C2433 /* ASINetworkQueue.m in Sources */,
 				49B4163F16159B77001C2433 /* GeneralTableViewCell.m in Sources */,
+				49F4175619820C36005FA71F /* shoppingViewCell.m in Sources */,
 				49B416481615A040001C2433 /* Reachability.m in Sources */,
 				49B41658161634DA001C2433 /* DetailViewController.m in Sources */,
+				490FBECA1966656700E4D795 /* eCommerceTableViewCell.m in Sources */,
 				49B4165E16163513001C2433 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				49B41661161635A5001C2433 /* ObjectInfo.m in Sources */,
 				49B41664161635B3001C2433 /* Util.m in Sources */,
@@ -3090,6 +3147,7 @@
 				490EFC6217151B2A00A55DA7 /* PhoneViewController.m in Sources */,
 				490EFC6617151B9400A55DA7 /* DialerPhonePad.m in Sources */,
 				490EFC6917151C0900A55DA7 /* AbsLCDView.m in Sources */,
+				490FBED6196FABE700E4D795 /* ShoppingViewController.m in Sources */,
 				490EFC7517151C6800A55DA7 /* dtmf.m in Sources */,
 				490EFC7917151D4900A55DA7 /* CallViewController.m in Sources */,
 				490EFC8017151DB700A55DA7 /* BottomBar.m in Sources */,
@@ -3262,8 +3320,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4908AFAD-1651-426D-B29A-7D1677FFFAB6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4908AFAD-1651-426D-B29A-7D1677FFFAB6";
+				PROVISIONING_PROFILE = "CB7EC8CB-FE01-49B1-8823-B24F32289939";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CB7EC8CB-FE01-49B1-8823-B24F32289939";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3318,8 +3376,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "40FAF6D1-2711-472F-A9AA-35168F7927FD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "40FAF6D1-2711-472F-A9AA-35168F7927FD";
+				PROVISIONING_PROFILE = "7E20BF69-99E9-4BA5-AB68-07BB21726DC9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7E20BF69-99E9-4BA5-AB68-07BB21726DC9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

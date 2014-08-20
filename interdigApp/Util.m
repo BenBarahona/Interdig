@@ -8,8 +8,35 @@
 
 #import "Util.h"
 #import "Reachability.h"
+#import "ObjectInfo.h"
 
 @implementation Util
+@synthesize eCommerceItems;
+
+-(void)dealloc
+{
+    [eCommerceItems release];
+    [super dealloc];
+}
+
+- (NSMutableArray *)eCommerceItems
+{
+    if(eCommerceItems == nil)
+    {
+        eCommerceItems = [[NSMutableArray alloc] init];
+    }
+    return eCommerceItems;
+}
+
++(Util *) sharedInstance
+{
+    static Util *instance;
+    if(instance == nil)
+    {
+        instance = [[Util alloc] init];
+    }
+    return instance;
+}
 
 +(void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message
 {
@@ -109,6 +136,18 @@
     {
         return NO;
     }
+}
+
++ (BOOL) checkIfItemIsInEcommerceItems:(ObjectInfo *)item
+{
+    for(ObjectInfo *obj in [Util sharedInstance].eCommerceItems)
+    {
+        if([item.objectID isEqualToString:obj.objectID])
+        {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

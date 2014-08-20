@@ -9,7 +9,7 @@
 #import "ObjectInfo.h"
 
 @implementation ObjectInfo
-@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security, sipPswd, sipServer, sipUser, tipo, latitude, longitude;
+@synthesize objectID, titulo, descripcion, claveActual, claveSig, email, photoURL, address1, address2, telefono, siteURL, sms, ext, dataBase, masInfo, mapa, video, edatadb, chatOn, dataInput, inpid, security, sipPswd, sipServer, sipUser, tipo, latitude, longitude, cantidad;
 
 -(id)initWithDictionary:(NSDictionary *)dataObject
 {
@@ -44,12 +44,16 @@
         self.tipo = [[dataObject objectForKey:@"tipo"] integerValue];
         self.latitude = ([dataObject objectForKey:@"lat"] != nil || [[dataObject objectForKey:@"lat"] isEqualToString:@""]) ? [[dataObject objectForKey:@"lat"] floatValue] : 0;
         self.longitude = ([dataObject objectForKey:@"long"] != nil || [[dataObject objectForKey:@"long"] isEqualToString:@""]) ? [[dataObject objectForKey:@"long"] floatValue] : 0;
+        self.venta = ([dataObject objectForKey:@"venta"] != nil || [[dataObject objectForKey:@"venta"] isEqualToString:@""]) ? [[dataObject objectForKey:@"venta"] integerValue] : 0;
+        self.precio = ([dataObject objectForKey:@"precio"] != nil || [[dataObject objectForKey:@"precio"] isEqualToString:@""]) ? [[dataObject objectForKey:@"precio"] integerValue] : 0;
+        self.stock = ([dataObject objectForKey:@"stock"] != nil || [[dataObject objectForKey:@"stock"] isEqualToString:@""]) ? [[dataObject objectForKey:@"stock"] integerValue] : 0;
         
         if([self.sms isKindOfClass:[NSNumber class]])
         {
             NSNumber *_sms = (NSNumber *)self.sms;
             self.sms = [_sms stringValue];
         }
+        self.cantidad = 1;
     }
     
     return self;
