@@ -10,29 +10,29 @@
 	<string>interdigApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>035E921F-6C08-4E31-9472-800FE7C9E985</key>
+		<key>97C96C88F9F9C1C7BBDC69E326AD6BDDCAD830E2</key>
 		<string>https://github.com/BenBarahona/Interdig.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>interdigApp.xcodeproj/project.xcworkspace</string>
+	<string>interdigApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>035E921F-6C08-4E31-9472-800FE7C9E985</key>
+		<key>97C96C88F9F9C1C7BBDC69E326AD6BDDCAD830E2</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/BenBarahona/Interdig.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>035E921F-6C08-4E31-9472-800FE7C9E985</string>
+	<string>97C96C88F9F9C1C7BBDC69E326AD6BDDCAD830E2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>035E921F-6C08-4E31-9472-800FE7C9E985</string>
+			<string>97C96C88F9F9C1C7BBDC69E326AD6BDDCAD830E2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>interdigApp</string>
 		</dict>

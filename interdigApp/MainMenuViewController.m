@@ -231,7 +231,7 @@
     {
         NSString *response = [_request responseString];
         NSArray *dict = [response JSONValue];
-        //NSLog(@"%@", response);
+        NSLog(@"%@", response);
         [self.objectArray removeAllObjects];
         for(NSDictionary *item in dict)
         {
