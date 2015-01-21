@@ -128,7 +128,7 @@
 
 +(BOOL)isIOS7
 {
-    if([[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue] == 7)
+    if([[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue] >= 7)
     {
         return YES;
     }

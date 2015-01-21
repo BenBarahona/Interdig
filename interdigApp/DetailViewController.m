@@ -158,14 +158,14 @@
         alertType = MESSAGE;
         if([Util isIOS7])
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enviar SMS" message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Enviar", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Send SMS" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Send", nil];
             alert.alertViewStyle = UIAlertViewStylePlainTextInput;
             [alert show];
             [alert release];
         }
         else
         {
-            UIAlertPrompt *alertView = [[UIAlertPrompt alloc] initWithTitle:@"Enviar SMS" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
+            UIAlertPrompt *alertView = [[UIAlertPrompt alloc] initWithTitle:@"Send SMS" message:@"\n" delegate:self cancelButtonTitle:@"Cancel" okButtonTitle:@"Send"];
             [alertView show];
             [alertView release];
         }
@@ -179,14 +179,14 @@
         alertType = EMAIL;
         if([Util isIOS7])
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enviar E-Mail" message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Enviar", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Send E-Mail" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Send", nil];
             alert.alertViewStyle = UIAlertViewStylePlainTextInput;
             [alert show];
             [alert release];
         }
         else
         {
-            UIAlertPrompt *alertPrompt = [[UIAlertPrompt alloc] initWithTitle:@"Enviar E-Mail" message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:@"Enviar"];
+            UIAlertPrompt *alertPrompt = [[UIAlertPrompt alloc] initWithTitle:@"Send E-Mail" message:@"\n" delegate:self cancelButtonTitle:@"Cancel" okButtonTitle:@"Send"];
             [alertPrompt show];
             [alertPrompt release];
         }
@@ -221,7 +221,7 @@
             case MESSAGE:
                 if([entered isEqualToString:@""])
                 {
-                    [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
+                    [Util showAlertWithTitle:@"Error" andMessage:@"Cannot send empty message"];
                     return;
                 }
                 entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -237,13 +237,13 @@
                 [request startAsynchronous];
                 
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                hud.labelText = @"Enviando SMS";
+                hud.labelText = @"Sending SMS";
                 break;
                 
             case CHAT:
                 if([entered isEqualToString:@""])
                 {
-                    [Util showAlertWithTitle:@"Error" andMessage:@"Porfavor ingrese un nombre valido"];
+                    [Util showAlertWithTitle:@"Error" andMessage:@"Please enter valid name!"];
                     return;
                 }
                 
@@ -261,7 +261,7 @@
             case EMAIL:
                 if([entered isEqualToString:@""])
                 {
-                    [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
+                    [Util showAlertWithTitle:@"Error" andMessage:@"Cannot send empty message"];
                     return;
                 }
                 entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -277,7 +277,7 @@
                 [emailRequest startAsynchronous];
                 
                 MBProgressHUD *hud2 = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                hud2.labelText = @"Enviando E-Mail";
+                hud2.labelText = @"Sending E-Mail";
                 break;
                 
             default:
@@ -290,19 +290,19 @@
 -(void)enviarMensajitoFinished:(ASIHTTPRequest *)request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [Util showAlertWithTitle:@"Mensaje Enviado!" andMessage:@"Se ha enviado exitosamente su SMS!"];
+    [Util showAlertWithTitle:@"SMS Sent!" andMessage:@"Your SMS has been delivered!"];
 }
 
 -(void)enviarEmailFinished:(ASIHTTPRequest *)request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [Util showAlertWithTitle:@"Mensaje Enviado!" andMessage:@"Se ha enviado exitosamente su E-Mail!"];
+    [Util showAlertWithTitle:@"E-mail Sent!" andMessage:@"Your E-Mail has been delivered!"];
 }
 
 -(void) enviarMensajitoFailed:(ASIHTTPRequest *)request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [Util showAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"Error al mandar mensaje - %@", [request error]]];
+    [Util showAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"Error sending message - %@", [request error]]];
 }
 
 -(IBAction)showMasInfo:(id)sender

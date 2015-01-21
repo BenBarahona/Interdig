@@ -17,7 +17,7 @@
 #import "eCommerceTableViewCell.h"
 #import "ShoppingViewController.h"
 
-#define DB_NAME @"interdig"
+#define DB_NAME @"roatan"
 
 @implementation MainMenuViewController
 @synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request, mapPoints;
@@ -218,7 +218,7 @@
     else
     {
         retryBtn.hidden = wifi.hidden = noSearchResults.hidden = NO;
-        noSearchResults.text = @"Conexion de internet es necesaria para obtener datos";
+        noSearchResults.text = @"Internet connection is needed to get data.";
         [self.objectArray removeAllObjects];
         [mainTableView reloadData];
     }
@@ -267,14 +267,14 @@
         [self.objectArray removeAllObjects];
         [mainTableView reloadData];
         retryBtn.hidden = wifi.hidden = noSearchResults.hidden = NO;
-        noSearchResults.text = @"El servidor no responde, espere unos minutos e intente de nuevo";
+        noSearchResults.text = @"The server is not responding.  Please wait a few minutes and try again.";
     }
     else
     {
         retryBtn.hidden = wifi.hidden = noSearchResults.hidden = NO;
         [self.objectArray removeAllObjects];
         [mainTableView reloadData];
-        noSearchResults.text = @"Error de Conexion; Asegure su conexion de internet e intente de nuevo";
+        noSearchResults.text = @"Connection Error: Make sure you have an active internet connection and try again";
         //[Util showAlertWithTitle:@"Error de Conexion" andMessage:[NSString stringWithFormat:@"Asegure su conexion de internet e intente de neuvo\n Codigo: %d", [_request responseStatusCode]]];
     }
 }
@@ -285,22 +285,22 @@
     retryBtn.hidden = wifi.hidden = noSearchResults.hidden = NO;
     [self.objectArray removeAllObjects];
     [mainTableView reloadData];
-    noSearchResults.text = @"Error de Conexion; Asegure su conexion de internet e intente de nuevo";
+    noSearchResults.text = @"Connection Error: Make sure you have an active internet connection and try again";
     if([_request responseStatusCode] >= 500)
     {
-        noSearchResults.text = @"El servidor no responde, espere unos minutos e intente de nuevo";
+        noSearchResults.text = @"The server is not responding.  Please wait a few minutes and try again.";
         //[Util showAlertWithTitle:@"Error de Servidor" andMessage:[NSString stringWithFormat:@"El servidor no responde, espere unos minutos e intente de nuevo\n Codigo: %d", [_request responseStatusCode]]];
     }
     else
     {
-        noSearchResults.text = @"Error de Conexion; Asegure su conexion de internet e intente de nuevo";
+        noSearchResults.text = @"Connection Error: Make sure you have an active internet connection and try again";
         //[Util showAlertWithTitle:@"Error de Conexion" andMessage:[NSString stringWithFormat:@"Asegure su conexion de internet e intente de neuvo\n Codigo: %d", [_request responseStatusCode]]];
     }
 }
 
 -(void)didSelectOptionsButton
 {
-    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"Opciones" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Enviar SMS a Todos",@"Enviar E-Mail a Todos", nil];
+    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Send SMS to All",@"Send E-Mail to All", nil];
     action.tag = 3000;
     
     
@@ -429,18 +429,18 @@
         cell.mainImage.image = nil;
         [cell.mainImage setImageWithURL:[NSURL URLWithString:thisItem.photoURL]];
         cell.name.text = thisItem.titulo;
-        cell.price.text = [NSString stringWithFormat:@"Precio: %d", thisItem.precio];
+        cell.price.text = [NSString stringWithFormat:@"Price: %d", thisItem.precio];
         cell.stock.text = [NSString stringWithFormat:@"Stock: %d", thisItem.stock];
         
         if([Util checkIfItemIsInEcommerceItems:thisItem])
         {
             [cell.checkbox setImage:[UIImage imageNamed:@"checkbox_true"]];
-            [cell.select setTitle:@"Eliminar" forState:UIControlStateNormal];
+            [cell.select setTitle:@"Delete" forState:UIControlStateNormal];
         }
         else
         {
             [cell.checkbox setImage:[UIImage imageNamed:@"checkbox_false"]];
-            [cell.select setTitle:@"Seleccionar" forState:UIControlStateNormal];
+            [cell.select setTitle:@"Select" forState:UIControlStateNormal];
         }
         
         return cell;
@@ -579,21 +579,21 @@
     
     NSMutableArray *opciones = [[NSMutableArray alloc] init];
     if(![selected.video isEqualToString:@""] && ![selected.video isEqualToString:@" "])
-        [opciones addObject:@"Ver Video"];
+        [opciones addObject:@"Watch Video"];
     if(![selected.sms isEqualToString:@""] && ![selected.sms isEqualToString:@" "])
-        [opciones addObject:@"Enviar SMS"];
+        [opciones addObject:@"Send SMS"];
     if(![selected.email isEqualToString:@""] && ![selected.email isEqualToString:@" "])
-        [opciones addObject:@"Enviar E-Mail"];
+        [opciones addObject:@"Send E-Mail"];
     if(![selected.siteURL isEqualToString:@""] && ![selected.siteURL isEqualToString:@" "])
-        [opciones addObject:@"Pagina Web"];
+        [opciones addObject:@"Web Page"];
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Opciones" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     
     for (int i = 0; i < [opciones count]; i++)
     {
         [actionSheet addButtonWithTitle:[opciones objectAtIndex:i]];
     }
-    [actionSheet addButtonWithTitle:@"Cancelar"];
+    [actionSheet addButtonWithTitle:@"Cancel"];
     actionSheet.cancelButtonIndex = opciones.count;
     actionSheet.tag = indexPath.row;
     
@@ -611,13 +611,13 @@
     
     if(actionSheet.tag == 3000)
     {
-        if([title isEqualToString:@"Enviar SMS a Todos"])
+        if([title isEqualToString:@"Send SMS to All"])
         {
-            [self openAlertViewWithTitle:title andPlaceHolderMessage:@"Escriba Mensajito" andButtontitle:@"Enviar" andTag:0];
+            [self openAlertViewWithTitle:title andPlaceHolderMessage:@"Write Message" andButtontitle:@"Send" andTag:0];
         }
-        else if([title isEqualToString:@"Enviar E-Mail a Todos"])
+        else if([title isEqualToString:@"Send E-Mail to All"])
         {
-            [self openAlertViewWithTitle:title andPlaceHolderMessage:@"Escriba texto" andButtontitle:@"Enviar" andTag:0];
+            [self openAlertViewWithTitle:title andPlaceHolderMessage:@"Write text" andButtontitle:@"Send" andTag:0];
         }
     }
     else
@@ -625,19 +625,19 @@
         ObjectInfo *selected = nil;
         selected = searching ? [self.searchResults objectAtIndex:actionSheet.tag] : [self.objectArray objectAtIndex:actionSheet.tag];
         
-        if([title isEqualToString:@"Ver Video"])
+        if([title isEqualToString:@"Watch Video"])
         {
             [self showVideo:selected.video];
         }
-        else if([title isEqualToString:@"Enviar SMS"])
+        else if([title isEqualToString:@"Send SMS"])
         {
-            [self openAlertViewWithTitle:@"Enviar SMS" andPlaceHolderMessage:@"Escriba Mensajito" andButtontitle:@"Enviar" andTag:actionSheet.tag];
+            [self openAlertViewWithTitle:@"Send SMS" andPlaceHolderMessage:@"Write Message" andButtontitle:@"Send" andTag:actionSheet.tag];
         }
-        else if([title isEqualToString:@"Enviar E-Mail"])
+        else if([title isEqualToString:@"Send E-Mail"])
         {
-            [self openAlertViewWithTitle:@"Enviar E-Mail" andPlaceHolderMessage:@"Escriba texto" andButtontitle:@"Enviar" andTag:actionSheet.tag];
+            [self openAlertViewWithTitle:@"Send E-Mail" andPlaceHolderMessage:@"Write text" andButtontitle:@"Send" andTag:actionSheet.tag];
         }
-        else if([title isEqualToString:@"Pagina Web"])
+        else if([title isEqualToString:@"Web Page"])
         {
             WebViewController *web = [[WebViewController alloc] init];
             web.webURL = selected.siteURL;
@@ -663,14 +663,14 @@
         
         if([entered isEqualToString:@""])
         {
-            [Util showAlertWithTitle:@"Error" andMessage:@"No puede enviar un mensaje vacío"];
+            [Util showAlertWithTitle:@"Error" andMessage:@"Cannot send empty message"];
             return;
         }
         entered = [entered stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         ObjectInfo *selected = nil;
         selected = searching ? [self.searchResults objectAtIndex:alertView.tag] : [self.objectArray objectAtIndex:alertView.tag];
         
-        if([[alertView title] isEqualToString:@"Enviar SMS"])
+        if([[alertView title] isEqualToString:@"Send SMS"])
         {
             NSString *_urlString = @"";
             
@@ -695,10 +695,10 @@
             [self.request startAsynchronous];
             
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.labelText = @"Enviando SMS";
+            hud.labelText = @"Sending SMS";
             
         }
-        else if([[alertView title] isEqualToString:@"Enviar E-Mail"])
+        else if([[alertView title] isEqualToString:@"Send E-Mail"])
         {
             NSString *_urlString = @"";
             /*
@@ -722,9 +722,9 @@
             [self.request startAsynchronous];
             
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.labelText = @"Enviando E-Mail";
+            hud.labelText = @"Sending E-Mail";
         }
-        else if([alertView.title isEqualToString:@"Enviar SMS a Todos"])
+        else if([alertView.title isEqualToString:@"Send SMS to All"])
         {
             NSLog(@"Enviar SMS a Todos");
             NSString *_urlString = @"";
@@ -741,9 +741,9 @@
             [self.request startAsynchronous];
             
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.labelText = @"Enviando SMS";
+            hud.labelText = @"Sending SMS";
         }
-        else if([alertView.title isEqualToString:@"Enviar E-Mail a Todos"])
+        else if([alertView.title isEqualToString:@"Send E-Mail to All"])
         {
             NSLog(@"Enviar EMAIL a Todos");
             NSString *_urlString;
@@ -759,7 +759,7 @@
             [self.request startAsynchronous];
             
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.labelText = @"Enviando E-Mail";
+            hud.labelText = @"Sending E-Mail";
         }
     }
 }
@@ -767,25 +767,25 @@
 -(void)enviarMensajitoFinished:(ASIHTTPRequest *)_request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [Util showAlertWithTitle:@"Mensaje Enviado!" andMessage:@"Se ha enviado exitosamente su SMS!"];
+    [Util showAlertWithTitle:@"Message Sent!" andMessage:@"Your SMS has been delivered!"];
 }
 
 -(void) enviarMensajitoFailed:(ASIHTTPRequest *)_request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [Util showAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"Error al mandar mensaje - %@", [_request error]]];
+    [Util showAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"Error sending message - %@", [_request error]]];
 }
 
 -(void)enviarEmailFinished:(ASIHTTPRequest *)_request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [Util showAlertWithTitle:@"Correo Enviado!" andMessage:@"Se ha enviado exitosamente su E-Mail!"];
+    [Util showAlertWithTitle:@"E-Mail Sent!" andMessage:@"Your E-Mail has been sent!"];
 }
 
 -(void) enviarEmailFailed:(ASIHTTPRequest *)_request
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [Util showAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"Error al mandar correo - %@", [_request error]]];
+    [Util showAlertWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"Error sending email - %@", [_request error]]];
 }
 
 -(void)showVideo:(NSString *)videoURL
@@ -821,12 +821,12 @@
 {
     if([Util isIOS7])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:@"" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:btnTitle, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:btnTitle, nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         [alert show];
     }
     else {
-        alertPrompt = [[UIAlertPrompt alloc] initWithTitle:title message:@"\n" delegate:self cancelButtonTitle:@"Cancelar" okButtonTitle:btnTitle];
+        alertPrompt = [[UIAlertPrompt alloc] initWithTitle:title message:@"\n" delegate:self cancelButtonTitle:@"Cancel" okButtonTitle:btnTitle];
         alertPrompt.alertViewStyle = UIAlertViewStylePlainTextInput;
         [alertPrompt show];
         [alertPrompt release];
@@ -871,7 +871,7 @@
     [self.request startAsynchronous];
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Buscando...";
+    hud.labelText = @"Searching...";
 }
 
 -(void)searchFinished:(ASIHTTPRequest *)_request
@@ -879,7 +879,7 @@
     NSString *responseString = [_request responseString];
     //responseString = [responseString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
-    //NSLog(@"SEARCH: %@", responseString);
+    NSLog(@"SEARCH: %@", responseString);
     if([_request responseStatusCode] == 200)
     {
         NSArray *response = [responseString JSONValue];
@@ -895,7 +895,7 @@
         else
         {
             noSearchResults.hidden = NO;
-            noSearchResults.text = @"No se encontraron resultados";
+            noSearchResults.text = @"No results found";
         }
     }
     else
@@ -903,7 +903,7 @@
         [self.objectArray removeAllObjects];
         [mainTableView reloadData];
         retryBtn.hidden = noSearchResults.hidden = wifi.hidden = NO;
-        noSearchResults.text = @"Error de Conexion; Asegure su conexion de internet e intente de nuevo";
+        noSearchResults.text = @"Connection Error: Make sure you have an active internet connection and try again";
         //[Util showAlertWithTitle:@"Error de Conexion" andMessage:[NSString stringWithFormat:@"Asegure su conexion de internet e intente de neuvo\n Codigo: %d", [_request responseStatusCode]]];
     }
     
@@ -917,7 +917,7 @@
     [self.objectArray removeAllObjects];
     [mainTableView reloadData];
     
-    [Util showAlertWithTitle:@"Error de Conexion" andMessage:[NSString stringWithFormat:@"Asegure su conexion de internet e intente de neuvo\n Codigo: %d", [_request responseStatusCode]]];
+    [Util showAlertWithTitle:@"Connection Error" andMessage:[NSString stringWithFormat:@"Make sure you have access to the internet and retry\n Code: %d", [_request responseStatusCode]]];
 }
 
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar
