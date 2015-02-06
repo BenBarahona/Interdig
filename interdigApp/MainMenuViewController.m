@@ -17,7 +17,7 @@
 #import "eCommerceTableViewCell.h"
 #import "ShoppingViewController.h"
 
-#define DB_NAME @"roatan"
+#define DB_NAME @"infi"
 
 @implementation MainMenuViewController
 @synthesize thisObjectInfo, objectArray, objManager, searchResults, urlString, dataBase, request, mapPoints;

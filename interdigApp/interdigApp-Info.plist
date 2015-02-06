@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Interdig</string>
+	<string>Infinity Bay</string>
 	<key>CFBundleExecutable</key>
-	<string>InfinityBay</string>
+	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>interdig-57x57.png</string>
