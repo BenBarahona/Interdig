@@ -3274,6 +3274,7 @@
 		49B415C816158336001C2433 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
@@ -3296,7 +3297,7 @@
 					"\"$(SRCROOT)/../pjproject-2.0-device/pjlib/include\"",
 				);
 				INFOPLIST_FILE = "interdigApp/interdigApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/interdigApp/CrittercismSDK\"",
@@ -3330,6 +3331,7 @@
 		49B415C916158336001C2433 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
@@ -3352,7 +3354,7 @@
 					"\"$(SRCROOT)/../pjproject-2.0-device/pjlib/include\"",
 				);
 				INFOPLIST_FILE = "interdigApp/interdigApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/interdigApp/CrittercismSDK\"",
