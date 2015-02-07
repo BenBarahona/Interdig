@@ -3337,7 +3337,7 @@
 					"\"$(SRCROOT)/../pjproject-2.0-simulator/pjmedia/lib\"",
 					"\"$(SRCROOT)/../pjproject-2.0-simulator/pjnath/lib\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -3393,7 +3393,7 @@
 					"\"$(SRCROOT)/../pjproject-2.0-simulator/pjmedia/lib\"",
 					"\"$(SRCROOT)/../pjproject-2.0-simulator/pjnath/lib\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
