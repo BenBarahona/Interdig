@@ -205,8 +205,10 @@
     else
         setRegionToUser = NO;
     
-    if(!locationManager)
+    if(!locationManager) {
         locationManager = [[CLLocationManager alloc] init];
+        [locationManager requestWhenInUseAuthorization];
+    }
     
     locationManager.delegate = self;
     locationManager.distanceFilter = 200;
