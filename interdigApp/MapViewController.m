@@ -207,7 +207,9 @@
     
     if(!locationManager) {
         locationManager = [[CLLocationManager alloc] init];
-        [locationManager requestWhenInUseAuthorization];
+        if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [locationManager requestWhenInUseAuthorization];
+        }
     }
     
     locationManager.delegate = self;
