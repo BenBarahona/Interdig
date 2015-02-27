@@ -8,8 +8,8 @@
 
 #import "ChatViewController.h"
 #import "Util.h"
-#import "SSMessageTableViewCell.h"
-#import <SSToolkit/SSTextField.h>
+//#import "SSMessageTableViewCell.h"
+//#import <SSToolkit/SSTextField.h>
 #import "ASIHTTPRequest.h"
 #import "AFNetworking.h"
 #import "SBJson.h"
@@ -240,8 +240,8 @@
                 [self.chatArray addObject:msg1];
             }
              */
-            [self.tableView reloadData];
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.chatArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            //[self.tableView reloadData];
+            //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.chatArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         }
         
         /*
@@ -263,6 +263,7 @@
     NSLog(@"CHAT FAILED: %@", request.responseString);
 }
 
+/*
 #pragma mark SSMessagesViewController
 
 - (SSMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -278,11 +279,7 @@
 
 
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //if([self.chatArray count])
-    //{
         return [[self.chatArray objectAtIndex:indexPath.row] objectForKey:@"men"];
-    //}
-    //return nil;
 }
 
 -(void)sendMessageClick:(id)sender
@@ -307,6 +304,7 @@
     [request release];
     _textField.text = @"";
 }
+*/
 
 
 #pragma mark UITableViewDataSource

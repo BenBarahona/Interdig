@@ -1,4 +1,4 @@
-/* $Id: sip_transport_tls.h 4262 2012-09-20 06:00:23Z bennylp $ */
+/* $Id: sip_transport_tls.h 4860 2014-06-19 05:07:12Z riza $ */
 /* 
  * Copyright (C) 2008-2011 Teluu Inc. (http://www.teluu.com)
  * Copyright (C) 2003-2008 Benny Prijono <benny@prijono.org>
@@ -174,6 +174,12 @@ typedef struct pjsip_tls_setting
     pj_time_val	timeout;
 
     /**
+     * Should SO_REUSEADDR be used for the listener socket.
+     * Default value is PJSIP_TLS_TRANSPORT_REUSEADDR.
+     */
+    pj_bool_t reuse_addr;
+
+    /**
      * QoS traffic type to be set on this transport. When application wants
      * to apply QoS tagging to the transport, it's preferable to set this
      * field rather than \a qos_param fields since this is more portable.
@@ -198,6 +204,23 @@ typedef struct pjsip_tls_setting
      * Default: PJ_TRUE
      */
     pj_bool_t qos_ignore_error;
+
+    /**
+     * Specify options to be set on the transport. 
+     *
+     * By default there is no options.
+     * 
+     */
+    pj_sockopt_params sockopt_params;
+
+    /**
+     * Specify if the transport should ignore any errors when setting the 
+     * sockopt parameters.
+     *
+     * Default: PJ_TRUE
+     * 
+     */
+    pj_bool_t sockopt_ignore_error;
 
 } pjsip_tls_setting;
 
@@ -225,8 +248,10 @@ typedef struct pjsip_tls_state_info
 PJ_INLINE(void) pjsip_tls_setting_default(pjsip_tls_setting *tls_opt)
 {
     pj_memset(tls_opt, 0, sizeof(*tls_opt));
+    tls_opt->reuse_addr = PJSIP_TLS_TRANSPORT_REUSEADDR;
     tls_opt->qos_type = PJ_QOS_TYPE_BEST_EFFORT;
     tls_opt->qos_ignore_error = PJ_TRUE;
+    tls_opt->sockopt_ignore_error = PJ_TRUE;
 }
 
 
