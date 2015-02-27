@@ -747,7 +747,6 @@
 		49A05531170B3E830096EB04 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		49A05533170B3E920096EB04 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		49A05535170B3EA90096EB04 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		49B1574517A351E900519C8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		49B4159A16158336001C2433 /* interdigApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interdigApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B4159E16158336001C2433 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49B415A016158336001C2433 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1509,7 +1508,6 @@
 		49B4158F16158336001C2433 = {
 			isa = PBXGroup;
 			children = (
-				49B1574517A351E900519C8C /* MessageUI.framework */,
 				496458BE1645BAE700D71F11 /* Default@2x.png */,
 				496458BC1645BACB00D71F11 /* Default.png */,
 				4964587B1645A22F00D71F11 /* Default-568h@2x.png */,
@@ -3181,10 +3179,7 @@
 					"\"$(PROJECT_DIR)/interdigApp/CrittercismSDK\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f3527b57-432d-4b91-93d3-35124f56efdd";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f3527b57-432d-4b91-93d3-35124f56efdd";
@@ -3229,10 +3224,7 @@
 					"\"$(PROJECT_DIR)/interdigApp/CrittercismSDK\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8d29d31d-5824-4f30-92a8-59c6b8f96cbb";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8d29d31d-5824-4f30-92a8-59c6b8f96cbb";
