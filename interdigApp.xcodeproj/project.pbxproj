@@ -3312,11 +3312,11 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					SSToolkit,
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjsip/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjnath/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjmedia/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjlib-util/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjlib/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjsip/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjnath/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjmedia/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjlib-util/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjlib/include\"",
 				);
 				INFOPLIST_FILE = "interdigApp/interdigApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -3368,11 +3368,11 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					SSToolkit,
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjsip/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjnath/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjmedia/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjlib-util/include\"",
-					"\"$(SRCROOT)/../pjproject-2.0-device/pjlib/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjsip/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjnath/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjmedia/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjlib-util/include\"",
+					"\"$(SRCROOT)/../pjproject/src/pjlib/include\"",
 				);
 				INFOPLIST_FILE = "interdigApp/interdigApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
