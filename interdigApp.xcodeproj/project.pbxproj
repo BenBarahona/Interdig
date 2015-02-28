@@ -293,7 +293,6 @@
 		49789B38161C206100274518 /* MasInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49789B36161C206100274518 /* MasInfoViewController.xib */; };
 		4986F02A16AC9B08009C9261 /* InputDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4986F02816AC9B08009C9261 /* InputDataViewController.m */; };
 		4986F02B16AC9B08009C9261 /* InputDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4986F02916AC9B08009C9261 /* InputDataViewController.xib */; };
-		4995132F161C0BA400DCBAF8 /* DetailViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4995132E161C0BA400DCBAF8 /* DetailViewController~ipad.xib */; };
 		49A05530170B3E790096EB04 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A0552F170B3E780096EB04 /* CoreMedia.framework */; };
 		49A05532170B3E830096EB04 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05531170B3E830096EB04 /* CoreVideo.framework */; };
 		49A05534170B3E920096EB04 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05533170B3E920096EB04 /* OpenGLES.framework */; };
@@ -743,7 +742,6 @@
 		4986F02716AC9B08009C9261 /* InputDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputDataViewController.h; sourceTree = "<group>"; };
 		4986F02816AC9B08009C9261 /* InputDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputDataViewController.m; sourceTree = "<group>"; };
 		4986F02916AC9B08009C9261 /* InputDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputDataViewController.xib; sourceTree = "<group>"; };
-		4995132E161C0BA400DCBAF8 /* DetailViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "DetailViewController~ipad.xib"; sourceTree = "<group>"; };
 		49A0552F170B3E780096EB04 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		49A05531170B3E830096EB04 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		49A05533170B3E920096EB04 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2479,7 +2477,6 @@
 				49B41655161634DA001C2433 /* DetailViewController.h */,
 				49B41656161634DA001C2433 /* DetailViewController.m */,
 				49B41657161634DA001C2433 /* DetailViewController.xib */,
-				4995132E161C0BA400DCBAF8 /* DetailViewController~ipad.xib */,
 				9D93C35C161A0F7F00860C3A /* WebViewController.h */,
 				9D93C35D161A0F7F00860C3A /* WebViewController.m */,
 				9D93C35E161A0F7F00860C3A /* WebViewController.xib */,
@@ -2639,7 +2636,6 @@
 				490ABA471618DC97002BED16 /* SearchOverlayViewController.xib in Resources */,
 				9D93C360161A0F7F00860C3A /* WebViewController.xib in Resources */,
 				49F4175D19820DF2005FA71F /* Actions-arrow-down-icon@2x.png in Resources */,
-				4995132F161C0BA400DCBAF8 /* DetailViewController~ipad.xib in Resources */,
 				49789B33161C1A5D00274518 /* SearchOverlayViewController~ipad.xib in Resources */,
 				49789B38161C206100274518 /* MasInfoViewController.xib in Resources */,
 				496DDA16161D46C700FA7B71 /* WebViewController~ipad.xib in Resources */,
