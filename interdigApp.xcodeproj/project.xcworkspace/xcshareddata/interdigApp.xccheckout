@@ -12,6 +12,8 @@
 	<dict>
 		<key>97C96C88F9F9C1C7BBDC69E326AD6BDDCAD830E2</key>
 		<string>https://github.com/BenBarahona/Interdig.git</string>
+		<key>9EA320464F8D469EAB474B0BFE08C2F6DDC3AAF8</key>
+		<string>https://github.com/BenBarahona/iOS_PJSip</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>interdigApp.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>97C96C88F9F9C1C7BBDC69E326AD6BDDCAD830E2</key>
 		<string>../..</string>
+		<key>9EA320464F8D469EAB474B0BFE08C2F6DDC3AAF8</key>
+		<string>../../PJSIP/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/BenBarahona/Interdig.git</string>
@@ -35,6 +39,14 @@
 			<string>97C96C88F9F9C1C7BBDC69E326AD6BDDCAD830E2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>interdigApp</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9EA320464F8D469EAB474B0BFE08C2F6DDC3AAF8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PJSIP</string>
 		</dict>
 	</array>
 </dict>
