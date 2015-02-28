@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSMessagesViewController.h"
 #import "ASINetworkQueue.h"
 #import "MasInfoViewController.h"
 
-@interface ChatViewController : SSMessagesViewController <masInfoDelegate>
+@interface ChatViewController : UITableViewController <masInfoDelegate>
 {
     NSTimer *mainTimer;
     BOOL forceRefresh;

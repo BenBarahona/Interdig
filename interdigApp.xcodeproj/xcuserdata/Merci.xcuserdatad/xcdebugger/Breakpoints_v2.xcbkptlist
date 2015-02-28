@@ -616,27 +616,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/ChatViewController.m"
-            timestampString = "422731806.838903"
+            timestampString = "446784262.400031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "@implementation ChatViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "interdigApp/ChatViewController.m"
-            timestampString = "422731806.838903"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-requestDidFinish:"
             landmarkType = "5">
          </BreakpointContent>
@@ -648,12 +632,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/ChatViewController.m"
-            timestampString = "422731806.838903"
+            timestampString = "446784262.400031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-messageStyleForRowAtIndexPath:"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "-requestDidFinish:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -664,13 +648,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interdigApp/ChatViewController.m"
-            timestampString = "422731806.838903"
+            timestampString = "446784262.400031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "-textForRowAtIndexPath:"
-            landmarkType = "5">
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "@implementation ChatViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "interdigApp/ChatViewController.m"
+            timestampString = "446784262.400031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "@implementation ChatViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

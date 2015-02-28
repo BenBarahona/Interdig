@@ -8,8 +8,6 @@
 
 #import "ChatViewController.h"
 #import "Util.h"
-#import "SSMessageTableViewCell.h"
-#import <SSToolkit/SSTextField.h>
 #import "ASIHTTPRequest.h"
 #import "AFNetworking.h"
 #import "SBJson.h"
@@ -116,7 +114,7 @@
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [request setDelegate:self];
     [request setDidFinishSelector:@selector(getDocsFinished:)];
-    [request setDidFailSelector:@selector(getDocsFailed:)];
+    //[request setDidFailSelector:@selector(getDocsFailed:)];
     [request setTimeOutSeconds:60];
     
     [self.requestQueue addOperation:request];
@@ -140,7 +138,7 @@
         UINavigationController *nvc = [[UINavigationController alloc] init];
         [nvc pushViewController:masInfoVC animated:YES];
         nvc.modalPresentationStyle = UIModalPresentationFormSheet;
-        [self presentModalViewController:nvc animated:YES];
+        [self presentViewController:nvc animated:YES completion:nil];
         if([Util isUserOnIpad])
         {
             nvc.view.superview.frame = CGRectMake(0, 0, 320, 460);
@@ -263,8 +261,7 @@
     NSLog(@"CHAT FAILED: %@", request.responseString);
 }
 
-#pragma mark SSMessagesViewController
-
+/*
 - (SSMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     //if([self.chatArray count])
     //{
@@ -307,13 +304,25 @@
     [request release];
     _textField.text = @"";
 }
-
+*/
 
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.chatArray count];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellId" forIndexPath:indexPath];
+    
+    return cell;
 }
 
 -(void)dealloc
