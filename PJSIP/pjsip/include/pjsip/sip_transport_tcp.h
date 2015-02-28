@@ -1,4 +1,4 @@
-/* $Id: sip_transport_tcp.h 3553 2011-05-05 06:14:19Z nanang $ */
+/* $Id: sip_transport_tcp.h 4860 2014-06-19 05:07:12Z riza $ */
 /* 
  * Copyright (C) 2008-2011 Teluu Inc. (http://www.teluu.com)
  * Copyright (C) 2003-2008 Benny Prijono <benny@prijono.org>
@@ -64,6 +64,12 @@ typedef struct pjsip_tcp_transport_cfg
     pj_sockaddr		bind_addr;
 
     /**
+     * Should SO_REUSEADDR be used for the listener socket.
+     * Default value is PJSIP_TCP_TRANSPORT_REUSEADDR.
+     */
+    pj_bool_t		reuse_addr;
+
+    /**
      * Optional published address, which is the address to be
      * advertised as the address of this SIP transport. 
      * By default the bound address will be used as the published address.
@@ -97,6 +103,14 @@ typedef struct pjsip_tcp_transport_cfg
      * Default is QoS not set.
      */
     pj_qos_params	qos_params;
+
+    /**
+     * Specify options to be set on the transport. 
+     *
+     * By default there is no options.
+     * 
+     */
+    pj_sockopt_params	sockopt_params;
 
 } pjsip_tcp_transport_cfg;
 
@@ -198,6 +212,18 @@ PJ_DECL(pj_status_t) pjsip_tcp_transport_start3(
 					pjsip_tpfactory **p_factory
 					);
 
+/**
+ * Retrieve the internal socket handle used by the TCP transport. Note
+ * that this socket normally is registered to ioqueue, so application
+ * needs to take care not to perform operation that disrupts ioqueue
+ * operation.
+ *
+ * @param transport	The TCP transport.
+ *
+ * @return		The socket handle, or PJ_INVALID_SOCKET if no socket
+ *			is currently being used.
+ */
+PJ_DECL(pj_sock_t) pjsip_tcp_transport_get_socket(pjsip_transport *transport);
 
 PJ_END_DECL
 
