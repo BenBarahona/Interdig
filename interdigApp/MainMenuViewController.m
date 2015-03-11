@@ -469,6 +469,19 @@
     ObjectInfo *selected = nil;
     selected = searching ? [self.searchResults objectAtIndex:indexPath.row] : [self.objectArray objectAtIndex:indexPath.row];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(selected.security && [defaults objectForKey:@"cta_user"] == nil && [defaults objectForKey:@"cta_password"] == nil)
+    {
+        LoginViewController *login = [[LoginViewController alloc] init];
+        login.database = self.dataBase;
+        login.objectId = selected.objectID;
+        login.delegate = self;
+        login.selectedObject = selected;
+        [self.navigationController presentViewController:login animated:YES completion:nil];
+        [login release];
+        return;
+    }
+    
     if(!searching && [selected.claveActual intValue] < 3000)
     {
         if(selected.tipo > 2)
@@ -504,20 +517,6 @@
         else if(selected.inpid != 0)
         {
             NSLog(@"SELECTED: %@", selected.dataInput);
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            
-            if(selected.security && [defaults objectForKey:@"cta_user"] == nil && [defaults objectForKey:@"cta_password"] == nil)
-            {
-                LoginViewController *login = [[LoginViewController alloc] init];
-                login.database = self.dataBase;
-                login.objectId = selected.objectID;
-                login.delegate = self;
-                login.selectedObject = selected;
-                [self.navigationController presentViewController:login animated:YES completion:nil];
-                [login release];
-            }
-            else
-            {
                 InputDataViewController *input = [[InputDataViewController alloc] init];
                 input.items = selected.dataInput;
                 input.title = selected.titulo;
@@ -525,7 +524,6 @@
                 input.objectId = selected.objectID;
                 [self.navigationController pushViewController:input animated:YES];
                 [input release];
-            }
         }
         else
         {
