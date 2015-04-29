@@ -298,7 +298,6 @@
 		49A05532170B3E830096EB04 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05531170B3E830096EB04 /* CoreVideo.framework */; };
 		49A05534170B3E920096EB04 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05533170B3E920096EB04 /* OpenGLES.framework */; };
 		49A05536170B3EA90096EB04 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A05535170B3EA90096EB04 /* AudioToolbox.framework */; };
-		49AE82D21AA1682500C27822 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49AE82D01AA1682500C27822 /* dsym_upload.sh */; };
 		49AE82D31AA1682500C27822 /* libCrittercism_v4_3_3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49AE82D11AA1682500C27822 /* libCrittercism_v4_3_3.a */; };
 		49AE84331AA1689500C27822 /* m_auto.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 49AE82EA1AA1689400C27822 /* m_auto.h.in */; };
 		49AE84341AA1689500C27822 /* os_auto.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 49AE82F21AA1689400C27822 /* os_auto.h.in */; };
@@ -751,7 +750,6 @@
 		49AE82CD1AA1682500C27822 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
 		49AE82CE1AA1682500C27822 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
 		49AE82CF1AA1682500C27822 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
-		49AE82D01AA1682500C27822 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
 		49AE82D11AA1682500C27822 /* libCrittercism_v4_3_3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_3_3.a; sourceTree = "<group>"; };
 		49AE82D81AA1689400C27822 /* activesock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activesock.h; sourceTree = "<group>"; };
 		49AE82D91AA1689400C27822 /* addr_resolv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addr_resolv.h; sourceTree = "<group>"; };
@@ -1514,7 +1512,6 @@
 				49AE82CD1AA1682500C27822 /* CRFilter.h */,
 				49AE82CE1AA1682500C27822 /* Crittercism.h */,
 				49AE82CF1AA1682500C27822 /* CrittercismDelegate.h */,
-				49AE82D01AA1682500C27822 /* dsym_upload.sh */,
 				49AE82D11AA1682500C27822 /* libCrittercism_v4_3_3.a */,
 			);
 			path = CrittercismSDK;
@@ -2769,7 +2766,6 @@
 				490EF9D7164A292400F8E424 /* video_intur.png in Resources */,
 				490EF9D8164A292400F8E424 /* video_intur@2x.png in Resources */,
 				49F4175F19820DF2005FA71F /* Actions-arrow-up-icon@2x.png in Resources */,
-				49AE82D21AA1682500C27822 /* dsym_upload.sh in Resources */,
 				490EF9D9164A292400F8E424 /* video_koica.png in Resources */,
 				490EF9DA164A292400F8E424 /* video_koica@2x.png in Resources */,
 				490EF9DB164A292400F8E424 /* video_news.png in Resources */,
@@ -3085,6 +3081,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3123,6 +3120,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3151,7 +3149,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruben Bermudez (N5FBC222T7)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3197,7 +3195,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ruben Bermudez (2H8MX8LNZS)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3232,8 +3230,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "95a8554d-cdb2-4213-9823-b1e28f5f4ef0";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "95a8554d-cdb2-4213-9823-b1e28f5f4ef0";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

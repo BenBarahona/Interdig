@@ -231,35 +231,8 @@
     {
         NSString *response = [_request responseString];
         NSArray *dict = [response JSONValue];
-        NSLog(@"%@", response);
-        [self.objectArray removeAllObjects];
-        for(NSDictionary *item in dict)
-        {
-            ObjectInfo *newItem = [[ObjectInfo alloc] initWithDictionary:item];
-            [self.objectArray addObject:newItem];
-            //NSLog(@"Lat %f Long %f", newItem.latitude, newItem.longitude);
-            if(newItem.latitude != 0 && newItem.longitude != 0)
-            {
-                NSDictionary *point = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       [NSNumber numberWithFloat:newItem.latitude], @"lat",
-                                       [NSNumber numberWithFloat:newItem.longitude], @"long",
-                                       newItem.titulo, @"titulo",
-                                       newItem.objectID, @"id",
-                                       newItem, @"info",
-                                       nil];
-                [self.mapPoints addObject:point];
-                showMapOption = YES;
-            }
-            
-            if(searching || [newItem.claveActual intValue] > 3000)
-            {
-                showContactOptions = YES;
-            }
-            
-            [newItem release];
-        }
-        [mainTableView reloadData];
-        [self configureRightBarButtons];
+        //NSLog(@"%@", response);
+        [self constructTableViewItems:dict];
     }
     else if([_request responseStatusCode] >= 500)
     {
@@ -296,6 +269,38 @@
         noSearchResults.text = @"Error de Conexion; Asegure su conexion de internet e intente de nuevo";
         //[Util showAlertWithTitle:@"Error de Conexion" andMessage:[NSString stringWithFormat:@"Asegure su conexion de internet e intente de neuvo\n Codigo: %d", [_request responseStatusCode]]];
     }
+}
+
+- (void) constructTableViewItems:(NSArray *)dict
+{
+    [self.objectArray removeAllObjects];
+    for(NSDictionary *item in dict)
+    {
+        ObjectInfo *newItem = [[ObjectInfo alloc] initWithDictionary:item];
+        [self.objectArray addObject:newItem];
+        //NSLog(@"Lat %f Long %f", newItem.latitude, newItem.longitude);
+        if(newItem.latitude != 0 && newItem.longitude != 0)
+        {
+            NSDictionary *point = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSNumber numberWithFloat:newItem.latitude], @"lat",
+                                   [NSNumber numberWithFloat:newItem.longitude], @"long",
+                                   newItem.titulo, @"titulo",
+                                   newItem.objectID, @"id",
+                                   newItem, @"info",
+                                   nil];
+            [self.mapPoints addObject:point];
+            showMapOption = YES;
+        }
+        
+        if(searching || [newItem.claveActual intValue] > 3000)
+        {
+            showContactOptions = YES;
+        }
+        
+        [newItem release];
+    }
+    [mainTableView reloadData];
+    [self configureRightBarButtons];
 }
 
 -(void)didSelectOptionsButton
@@ -542,8 +547,10 @@
     }
 }
 
--(void)loginDidFinish:(NSDictionary *)response WithObject:(ObjectInfo *)info
+-(void)loginDidFinish:(NSArray *)response WithObject:(ObjectInfo *)info
 {
+    [self constructTableViewItems:response];
+    /*
     InputDataViewController *input = [[InputDataViewController alloc] init];
     input.items = info.dataInput;
     input.title = info.titulo;
@@ -552,6 +559,7 @@
     [self.navigationController pushViewController:input animated:YES];
     
     [input release];
+     */
 }
 
 -(void)createNewMainMenuWithDB:(NSString *)db

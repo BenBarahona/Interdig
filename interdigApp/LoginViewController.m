@@ -108,8 +108,8 @@
         NSDictionary *resultado = [temp objectAtIndex:0];
         NSLog(@"REQUEST FINISHED: %@", resultado);
         
-        //Cuando inpid viene vacio, quiere decir q el login esta malo, de lo contrario esta bueno
-        if([[resultado objectForKey:@"inpid"] isEqualToString:@""])
+        //Cuando hay error, el json tae objeto status, con valor "ERROR"
+        if([resultado objectForKey:@"status"])
         {
             [Util showAlertWithTitle:@"Error" andMessage:@"Usuario y/o contrasena incorrecta"];
         }
@@ -122,7 +122,7 @@
                 [defaults setObject:passwordTxt.text forKey:@"cta_password"];
                 [defaults synchronize];
             }
-            [self.delegate loginDidFinish:resultado WithObject:self.selectedObject];
+            [self.delegate loginDidFinish:temp WithObject:self.selectedObject];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
