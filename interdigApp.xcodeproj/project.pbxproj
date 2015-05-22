@@ -288,6 +288,8 @@
 		496DDA441629285C00FA7B71 /* 09-pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 496DDA421629285B00FA7B71 /* 09-pin@2x.png */; };
 		496DDA47162928C700FA7B71 /* 22-location-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 496DDA45162928C500FA7B71 /* 22-location-arrow.png */; };
 		496DDA48162928C700FA7B71 /* 22-location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 496DDA46162928C600FA7B71 /* 22-location-arrow@2x.png */; };
+		4973CC1A1B032C9200BE56E7 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4973CC181B032C9200BE56E7 /* RegisterViewController.m */; };
+		4973CC1B1B032C9200BE56E7 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4973CC191B032C9200BE56E7 /* RegisterViewController.xib */; };
 		49789B33161C1A5D00274518 /* SearchOverlayViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49789B32161C1A5D00274518 /* SearchOverlayViewController~ipad.xib */; };
 		49789B37161C206100274518 /* MasInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49789B35161C206100274518 /* MasInfoViewController.m */; };
 		49789B38161C206100274518 /* MasInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49789B36161C206100274518 /* MasInfoViewController.xib */; };
@@ -735,6 +737,9 @@
 		496DDA421629285B00FA7B71 /* 09-pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-pin@2x.png"; sourceTree = "<group>"; };
 		496DDA45162928C500FA7B71 /* 22-location-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-location-arrow.png"; sourceTree = "<group>"; };
 		496DDA46162928C600FA7B71 /* 22-location-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-location-arrow@2x.png"; sourceTree = "<group>"; };
+		4973CC171B032C9200BE56E7 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		4973CC181B032C9200BE56E7 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		4973CC191B032C9200BE56E7 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		49789B32161C1A5D00274518 /* SearchOverlayViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SearchOverlayViewController~ipad.xib"; sourceTree = "<group>"; };
 		49789B34161C206100274518 /* MasInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasInfoViewController.h; sourceTree = "<group>"; };
 		49789B35161C206100274518 /* MasInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasInfoViewController.m; sourceTree = "<group>"; };
@@ -2497,6 +2502,9 @@
 				49E3EFC816FE5C920027504A /* LoginViewController.h */,
 				49E3EFC916FE5C920027504A /* LoginViewController.m */,
 				49E3EFCA16FE5C920027504A /* LoginViewController.xib */,
+				4973CC171B032C9200BE56E7 /* RegisterViewController.h */,
+				4973CC181B032C9200BE56E7 /* RegisterViewController.m */,
+				4973CC191B032C9200BE56E7 /* RegisterViewController.xib */,
 				49E3F006170A13CA0027504A /* VOIPCallViewController.h */,
 				49E3F007170A13CB0027504A /* VOIPCallViewController.m */,
 				49E3F008170A13CB0027504A /* VOIPCallViewController.xib */,
@@ -2834,6 +2842,7 @@
 				490EFA6A165DED5900F8E424 /* help-start-button-down@2x.png in Resources */,
 				490EFA6B165DED5900F8E424 /* help-start-button.png in Resources */,
 				490EFA6C165DED5900F8E424 /* help-start-button@2x.png in Resources */,
+				4973CC1B1B032C9200BE56E7 /* RegisterViewController.xib in Resources */,
 				4986F02B16AC9B08009C9261 /* InputDataViewController.xib in Resources */,
 				49E6E4DF16B0B0F600489C2C /* 216-compose.png in Resources */,
 				49AE84401AA1689500C27822 /* sip_autoconf.h.in in Resources */,
@@ -2969,6 +2978,7 @@
 				49B4161116158825001C2433 /* HJMOHandler.m in Sources */,
 				49B4161216158825001C2433 /* HJMOPolicy.m in Sources */,
 				49B4161316158825001C2433 /* HJMOUserBase.m in Sources */,
+				4973CC1A1B032C9200BE56E7 /* RegisterViewController.m in Sources */,
 				49B4161416158825001C2433 /* HJObjManager.m in Sources */,
 				49B4161516158825001C2433 /* HJWeakMutableArray.m in Sources */,
 				49B4161916158858001C2433 /* MBProgressHUD.m in Sources */,

@@ -11,6 +11,13 @@
 #import "DCRoundSwitch.h"
 #import "ObjectInfo.h"
 
+enum REQUEST_TYPE
+{
+    NORMAL = 1,
+    PASSWORD = 2,
+    REGISTER = 3
+};
+
 @protocol loginDelegate <NSObject>
 
 -(void)loginDidFinish:(NSDictionary *)response WithObject:(ObjectInfo *)info;
@@ -21,6 +28,8 @@
 {
     IBOutlet UITextField *userTxt;
     IBOutlet UITextField *passwordTxt;
+    IBOutlet UISwitch *dummySwitch;
+    IBOutlet UIImageView *background;
     DCRoundSwitch *saveSession;
 }
 

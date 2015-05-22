@@ -231,7 +231,7 @@
     {
         NSString *response = [_request responseString];
         NSArray *dict = [response JSONValue];
-        //NSLog(@"%@", response);
+        NSLog(@"%@", response);
         [self constructTableViewItems:dict];
     }
     else if([_request responseStatusCode] >= 500)
@@ -482,8 +482,13 @@
         login.objectId = selected.objectID;
         login.delegate = self;
         login.selectedObject = selected;
-        [self.navigationController presentViewController:login animated:YES completion:nil];
+        
+        
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:login];
+        
+        [self.navigationController presentViewController:nvc animated:YES completion:nil];
         [login release];
+        [nvc release];
         return;
     }
     

@@ -47,6 +47,7 @@
         self.venta = ([dataObject objectForKey:@"venta"] != nil || [[dataObject objectForKey:@"venta"] isEqualToString:@""]) ? [[dataObject objectForKey:@"venta"] integerValue] : 0;
         self.precio = ([dataObject objectForKey:@"precio"] != nil || [[dataObject objectForKey:@"precio"] isEqualToString:@""]) ? [[dataObject objectForKey:@"precio"] integerValue] : 0;
         self.stock = ([dataObject objectForKey:@"stock"] != nil || [[dataObject objectForKey:@"stock"] isEqualToString:@""]) ? [[dataObject objectForKey:@"stock"] integerValue] : 0;
+        self.backgroundURL = [dataObject objectForKey:@"backgr"];
         
         if([self.sms isKindOfClass:[NSNumber class]])
         {

@@ -46,4 +46,5 @@
 @property (nonatomic, assign) NSInteger precio;
 @property (nonatomic, assign) NSInteger stock;
 @property (nonatomic, assign) NSInteger cantidad;
+@property (nonatomic, retain) NSString *backgroundURL;
 @end
