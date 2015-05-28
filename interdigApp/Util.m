@@ -11,7 +11,7 @@
 #import "ObjectInfo.h"
 
 @implementation Util
-@synthesize eCommerceItems;
+@synthesize eCommerceItems, loginBackground;
 
 -(void)dealloc
 {

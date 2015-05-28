@@ -23,6 +23,7 @@ enum alertPromptType{
 }
 
 @property (nonatomic, retain) NSMutableArray *eCommerceItems;
+@property (nonatomic, retain) UIImage *loginBackground;
 
 + (Util *) sharedInstance;
 +(BOOL)internetConnectionAvailable;

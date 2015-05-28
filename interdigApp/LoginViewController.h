@@ -20,7 +20,7 @@ enum REQUEST_TYPE
 
 @protocol loginDelegate <NSObject>
 
--(void)loginDidFinish:(NSDictionary *)response WithObject:(ObjectInfo *)info;
+-(void)loginDidFinish:(id)response WithObject:(ObjectInfo *)info;
 
 @end
 

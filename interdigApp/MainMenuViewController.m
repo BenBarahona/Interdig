@@ -485,6 +485,12 @@
         
         
         UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:login];
+        NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIColor whiteColor], UITextAttributeTextColor,
+                                    [UIColor blackColor], UITextAttributeTextShadowColor,
+                                    [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset
+                                    , nil];
+        [nvc.navigationBar setTitleTextAttributes:attributes];
         
         [self.navigationController presentViewController:nvc animated:YES completion:nil];
         [login release];
@@ -552,7 +558,7 @@
     }
 }
 
--(void)loginDidFinish:(NSArray *)response WithObject:(ObjectInfo *)info
+-(void)loginDidFinish:(id)response WithObject:(ObjectInfo *)info
 {
     [self constructTableViewItems:response];
     /*

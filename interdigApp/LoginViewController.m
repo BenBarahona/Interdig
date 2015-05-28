@@ -179,6 +179,9 @@
 - (IBAction)registerClicked:(id)sender
 {
     RegisterViewController *vc = [[RegisterViewController alloc] init];
+    vc.database = self.database;
+    vc.delegate = self.delegate;
+    vc.selectedObject = self.selectedObject;
     
     [self.navigationController pushViewController:vc animated:YES];
     
